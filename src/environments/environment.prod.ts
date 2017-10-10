@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  sayHello: 'prod',
+  baseAPI: 'https://deesa.herokuapp.com' 
 };
