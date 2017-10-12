@@ -1,18 +1,25 @@
-<div class="col-md-3 col-md-offset-4">
-	<div class="panel panel-default">
-	  <div class="panel-body">
-	    <form (ngSubmit)="submitLogin()" #myForm="ngForm">
-	      <div class="form-group">
-	        <label for="InputUsername">username</label>
-	        <input type="email" class="form-control" id="InputUsername" placeholder="username" [(ngModel)]="user.username" name="username">
-	      </div>
-	      <div class="form-group">
-	        <label for="InputPassword">Password</label>
-	        <input type="password" class="form-control" id="InputPassword" placeholder="Password" [(ngModel)]="user.password" name="password">
-	      </div>
-	      <div *ngIf="error" class="alert alert-danger" role="alert">{{ error.statusText }}</div>
-	      <button type="submit" class="btn btn-default btn-primary">Login</button>
-	    </form>
-	  </div>
+
+<div class="login-wrapper">
+	<!--<div class="row">
+		<div class="col-12 col-lg-12">-->
+	<div class="row wraper-all">
+	  <div class="col-12 col-md-6 col-lg-6 login">
+	    <h1>Login</h1>
+        <form (ngSubmit)="submitLogin()" #myForm="ngForm">
+				  <input type="text" class="form-control" id="InputUsername" placeholder="username" [(ngModel)]="user.username" name="username" required>
+				  <input type="password" class="form-control" id="InputPassword" placeholder="Password" [(ngModel)]="user.password" name="password" required>
+				  <div *ngIf="error" class="alert alert-danger alert-login" role="alert">{{ error.statusText }}</div>
+          <button type="submit" class="btn btn-primary btn-block btn-large">Sign in</button>
+      </form>
+  	</div>
+	<div class="col-12 col-md-6 col-lg-6 .other-login ">
+		<a class="btn btn-block btn-large btn-google" href="/google-signup"><i class="fa fa-google icon-g-login" aria-hidden="true"></i>Sign up with Google</a>
+
+		<p class="other-signup">¿No tienes cuenta? <a [routerLink]="['/signup']">¡Registrate!</a></p>
+	</div>
+
+	<!--</div>
+	  </div>-->
 	</div>
 </div>
+
