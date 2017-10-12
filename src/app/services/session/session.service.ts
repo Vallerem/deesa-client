@@ -19,6 +19,10 @@ export class SessionService implements CanActivate {
   	private router: Router
   ) { }
 
+	checkUser() {
+   return localStorage.getItem('user');
+	}	
+
   canActivate() {
   	if (localStorage.getItem('token')) {
   		let headers = new Headers({ 'Authorization': 'JWT ' + localStorage.getItem('token') });
@@ -50,15 +54,16 @@ export class SessionService implements CanActivate {
         .map((res) => {
         	let token = res.token;
         	let user = res.user;
+					let role = res.role;
 
         	if (token) {
         	  // set token property
         	  this.token = token;
         	  this.user = {
         	  	_id: user._id,
-        	  	username: user.username
-        	  }
-
+        	  	username: user.username,
+							role: user.role
+        	  };
         	  this.isAuth = true;
         	  // store username and jwt token in local storage to keep user logged in between page refreshes
         	  localStorage.setItem('token', token );

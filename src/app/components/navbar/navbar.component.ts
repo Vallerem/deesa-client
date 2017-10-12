@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  
+  currentUser: any = JSON.parse(localStorage.getItem('user'));
 
   constructor(
   	public session: SessionService,
@@ -15,10 +17,14 @@ export class NavbarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    
   }
   
   logout() {
   	this.session.logout();
   }
+  
+  // method to chek if a user is logged in
+  checkUser() {
+    return this.session.checkUser();
+  } 
 }
