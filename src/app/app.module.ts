@@ -22,7 +22,6 @@ import { FooterComponent } from './components/footer/footer.component';
 
 
 // Services
-import { CounterService } from './services/counter.service';
 import { PhonesService } from './services/phones.service';
 import { SessionService } from './services/session/session.service';
 
@@ -52,8 +51,8 @@ import { LayoutComponent } from './components/layout/layout.component';
     HttpModule,
     AppRoutingModule
   ],
-  // providers: [CounterService, PhonesService, SessionService, {provide: APP_BASE_HREF, useValue: '/phoneappprod'}],
-  providers: [CounterService, PhonesService, SessionService],
+  // providers: [PhonesService, SessionService, {provide: APP_BASE_HREF, useValue: '/phoneappprod'}],
+  providers: [PhonesService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

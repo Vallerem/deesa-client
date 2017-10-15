@@ -1,5 +1,8 @@
+// Hey Javi!
+// This file is here just to serve as an example for future service implementations: // This could be use to get the users and designs followring the http ajax call pattern
+
 import { SessionService } from './session/session.service';
-import { environment } from './../../environments/environment.prod';
+import { environment } from './../../environments/environment.prod'; // aqui sin el "prod" para pruebas con nuestro localhost
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';

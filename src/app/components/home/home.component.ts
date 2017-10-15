@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CounterService } from '../../services/counter.service';
- 
 
 @Component({
   selector: 'app-home',
@@ -10,13 +8,8 @@ import { CounterService } from '../../services/counter.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private counter: CounterService) { }
+  constructor() { }
 
-  ngOnInit() {
-  }
-
-  incrementCounter(){ 
-  	this.counter.increment();
-  }
+  ngOnInit() {}
 
 }

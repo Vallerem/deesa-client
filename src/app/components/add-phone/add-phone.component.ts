@@ -49,6 +49,8 @@ export class AddPhoneComponent implements OnInit {
 			console.log('error', response);
 			this.feedback = JSON.parse(response).message;
 		};
+
+		
   }
 
   submitForm(){

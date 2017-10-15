@@ -1,5 +1,5 @@
 import { PhonesService } from './../../services/phones.service';
-import { environment } from './../../../environments/environment.prod';
+import { environment } from './../../../environments/environment.prod'; // sin el "prod" para usar en localhost
 import { Component, OnInit } from '@angular/core';
 
 
