@@ -1,4 +1,4 @@
-import { LayoutComponent } from './components/layout/layout.component';
+import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -8,6 +8,8 @@ import { PhonesListComponent } from './components/phones-list/phones-list.compon
 import { PhonesDetailsComponent } from './components/phones-details/phones-details.component';
 import { AddPhoneComponent } from './components/add-phone/add-phone.component';
 import { SignupComponent } from "./components/signup/signup.component";
+import { AccountComponent } from './components/account/account.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 import { SessionService } from './services/session/session.service';
 
@@ -21,6 +23,14 @@ children: [
 ] },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent, pathMatch: 'full', },
+  { path: 'account', component: AccountComponent, canActivate: [SessionService],
+   children: [
+    { path: '', canActivate: [SessionService], component: AccountInfoComponent },
+    { path: 'password', canActivate: [SessionService], component: AccountInfoComponent ,pathMatch: 'full'},
+    { path: 'address', canActivate: [SessionService], component: AccountInfoComponent },
+    { path: 'designer', canActivate: [SessionService], component: AccountInfoComponent },
+
+  ] },
   { path: '**', redirectTo: '/'},
 
 ];

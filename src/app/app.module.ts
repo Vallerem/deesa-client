@@ -1,3 +1,4 @@
+import { UserService } from './services/user.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -29,6 +30,8 @@ import { SessionService } from './services/session/session.service';
 // ---
 import {APP_BASE_HREF} from '@angular/common';
 import { LayoutComponent } from './components/layout/layout.component';
+import { AccountComponent } from './components/account/account.component';
+import { AccountInfoComponent } from './components/account-info/account-info.component';
 
 
 @NgModule({
@@ -43,7 +46,9 @@ import { LayoutComponent } from './components/layout/layout.component';
     FileSelectDirective,
     SignupComponent,
     FooterComponent,
-    LayoutComponent
+    LayoutComponent,
+    AccountComponent,
+    AccountInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,7 @@ import { LayoutComponent } from './components/layout/layout.component';
     AppRoutingModule
   ],
   // providers: [PhonesService, SessionService, {provide: APP_BASE_HREF, useValue: '/phoneappprod'}],
-  providers: [PhonesService, SessionService],
+  providers: [PhonesService, SessionService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
