@@ -97,3 +97,13 @@ h1 {
   background: #ff9900;
   cursor: pointer;
 }
+
+.signup-info {
+  margin-top: -60px;
+}
+
+.register-as {
+  border-right: solid 1px #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}

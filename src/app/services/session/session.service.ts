@@ -84,6 +84,43 @@ export class SessionService implements CanActivate {
   		.map((res) => res.json())
   }
 
+
+
+
+
+
+	signup(user) {
+		  return this.http.post(`${this.BASE_URL}/login`, user)
+        .map((res) => res.json())
+        .map((res) => {
+        	let token = res.token;
+        	let user = res.user;
+
+        	if (token) {
+        	  // set token property
+        	  this.token = token;
+        	  this.user = {
+        	  	_id: user._id,
+        	  	username: user.username,
+							role: user.role
+        	  };
+        	  this.isAuth = true;
+        	  // store username and jwt token in local storage to keep user logged in between page refreshes
+        	  localStorage.setItem('token', token );
+        	  localStorage.setItem('user', JSON.stringify(this.user) );
+        	  // return true to indicate successful login
+        	  return true;
+        	} else {
+        	  // return false to indicate failed login
+        	  return false;
+        	}
+        })
+	}
+
+
+
+	
+
   logout() {
   	this.token = null;
   	this.user = null;
