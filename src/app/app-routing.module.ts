@@ -23,14 +23,7 @@ children: [
 ] },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent, pathMatch: 'full', },
-  { path: 'account', component: AccountComponent, canActivate: [SessionService],
-   children: [
-    { path: '', canActivate: [SessionService], component: AccountInfoComponent },
-    { path: 'password', canActivate: [SessionService], component: AccountInfoComponent ,pathMatch: 'full'},
-    { path: 'address', canActivate: [SessionService], component: AccountInfoComponent },
-    { path: 'designer', canActivate: [SessionService], component: AccountInfoComponent },
-
-  ] },
+  { path: 'account', component: AccountComponent, canActivate: [SessionService]},
   { path: '**', redirectTo: '/'},
 
 ];

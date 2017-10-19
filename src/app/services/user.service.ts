@@ -25,10 +25,30 @@ export class UserService {
   }
 
   editAccount(user) {
+    console.log("user.service.edit"+JSON.stringify(user.userInfo));
+
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
 
     return this.http.put(`${this.BASE_URL}/account`,user, options).map((res) => res.json());
+  }
+
+  editPasswordAccount(user) {
+    console.log("user.service.password"+JSON.stringify(user));
+
+  	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.put(`${this.BASE_URL}/account/password`,user, options).map((res) => {console.log("response:"+res); return res.json();});
+  }
+
+  editAddressAccount(user) {
+    console.log("user.service"+JSON.stringify(user.userInfo));
+
+  	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.put(`${this.BASE_URL}/account/address`,user, options).map((res) => {console.log("response:"+res); return res.json();});
   }
 
 }

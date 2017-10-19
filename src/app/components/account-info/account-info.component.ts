@@ -1,5 +1,4 @@
-import { Router } from '@angular/router';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'account-info',
@@ -8,34 +7,36 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AccountInfoComponent implements OnInit {
   optionalParameter: string;
-  currentView: string;
 
-  constructor(
-/*     @Input() accountInfo: any
- */
-private router: Router) {
-  console.log(`----------->${this.router.url}`);
-}
+  arr = [];
 
-ngOnInit() {
+  @Input() accountInfo: any = {};
+  @Input() currentView: any;
+  @Output() submittedForm = new EventEmitter < boolean > ();
 
-  if(this.router.url === '/account'){
-    this.currentView='account';
+  constructor() {}
+
+  ngOnInit() {
+         console.log("ngOnInit");
+      this.arr.push(this.accountInfo);
+
+        this.arr.forEach((element)=>{
+      console.log(element);
+        });
   }
 
-  if(this.router.url === '/account/designer'){
-    this.currentView='designer';
+  submitForm() {
+
+console.log("submitForm-->accountInfo");
+this.arr.push(this.accountInfo);
+    this.arr.forEach((element)=>{
+      console.log(element);
+        });
+    this.accountInfo.currentView = this.currentView; // add view: account/password/address
+
+    this.submittedForm.emit(this.accountInfo); //Output - Send to parent
   }
 
-  if(this.router.url === '/account/password'){
-    this.currentView='password';
-  }
-
-}
-
-submitForm() {
-
 }
 
 
-}
