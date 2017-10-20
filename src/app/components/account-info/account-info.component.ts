@@ -10,7 +10,7 @@ export class AccountInfoComponent implements OnInit {
 
   arr = [];
 
-  @Input() accountInfo: any = {};
+  @Input() accountInfo: any = {}; // prevent an undefined element
   @Input() currentView: any;
   @Output() submittedForm = new EventEmitter < boolean > ();
 

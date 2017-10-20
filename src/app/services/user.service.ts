@@ -43,7 +43,7 @@ export class UserService {
   }
 
   editAddressAccount(user) {
-    console.log("user.service"+JSON.stringify(user.userInfo));
+    console.log("user.service"+JSON.stringify(user));
 
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });

@@ -54,50 +54,44 @@
 
 <div *ngIf="currentView == 'Address'">
     <form (ngSubmit)="submitForm()" #myForm="ngForm">
+
       <div class="form-group">
-        <label for="model">Numero</label>
-        <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.country" name="accountInfo.user.addressInfo.country">
+         <label for="model">Calle</label>
+         <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetName" name="accountInfo.user.addressInfo.streetName">
       </div>
+
       <div class="form-group">
-        <label for="model">Bloque</label>
-        <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.block" name="accountInfo.user.addressInfo.block">
-      </div>
+          <label for="model">Numero</label>
+          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetNumber" name="accountInfo.user.addressInfo.streetNumber">
+        </div>
+
       <div class="form-group">
-        <label for="model">Numero</label>
-        <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetNumber" name="accountInfo.user.addressInfo.streetNumber">
+        <label for="model">Piso</label>
+        <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.floor" name="accountInfo.user.addressInfo.floor">
       </div>
-   <!--    <div class="form-group">
-        <label for="model">Direcccion Extra</label>
-        <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetName" name="accountInfo.user.addressInfo.streetName">
-      </div>
+
       <div class="form-group">
-          <label for="model">Piso</label>
-          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetName" name="accountInfo.user.addressInfo.streetName">
+          <label for="model">Escalera</label>
+          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.stairs" name="accountInfo.user.addressInfo.stairs">
       </div>
+
       <div class="form-group">
           <label for="model">CP</label>
-          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetName" name="accountInfo.user.addressInfo.streetName">
+          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.postalCode" name="accountInfo.user.addressInfo.postalCode">
       </div>
       <div class="form-group">
           <label for="model">Provincia</label>
-          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetName" name="accountInfo.user.addressInfo.streetName">
+          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.provinceName" name="accountInfo.user.addressInfo.provinceName">
       </div>
-      <div class="form-group">
-          <label for="model">Escalera</label>
-          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetName" name="accountInfo.user.addressInfo.streetName">
-      </div>
-      <div class="form-group">
-          <label for="model">Street</label>
-          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetName" name="accountInfo.user.addressInfo.streetName">
-      </div>
+
       <div class="form-group">
           <label for="model">Ciudad</label>
-          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetName" name="accountInfo.user.addressInfo.streetName">
+          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.townName" name="accountInfo.user.addressInfo.townName">
       </div>
       <div class="form-group">
           <label for="model">Pais</label>
-          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.streetName" name="accountInfo.user.addressInfo.streetName">
-      </div> -->
+          <input type="text" class="form-control" placeholder="Model" [(ngModel)]="accountInfo.user.addressInfo.country" name="accountInfo.user.addressInfo.country">
+      </div>
         <button type="submit" class="btn btn-default">Save</button>
       </form>
 </div>
