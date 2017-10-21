@@ -53,6 +53,4 @@ export class SignupComponent implements OnInit {
   				this.error = err;
   			});
   }
-
-
 }

@@ -107,3 +107,23 @@ h1 {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+
+@media (max-width: 632px) {
+  .register-as {
+    border-right: none;
+  }
+}
+
+.register-as h1 {
+  margin-top: 5px;
+}
+
+h3 {
+  color: white;
+  text-align: center;
+  margin-top: 15px;
+}
+
+h3 a {
+  color: red;
+}

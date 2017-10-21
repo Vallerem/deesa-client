@@ -3,10 +3,10 @@
       <div id="signup-wrapper">  
         <div class="row signup-info">
         <div class="col-12 col-md-6 col-lg-6 register-as">
-           <h1>Regístrate <br/> como...</h1>
+           <h1>Regístrate</h1>
           </div>
-        <div class="col-12 col-md-6 col-lg-6 role-content">
-           <h1>Regístrate como...</h1>
+        <div class="col-12 col-md-6 col-lg-6 role-content sm-flex-first">
+           <h3>Si ya estás registrado <br/> <a [routerLink]="['/login']">¡Logeate!</a> </h3>
           </div>
           </div>
   
@@ -42,7 +42,7 @@
           </div>
 
         <div *ngIf="formPhase === 1" id="form-wrapper">  
-        <form (ngSubmit)="signupSubmit()">
+        <form (ngSubmit)="signupSubmit()" novalidate>
                 <div class="form-group">
 			    				<input type="text" name="username" id="username" class="form-control input-sm"  [(ngModel)]="user.username" placeholder="Username" minlength="3" maxlength="15" required>
 			    			</div>
@@ -50,34 +50,34 @@
 			    			<div class="row">
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			                <input type="text" name="name" id="name" class="form-control input-sm" placeholder="Nombre">
+			                <input type="text" [(ngModel)]="user.userInfo.name" name="name" id="name" class="form-control input-sm" placeholder="Nombre" required>
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			    						<input type="text" name="surname" id="surname" class="form-control input-sm" placeholder="Apellido">
+			    						<input type="text" [(ngModel)]="user.userInfo.surname" name="surname" id="surname" class="form-control input-sm" placeholder="Apellido" required>
 			    					</div>
 			    				</div>
 			    			</div>
 
 			    			<div class="form-group">
-			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+			    				<input type="email" [(ngModel)]="user.email"  name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
 			    			</div>
 
 			    			<div class="row">
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+			    						<input type="password" [(ngModel)]="user.password" name="password" id="password" class="form-control input-sm" placeholder="Password" minlength="7">
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" minlength="7">
 			    					</div>
 			    				</div>
 			    			</div>
 			    			
-			    			<button  type="submit" class="btn btn-info btn-block btn-signup">
+			    			<button type="submit" class="btn btn-info btn-block btn-signup">
 			    			Registrarse</button>
 
 
