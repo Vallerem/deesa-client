@@ -1,0 +1,23 @@
+<a class="nav-link" [routerLink]="['home']">Home</a>
+<p>{{ currentUser.username }}</p>
+<p>{{ currentUser.avatarUrl }}</p>
+
+<div>
+  <ul class="navbar-nav ml-auto">
+
+    <li><button (click)="clicked($event)">Account</button></li>
+    <li><button (click)="clicked($event)">Password</button></li>
+    <li><button (click)="clicked($event)">Address</button></li>
+    <!--     <li><a class="nav-link" [routerLink]="['/designer']">Designs</a></li>
+    <li><a class="nav-link" [routerLink]="['/designer']">Orders</a></li> -->
+  </ul>
+
+<div *ngIf='accountInfo'>
+  <account-info [accountInfo]="accountInfo" [currentView]="currentView" (submittedForm)="editAccount($event)">
+  </account-info>
+</div>
+
+
+
+</div>
+
