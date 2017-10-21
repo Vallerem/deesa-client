@@ -19,11 +19,11 @@ children: [
    { path: '', component: HomeComponent },
    { path: 'phones', component: PhonesListComponent, canActivate: [SessionService], pathMatch: 'full', },
    { path: 'phones/new', component: AddPhoneComponent, canActivate: [SessionService], pathMatch: 'full', },
-   { path: 'phones/:id', component: PhonesDetailsComponent, canActivate: [SessionService], pathMatch: 'full', }
+   { path: 'phones/:id', component: PhonesDetailsComponent, canActivate: [SessionService], pathMatch: 'full', },
+   { path: 'account', component: AccountComponent, canActivate: [SessionService]}
 ] },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent, pathMatch: 'full', },
-  { path: 'account', component: AccountComponent, canActivate: [SessionService]},
   { path: '**', redirectTo: '/'},
 
 ];
