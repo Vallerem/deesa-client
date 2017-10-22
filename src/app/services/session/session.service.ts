@@ -48,7 +48,7 @@ export class SessionService implements CanActivate {
   	}
   }
 
-  login(user) {
+login(user) {
     return this.http.post(`${this.BASE_URL}/login`, user)
         .map((res) => res.json())
         .map((res) => {
@@ -75,8 +75,8 @@ export class SessionService implements CanActivate {
         	  // return false to indicate failed login
         	  return false;
         	}
-        })
-  }
+      })
+}
 
   isTokenValid(token){
   	let headers = new Headers({ 'Authorization': 'JWT ' + token });
@@ -84,6 +84,33 @@ export class SessionService implements CanActivate {
   	return this.http.get(`${this.BASE_URL}/token`, options)
   		.map((res) => res.json())
   }
+
+	signup(user) {
+		  return this.http.post(`${this.BASE_URL}/signup`, user)
+        .map((res) => res.json())
+        .map((res) => {
+        	let token = res.token;
+        	let user = res.user;
+
+        	if (token) {
+        	  // set token property
+        	  this.token = token;
+        	  this.user = {
+        	  	_id: user._id,
+        	  	username: user.username,
+							role: user.role
+        	  };
+        	  this.isAuth = true;
+        	  localStorage.setItem('token', token );
+        	  localStorage.setItem('user', JSON.stringify(this.user) );
+        	  // return true to indicate successful login
+        	  return true;
+        	} else {
+        	  // return false to indicate failed login
+        	  return false;
+        	}
+        })
+	}
 
   logout() {
   	this.token = null;

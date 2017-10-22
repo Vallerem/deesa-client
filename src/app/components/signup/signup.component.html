@@ -1,13 +1,20 @@
 <div class="all-wrapper">
 	<div class="row">
       <div id="signup-wrapper">  
-
-
-                  <h1>Regístrate como...</h1>
+        <div class="row signup-info">
+        <div class="col-12 col-md-6 col-lg-6 register-as">
+           <h1>Regístrate</h1>
+          </div>
+        <div class="col-12 col-md-6 col-lg-6 role-content sm-flex-first">
+           <h3>Si ya estás registrado <br/> <a [routerLink]="['/login']">¡Logeate!</a> </h3>
+          </div>
+          </div>
+  
+                 
 
           <div *ngIf="formPhase === 0" class="choose-role">
             <div class="row">
-                <div class="type-user col-12 col-md-12 col-lg-12">
+                <div (click)="changePhaseDesigner()" class="type-user col-12 col-md-12 col-lg-12">
                   <div class="row">
                   <div class="col-12 col-md-4 col-lg-4 role-content">
                     <img class="image-fluid role-ima" src="assets/images/designer_user.png"  alt="Fan user">
@@ -19,7 +26,7 @@
                   </div>
                   </div>
                 </div>
-                <div class="type-user col-12 col-md-12 col-lg-12">
+                <div (click)="changePhaseFan()" class="type-user col-12 col-md-12 col-lg-12">
                   <div class="row">
                   <div class="col-12 col-md-4 col-lg-4 role-content">
                     <img class="image-fluid role-ima" src="assets/images/fan_user.png"  alt="Fan user">
@@ -35,46 +42,67 @@
           </div>
 
         <div *ngIf="formPhase === 1" id="form-wrapper">  
-        <form method="post" action="/signup">
+         <div class="row">
+          <div class="col-12 col-md-2 col-lg-2" style="display: flex;">
+               <i (click)="resetPhase()" class="fa fa-angle-left signup-back" aria-hidden="true"> </i>
+          </div>
+
+
+       <div class="col-12 col-md-10 col-lg-10">
+        <form #signupForm="ngForm" (ngSubmit)="signupSubmit()" novalidate>
                 <div class="form-group">
-			    				<input type="text" name="username" id="username" class="form-control input-sm" placeholder="Username">
+			    				<input type="text" name="username" id="username" class="form-control input-sm"  [(ngModel)]="user.username" placeholder="Username" minlength="3" maxlength="15"  #username="ngModel" required>
 			    			</div>
+
+                
 
 			    			<div class="row">
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			                <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
+			                <input type="text" [(ngModel)]="user.userInfo.name" name="name" id="name" class="form-control input-sm" placeholder="Nombre" required>
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			    						<input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
+			    						<input type="text" [(ngModel)]="user.userInfo.surname" name="surname" id="surname" class="form-control input-sm" placeholder="Apellido" required>
 			    					</div>
 			    				</div>
 			    			</div>
 
 			    			<div class="form-group">
-			    				<input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
+			    				<input type="email" [(ngModel)]="user.email"  name="email" id="email" class="form-control input-sm" placeholder="Email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
 			    			</div>
 
 			    			<div class="row">
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+			    						<input type="password" [(ngModel)]="user.password" name="password" id="password" class="form-control input-sm" placeholder="Password" minlength="7" #password="ngModel"  required>
 			    					</div>
+
 			    				</div>
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+			    						<input type="password" name="password-confirmation" 
+                      [(ngModel)]="passwordConfirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Password" minlength="7" #passwordConfirm="ngModel" required>
 			    					</div>
 			    				</div>
+
+                  <div *ngIf="passwordConfirm.value !== '' && passwordConfirm.value === password.value" class="col-xs-2 col-sm-2 col-md-2">
+                    <i class="fa fa-check confirmedPassword" aria-hidden="true"></i>
+			    				</div>
 			    			</div>
+
+                <div *ngIf="passwordConfirm.value !== password.value" class="alert alert-warning">Las contraseñas deben ser idénticas.
+                </div>
+
+                <div *ngIf="error" class="alert alert-danger alert-signup" role="alert">{{ error.statusText }}</div>
 			    			
-			    			<button type="submit" class="btn btn-info btn-block btn-signup">
+			    			<button [disabled]=" (!signupForm.valid) || (passwordConfirm.value !== password.value)" type="submit" class="btn btn-info btn-block btn-signup">
 			    			Registrarse</button>
-
-
           </form>
+         </div>
+       </div>
+
         </div>
 
     </div>
