@@ -42,10 +42,19 @@
           </div>
 
         <div *ngIf="formPhase === 1" id="form-wrapper">  
-        <form (ngSubmit)="signupSubmit()" novalidate>
+         <div class="row">
+          <div class="col-12 col-md-2 col-lg-2" style="display: flex;">
+               <i (click)="resetPhase()" class="fa fa-angle-left signup-back" aria-hidden="true"> </i>
+          </div>
+
+
+       <div class="col-12 col-md-10 col-lg-10">
+        <form #signupForm="ngForm" (ngSubmit)="signupSubmit()" novalidate>
                 <div class="form-group">
-			    				<input type="text" name="username" id="username" class="form-control input-sm"  [(ngModel)]="user.username" placeholder="Username" minlength="3" maxlength="15" required>
+			    				<input type="text" name="username" id="username" class="form-control input-sm"  [(ngModel)]="user.username" placeholder="Username" minlength="3" maxlength="15"  #username="ngModel" required>
 			    			</div>
+
+                
 
 			    			<div class="row">
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
@@ -61,27 +70,39 @@
 			    			</div>
 
 			    			<div class="form-group">
-			    				<input type="email" [(ngModel)]="user.email"  name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
+			    				<input type="email" [(ngModel)]="user.email"  name="email" id="email" class="form-control input-sm" placeholder="Email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
 			    			</div>
 
 			    			<div class="row">
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			    						<input type="password" [(ngModel)]="user.password" name="password" id="password" class="form-control input-sm" placeholder="Password" minlength="7">
+			    						<input type="password" [(ngModel)]="user.password" name="password" id="password" class="form-control input-sm" placeholder="Password" minlength="7" #password="ngModel"  required>
 			    					</div>
+
 			    				</div>
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" minlength="7">
+			    						<input type="password" name="password-confirmation" 
+                      [(ngModel)]="passwordConfirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Password" minlength="7" #passwordConfirm="ngModel" required>
 			    					</div>
 			    				</div>
+
+                  <div *ngIf="passwordConfirm.value !== '' && passwordConfirm.value === password.value" class="col-xs-2 col-sm-2 col-md-2">
+                    <i class="fa fa-check confirmedPassword" aria-hidden="true"></i>
+			    				</div>
 			    			</div>
+
+                <div *ngIf="passwordConfirm.value !== password.value" class="alert alert-warning">Las contraseñas deben ser idénticas.
+                </div>
+
+                <div *ngIf="error" class="alert alert-danger alert-signup" role="alert">{{ error.statusText }}</div>
 			    			
-			    			<button type="submit" class="btn btn-info btn-block btn-signup">
+			    			<button [disabled]=" (!signupForm.valid) || (passwordConfirm.value !== password.value)" type="submit" class="btn btn-info btn-block btn-signup">
 			    			Registrarse</button>
-
-
           </form>
+         </div>
+       </div>
+
         </div>
 
     </div>

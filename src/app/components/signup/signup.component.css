@@ -26,10 +26,6 @@
   margin-top: 60px;
 }
 
-.btn-signup {
-  cursor: pointer;
-}
-
 h1 {
   text-align: center;
   color: white;
@@ -50,7 +46,7 @@ h1 {
   float: left;
 }
 
-@media (max-width: 890px) {
+@media (max-width: 768px) {
   .role-ima {
     float: none;
     margin: auto;
@@ -61,7 +57,7 @@ h1 {
   margin-top: 5px;
 }
 
-@media (max-width: 672px) {
+@media (max-width: 768px) {
   .role-content {
     text-align: center;
   }
@@ -108,7 +104,7 @@ h1 {
   padding-bottom: 15px;
 }
 
-@media (max-width: 632px) {
+@media (max-width: 768px) {
   .register-as {
     border-right: none;
   }
@@ -126,4 +122,35 @@ h3 {
 
 h3 a {
   color: red;
+}
+
+.signup-back {
+  color: #fff;
+  font-size: 90px;
+  cursor: pointer;
+  align-self: center;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .signup-back {
+    margin: -50px auto 30px auto;
+  }
+}
+
+.confirmedPassword {
+  font-size: 34px;
+  color: #42A948;
+}
+
+.ng-valid[required], .ng-valid.required {
+  border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid #a94442;
+}
+
+.btn-signup {
+  margin-bottom: 20px;
 }

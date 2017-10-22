@@ -11,6 +11,11 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   formPhase: number = 0;
+  passwordConfirmation = "";
+	error = null;
+  authenticated: boolean;
+  currentUser: Object;
+
 
   user = {
 		username: '',
@@ -20,28 +25,36 @@ export class SignupComponent implements OnInit {
        name: '', 
        surname: ''
     },
-    role: '',
+    role: ''
 	}
-	error = null;
 
-  constructor(
-  	private session: SessionService,
-  	private router: Router
-  ) {}
+  constructor( private session: SessionService, private router: Router
+  ) {
+
+    // Here we get a method to see if the user is authenticated and get all the data from the user stored in LocalStorage
+      if(localStorage.getItem('jwt')){
+      this.authenticated = true;
+      this.currentUser = JSON.parse(localStorage.getItem('user'));
+    }
+  }
 
   ngOnInit() {}
 
   changePhaseDesigner() {
     this.formPhase = 1;
     this.user.role = "DESIGNER";
-    // console.log(this.user);
   }
 
   changePhaseFan() {
     this.formPhase = 1;
     this.user.role = "FAN";
-    // console.log(this.user);
   }
+
+  resetPhase() {
+    this.formPhase = 0;
+    this.user.role = "";
+  }
+
 
   signupSubmit() {
     this.session.signup(this.user)
