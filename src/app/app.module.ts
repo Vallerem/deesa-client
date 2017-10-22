@@ -32,6 +32,10 @@ import {APP_BASE_HREF} from '@angular/common';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AccountComponent } from './components/account/account.component';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
+import { UserWrapperComponent } from './components/user-wrapper/user-wrapper.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
+import { DesignsListComponent } from './components/designs-list/designs-list.component';
+import { DesignsItemComponent } from './components/designs-item/designs-item.component';
 
 
 @NgModule({
@@ -48,7 +52,11 @@ import { AccountInfoComponent } from './components/account-info/account-info.com
     FooterComponent,
     LayoutComponent,
     AccountComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    UserWrapperComponent,
+    UserInfoComponent,
+    DesignsListComponent,
+    DesignsItemComponent
   ],
   imports: [
     BrowserModule,
