@@ -25,7 +25,7 @@ children: [
    { path: 'account', component: AccountComponent, canActivate: [SessionService]},
    { path: 'designs', component: DesignsWrapperComponent, canActivate: [SessionService]},
    { path: 'designs/:username', component: UserWrapperComponent, canActivate: [SessionService]},
-   { path: 'designs/:username/:idDesign', component: DesignsWrapperComponent, canActivate: [SessionService]}
+   { path: 'designs/view/:idDesign', component: DesignsWrapperComponent, canActivate: [SessionService]}
 ] },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent, pathMatch: 'full', },

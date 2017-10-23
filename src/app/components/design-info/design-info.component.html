@@ -1,3 +1,19 @@
-<p>
-  design-info works!
-</p>
+<div>
+    {{designInfo.creator.avatarUrl}}
+</div>
+
+<div>
+  <h3>{{designInfo.title}}</h3>
+  <span>by</span>
+  <span>{{designInfo.creator.username}}</span>
+  <span>on</span>
+  <span>{{designInfo.createdAt}}</span>
+</div>
+
+<div>
+  {{designInfo.designImg}}
+</div>
+
+<div>
+    {{designInfo.description}}
+  </div>

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { DesignService } from './../../services/design.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'design-info',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DesignInfoComponent implements OnInit {
 
-  constructor() { }
+  @Input() designInfo;
+
+  constructor() {}
 
   ngOnInit() {
+
   }
 
 }

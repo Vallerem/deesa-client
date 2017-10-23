@@ -1,3 +1,4 @@
+import { DesignService } from './services/design.service';
 import { UserService } from './services/user.service';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -69,7 +70,7 @@ import { DesignInfoComponent } from './components/design-info/design-info.compon
     AppRoutingModule
   ],
   // providers: [PhonesService, SessionService, {provide: APP_BASE_HREF, useValue: '/phoneappprod'}],
-  providers: [PhonesService, SessionService, UserService],
+  providers: [PhonesService, SessionService, UserService, DesignService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
