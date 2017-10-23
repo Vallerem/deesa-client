@@ -12,8 +12,9 @@ export class UserWrapperComponent implements OnInit {
   currentUser: any = JSON.parse(localStorage.getItem('user'));
   accountInfo: any;
   designsList: any;
+  createDesignFlag: boolean = false;
 
-  routerUser = {
+  private routerUser = {
     username: ''
   }
 
@@ -21,14 +22,21 @@ export class UserWrapperComponent implements OnInit {
 
   ngOnInit() {
 
-    this.route.params
-    .subscribe((params) => this.routerUser.username = String(params['username']));
+    this.routerUser.username = this.route.snapshot.paramMap.get('username'); //catch route param
+    if(this.routerUser.username === this.currentUser.username) this.createDesignFlag=true;
 
-    this.userAPI.getAccount(this.currentUser).subscribe((res) => {
+    /**
+     * Esta llamada se puede poner en un servicio que se ejecuta al inicio del todo.
+     * De esta manera solo cargaria la informacion al principio, despues simplemente se llama al servicio
+     * y se devuelve la información.
+     */
+    this.userAPI.getAccount(this.routerUser).subscribe((res) => {
       this.accountInfo = res;
       this.designsList = res.user.designerInfo.designs;
       console.log(`designsList   -->${JSON.stringify(this.designsList)}`);
     });
+
+
 
   }
 }

@@ -13,6 +13,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 
 import { SessionService } from './services/session/session.service';
 import { UserWrapperComponent } from './components/user-wrapper/user-wrapper.component';
+import { DesignsWrapperComponent } from './components/designs-wrapper/designs-wrapper.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent,
@@ -22,12 +23,8 @@ children: [
    { path: 'phones/new', component: AddPhoneComponent, canActivate: [SessionService], pathMatch: 'full', },
    { path: 'phones/:id', component: PhonesDetailsComponent, canActivate: [SessionService], pathMatch: 'full', },
    { path: 'account', component: AccountComponent, canActivate: [SessionService]},
-   { path: 'designs', component: UserWrapperComponent, canActivate: [SessionService],
-    children: [
-      { path: ':id', component: AccountComponent, canActivate: [SessionService] }
-    ]},
-   { path: ':username', component: UserWrapperComponent, canActivate: [SessionService],}
-
+   { path: 'designs', component: DesignsWrapperComponent, canActivate: [SessionService]},
+   { path: 'designs/:username', component: UserWrapperComponent, canActivate: [SessionService]}
 ] },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent, pathMatch: 'full', },
