@@ -9,6 +9,10 @@ import 'rxjs/add/operator/map';
 export class UserService {
 
   private BASE_URL: string = environment.baseAPI; //http://localhost:3000
+  //private checkDesignerRole: boolean;
+
+  currentUser: any = JSON.parse(localStorage.getItem('user'));
+
 
   constructor(
     private http: Http,
@@ -50,5 +54,21 @@ export class UserService {
 
     return this.http.put(`${this.BASE_URL}/account/address`,user, options).map((res) => {console.log("response:"+res); return res.json();});
   }
+
+  /*CONTROL FUNCTIONS */
+  /**
+   * Compare if some user is designer
+   * @param user
+   */
+/*   checkDesignerRole(user){
+    console.log("USER SERVICE USER:::"+JSON.stringify(user));
+
+    if(!user.role){
+      return false;
+    }else{
+      user.role==='DESIGNER'?true:false;
+    }
+  } */
+
 
 }

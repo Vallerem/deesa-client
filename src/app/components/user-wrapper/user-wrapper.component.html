@@ -7,14 +7,23 @@
   <user-info [accountInfo]="accountInfo"></user-info>
 </div>
 
-<div *ngIf='designsList'>
+
+
+<!-- <div *ngIf='designsList'>
   <designs-list [designsList]="designsList"></designs-list>
 
   <div *ngIf='createDesignFlag'>
       <p class="text-center"><a class="btn btn-primary btn-sm" [routerLink]="['/designs/new']">Add Design</a></p>
-    </div>
+  </div>
+</div> -->
 
+
+<div *ngIf='designsList'>
+    <designs-list [designsList]="designsList"></designs-list>
+    <div *ngIf='createDesignFlag'>
+      <p class="text-center">
+        <a class="btn btn-primary btn-sm" [routerLink]="['/designs/new']">Add Design</a>
+      </p>
+  </div>
 </div>
-
-
 

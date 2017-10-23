@@ -20,8 +20,22 @@ export class UserInfoComponent implements OnInit {
 
   ngOnInit() {
 
+    console.log("HOLA");
+
+/*     console.log(`${this.accountInfo.user.designerInfo.socialMedia.twitter}`);
+ */    console.log(`this.accountInfo   -->${JSON.stringify(this.accountInfo.user)}`);
+
+
     this.routerUser.username = this.route.snapshot.paramMap.get('username'); //catch route param
     if(this.routerUser.username === this.currentUser.username) this.createDesignFlag=true;
+  }
+
+  followButton(event){
+    console.log("CLICK FOLLOW");
+  }
+
+  messageButton(event){
+    console.log("CLICK MESSAGE");
   }
 
 }

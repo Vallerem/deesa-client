@@ -33,10 +33,10 @@
 
             <ng-template #foreignUser>
               <p class="text-center">
-                <a class="btn btn-primary btn-sm">Message</a>
+                <button (click)="messageButton($event)" class="btn btn-primary btn-sm">Message</button>
               </p>
               <p class="text-center">
-                <a class="btn btn-primary btn-sm">Follow</a>
+                <button (click)="followButton($event)" class="btn btn-primary btn-sm">Follow</button>
               </p>
             </ng-template>
 
