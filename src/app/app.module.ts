@@ -40,6 +40,8 @@ import { DesignsItemComponent } from './components/designs-item/designs-item.com
 import { DesignsWrapperComponent } from './components/designs-wrapper/designs-wrapper.component';
 import { DesignInfoComponent } from './components/design-info/design-info.component';
 import { AllDesignsWrapperComponent } from './components/all-designs-wrapper/all-designs-wrapper.component';
+import { DesignNewWrapperComponent } from './components/design-new-wrapper/design-new-wrapper.component';
+import { DesignNewFormComponent } from './components/design-new-form/design-new-form.component';
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { AllDesignsWrapperComponent } from './components/all-designs-wrapper/all
     DesignsItemComponent,
     DesignsWrapperComponent,
     DesignInfoComponent,
-    AllDesignsWrapperComponent
+    AllDesignsWrapperComponent,
+    DesignNewWrapperComponent,
+    DesignNewFormComponent
   ],
   imports: [
     BrowserModule,

@@ -21,17 +21,27 @@ export class AllDesignsWrapperComponent implements OnInit {
      //this.designsList = this.designService._designList;
      //this.designsList = this.designService.getAllDesigns();
 
-     this.designsList = this.designService.getDesignList();
-    console.log("this.designsList = this.designService.getDesignList() arr.element");
-     console.log("all-designs-wrapper- ngOnInit() - this.designsList -->");
-    this.arr.push(this.designsList);
-    this.arr.forEach((e) => {
-      console.log(e);
+     //this.designsList = this.designService.getAllDesigns;
 
+/*     this.getAllDesigns().subscribe((res)=>{
+      this._designList = res;
+      console.log(`CONSTRUCTOR _designList   -->${JSON.stringify(this._designList)}`);
+    }) */
+
+    this.designService.getAllDesigns().subscribe((res)=>{
+      this.designsList = res;
+      console.log(`designsList   -->${JSON.stringify(this.designsList)}`);
     });
 
-    console.log("all-designs-wrapper- ngOnInit() - this.designsList --> JSON.parse>"+JSON.parse(this.designsList));
-    //console.log("GET FROM SERVICE:::: >"+JSON.parse(this.designService.getAllDesigns()) );
+    console.log("this.designsList = this.designService.getDesignList() arr.element");
+     console.log("all-designs-wrapper- ngOnInit() - this.designsList -->");
 
+/*     this.arr.push(this.designsList);
+    this.arr.forEach((e) => {
+      console.log(e);
+    }); */
+
+    //console.log("all-designs-wrapper- ngOnInit() - this.designsList --> JSON.parse>"+JSON.parse(this.designsList));
+    //console.log("GET FROM SERVICE:::: >"+JSON.parse(this.designService.getAllDesigns()) );
   }
 }

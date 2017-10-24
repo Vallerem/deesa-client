@@ -14,10 +14,7 @@ export class DesignService {
 
 
   constructor(private http: Http, private session: SessionService) {
-    this.getAllDesigns().subscribe((res)=>{
-      this._designList = res;
-      console.log(`CONSTRUCTOR _designList   -->${JSON.stringify(this._designList)}`);
-    })
+
    }
 
 
@@ -34,6 +31,10 @@ export class DesignService {
     }
 
     getDesignList(){
+/*       this.getAllDesigns().subscribe((res)=>{
+      this._designList = res;
+      console.log(`CONSTRUCTOR _designList   -->${JSON.stringify(this._designList)}`);
+    }) */
       return this._designList;
     }
 
@@ -60,4 +61,11 @@ export class DesignService {
   		.map((res) => res.json() );
   }
 
+  newDesign(design) {
+  	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+    let options = new RequestOptions({ headers: headers });
+
+  	return this.http.post(`${this.BASE_URL}/designs/new`, options)
+  		.map((res) => res.json() );
+  }
 }
