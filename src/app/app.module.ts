@@ -39,6 +39,7 @@ import { DesignsListComponent } from './components/designs-list/designs-list.com
 import { DesignsItemComponent } from './components/designs-item/designs-item.component';
 import { DesignsWrapperComponent } from './components/designs-wrapper/designs-wrapper.component';
 import { DesignInfoComponent } from './components/design-info/design-info.component';
+import { AllDesignsWrapperComponent } from './components/all-designs-wrapper/all-designs-wrapper.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { DesignInfoComponent } from './components/design-info/design-info.compon
     DesignsListComponent,
     DesignsItemComponent,
     DesignsWrapperComponent,
-    DesignInfoComponent
+    DesignInfoComponent,
+    AllDesignsWrapperComponent
   ],
   imports: [
     BrowserModule,

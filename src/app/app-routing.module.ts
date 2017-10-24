@@ -1,3 +1,4 @@
+import { AllDesignsWrapperComponent } from './components/all-designs-wrapper/all-designs-wrapper.component';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -23,7 +24,7 @@ children: [
    { path: 'phones/new', component: AddPhoneComponent, canActivate: [SessionService], pathMatch: 'full', },
    { path: 'phones/:id', component: PhonesDetailsComponent, canActivate: [SessionService], pathMatch: 'full', },
    { path: 'account', component: AccountComponent, canActivate: [SessionService]},
-   { path: 'designs', component: DesignsWrapperComponent, canActivate: [SessionService]},
+   { path: 'designs', component: AllDesignsWrapperComponent},
    { path: 'designs/:username', component: UserWrapperComponent, canActivate: [SessionService]},
    { path: 'designs/view/:idDesign', component: DesignsWrapperComponent, canActivate: [SessionService]}
 ] },

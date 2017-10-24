@@ -10,14 +10,53 @@ export class DesignService {
   private BASE_URL: string = environment.baseAPI; //http://localhost:3000
   currentUser: any = JSON.parse(localStorage.getItem('user'));
 
+  public _designList: any;
 
-  constructor(private http: Http, private session: SessionService) { }
+
+  constructor(private http: Http, private session: SessionService) {
+    this.getAllDesigns().subscribe((res)=>{
+      this._designList = res;
+      console.log(`CONSTRUCTOR _designList   -->${JSON.stringify(this._designList)}`);
+    })
+   }
+
+
+  /**
+   * GETTERS & SETTERS
+   */
+
+    set designList(value:any) {
+      this._designList = value;
+    }
+
+    get designList():any {
+      return this._designList;
+    }
+
+    getDesignList(){
+      return this._designList;
+    }
+
+
+/**
+ * API CLIENT
+ */
 
   getDesign(id) {
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
 
   	return this.http.get(`${this.BASE_URL}/designs/${id}`, options)
+  		.map((res) => res.json() );
+  }
+
+  getAllDesigns() {
+  	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+    let options = new RequestOptions({ headers: headers });
+
+    console.log("getAllDesigns method INVOKED!");
+
+  	return this.http.get(`${this.BASE_URL}/designs/allDesigns`, options)
   		.map((res) => res.json() );
   }
 
