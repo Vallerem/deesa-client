@@ -26,11 +26,11 @@ export class UserWrapperComponent implements OnInit {
   constructor(private userAPI: UserService, private route: ActivatedRoute ) { }
 
 
-/* checkLoggedUser(){
-  (this.routerUser.username === this.currentUser.username) ? true : false //If they are the same Add Design
+checkLoggedUser(){
+  return (this.routerUser.username === this.currentUser.username) ? true : false //If they are the same Add Design
 }
 
-foo = this.checkLoggedUser();
+/* foo = this.checkLoggedUser();
 foo2 = this.checkLoggedUser; */
 
   ngOnInit() {

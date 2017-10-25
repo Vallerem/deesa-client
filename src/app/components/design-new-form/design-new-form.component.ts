@@ -7,13 +7,12 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class DesignNewFormComponent implements OnInit {
 
-/*   designInfo = {
-    some: '',
+    designInfo: any = {
     designGallery: []
-  }; */
+  };
 
 
-  designInfo: any;
+  //designInfo: any = {};
 
 
   img : any;
@@ -24,8 +23,27 @@ export class DesignNewFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitForm() {
-    console.log(`${JSON.stringify(this.designInfo)}`);
+  submitForm(event) {
+
+    console.log("event:");
+
+console.log(event);
+
+    console.log("SUBMITFORM!");
+
+    console.log(`this.designInfo-->${JSON.stringify(this.designInfo)}`);
+
+    try
+    {
+      if( (typeof(event.designInfo.title) != "undefined")){console.log("TITLE UNDEFINED");
+    }
+    }
+    catch(e)
+    {
+     console.log(e);
+
+    }
+
         this.submittedForm.emit(this.designInfo); //Output - Send to parent
       }
 

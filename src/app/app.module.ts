@@ -1,5 +1,3 @@
-import { DesignService } from './services/design.service';
-import { UserService } from './services/user.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -26,6 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
 // Services
 import { PhonesService } from './services/phones.service';
 import { SessionService } from './services/session/session.service';
+import { DesignService } from './services/design.service';
+import { UserService } from './services/user.service';
 
 
 // ---

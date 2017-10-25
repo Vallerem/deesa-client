@@ -11,6 +11,7 @@ export class DesignNewWrapperComponent implements OnInit {
 
   currentUser: any = JSON.parse(localStorage.getItem('user'));
   designInfo: any = {};
+  arr = [];
 
   constructor(private userAPI: UserService, private designService: DesignService) { }
 
@@ -23,13 +24,19 @@ export class DesignNewWrapperComponent implements OnInit {
 
   newDesign(designForm) {
 
-        console.log("account.component");
+        console.log("desgin-new-wrapper.component.");
         designForm.creator = this.currentUser.idCreator; // add id creator
+        console.log(`designForm--> ${JSON.stringify(designForm)}`);
 
           this.designService.newDesign(designForm)
           .subscribe((res) => {
             this.designInfo = res;
-            console.log(`response editAccount: ${this.designInfo}`);
+            console.log(`response newDesign designInfo: ${this.designInfo}`);
+
+            this.arr.push(this.designInfo);
+            this.arr.forEach((e)=>{
+              console.log(e);
+            });
 
           });
       }

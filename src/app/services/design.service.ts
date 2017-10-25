@@ -65,7 +65,10 @@ export class DesignService {
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
 
-  	return this.http.post(`${this.BASE_URL}/designs/new`, options)
+    console.log("DESIGN SERVICE");
+    console.log(design);
+
+  	return this.http.post(`${this.BASE_URL}/designs/new`,design, options)
   		.map((res) => res.json() );
   }
 }
