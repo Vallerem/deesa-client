@@ -1,20 +1,49 @@
-<a class="nav-link" [routerLink]="['home']">Home</a>
-<p>{{ currentUser.username }}</p>
-<p>{{ currentUser.avatarUrl }}</p>
 
-<div>
-  <ul class="navbar-nav ml-auto">
 
-    <li><button (click)="clicked($event)">Account</button></li>
-    <li><button (click)="clicked($event)">Password</button></li>
-    <li><button (click)="clicked($event)">Address</button></li>
-    <!--     <li><a class="nav-link" [routerLink]="['/designer']">Designs</a></li>
-    <li><a class="nav-link" [routerLink]="['/designer']">Orders</a></li> -->
-  </ul>
+<!--<p>{{ currentUser.username }}</p>
+<p>{{ currentUser.avatarUrl }}</p>-->
 
-<div *ngIf='accountInfo'>
-  <account-info [accountInfo]="accountInfo" [currentView]="currentView" (submittedForm)="editAccount($event)">
-  </account-info>
+<div class="row">
+
+  <div class="col-12 col-md-12 col-lg-12 hidden-md-up">
+    <ul class="nav nav-tabs">
+      <li class="nav-item" style="width: 25%; margin-left: -20px;">
+        <a class="nav-link" (click)="clicked($event)" active href="#">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Password</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Address</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Designer profile</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-12 col-md-12 col-lg-2  hidden-sm-down">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" active href="#">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Password</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Address</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Designer profile</a>
+      </li>
+    </ul>
+  </div>
+
+<div class="col-12 col-md-12 col-lg-10">
+  <div *ngIf='accountInfo'>
+    <account-info [accountInfo]="accountInfo" [currentView]="currentView" (submittedForm)="editAccount($event)">
+    </account-info>
+  </div>
 </div>
 
 

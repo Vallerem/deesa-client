@@ -11,6 +11,7 @@ export class AccountComponent implements OnInit {
   currentUser: any = JSON.parse(localStorage.getItem('user'));
   currentView: string = "Account";
   accountInfo; //JSON
+  innerWidth = (window.screen.width) + "px";
 
   arr = [];
 
@@ -62,10 +63,6 @@ export class AccountComponent implements OnInit {
         console.log(`response editAccount: ${this.accountInfo}`);
       });
     }
-
-
-
-
 
 
   }
