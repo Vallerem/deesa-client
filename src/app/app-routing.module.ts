@@ -1,3 +1,4 @@
+import { AllDesignsWrapperComponent } from './components/all-designs-wrapper/all-designs-wrapper.component';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,6 +13,9 @@ import { AccountComponent } from './components/account/account.component';
 import { LayoutComponent } from './components/layout/layout.component';
 
 import { SessionService } from './services/session/session.service';
+import { UserWrapperComponent } from './components/user-wrapper/user-wrapper.component';
+import { DesignsWrapperComponent } from './components/designs-wrapper/designs-wrapper.component';
+import { DesignNewWrapperComponent } from './components/design-new-wrapper/design-new-wrapper.component';
 
 const routes: Routes = [
   { path: '', component: LayoutComponent,
@@ -20,7 +24,12 @@ children: [
    { path: 'phones', component: PhonesListComponent, canActivate: [SessionService], pathMatch: 'full', },
    { path: 'phones/new', component: AddPhoneComponent, canActivate: [SessionService], pathMatch: 'full', },
    { path: 'phones/:id', component: PhonesDetailsComponent, canActivate: [SessionService], pathMatch: 'full', },
-   { path: 'account', component: AccountComponent, canActivate: [SessionService]}
+   { path: 'account', component: AccountComponent, canActivate: [SessionService]},
+   { path: 'designs', component: AllDesignsWrapperComponent},
+   { path: 'designs/view/:idDesign', component: DesignsWrapperComponent, canActivate: [SessionService]},
+   { path: 'designs/new', component: DesignNewWrapperComponent, canActivate: [SessionService]},
+   { path: 'designs/:username', component: UserWrapperComponent, canActivate: [SessionService]}
+
 ] },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent, pathMatch: 'full', },

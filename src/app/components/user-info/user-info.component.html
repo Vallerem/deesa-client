@@ -1,0 +1,50 @@
+<div *ngIf='accountInfo'>
+
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3">
+          </div>
+          <div class="col-md-9 rect">
+            <div class="form-group">
+              <span>{{accountInfo.user.avatarUrl}}</span>
+            </div>
+            <div class="form-group">
+              <p>{{accountInfo.user.username}}</p>
+              <span>{{accountInfo.user.addressInfo.townName}}</span>
+              <span>{{accountInfo.user.addressInfo.country}}</span>
+            </div>
+
+            <div class="form-group">
+                <span>{{accountInfo.user.designerInfo.socialMedia.twitter}}</span>
+                <span>{{accountInfo.user.designerInfo.socialMedia.linkedin}}</span>
+                <span>{{accountInfo.user.designerInfo.socialMedia.facebook}}</span>
+
+              </div>
+
+            <div *ngIf='createDesignFlag;else foreignUser'>
+
+              <p class="text-center">
+                <a class="btn btn-primary btn-sm" [routerLink]="['/account']">Edit Account</a>
+              </p>
+            </div>
+
+
+            <ng-template #foreignUser>
+              <p class="text-center">
+                <button (click)="messageButton($event)" class="btn btn-primary btn-sm">Message</button>
+              </p>
+              <p class="text-center">
+                <button (click)="followButton($event)" class="btn btn-primary btn-sm">Follow</button>
+              </p>
+            </ng-template>
+
+            <span class="glyphicon glyphicon-plus"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

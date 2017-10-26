@@ -1,3 +1,4 @@
+import { DesignService } from './../../services/design.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,6 +10,16 @@ export class LayoutComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
-  
+  ngOnInit() {
+
+    console.log("ESTOY EN EL COMPONENTE");
+
+/*     this.designService.getAllDesigns().subscribe( (res) => {
+
+    this.designService.designList = res; //store designList in service when application is initialized.
+    console.log(`designInfo   -->${JSON.stringify(this.designService.designList)}`);
+    }); */
+
+  }
+
 }

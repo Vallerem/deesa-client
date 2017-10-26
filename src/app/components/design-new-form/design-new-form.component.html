@@ -1,0 +1,58 @@
+<div class="col-md-12">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-9">
+          <form (ngSubmit)="submitForm(myForm.value)" #myForm="ngForm">
+
+            <div class="form-group">
+              <label for="model">Título</label>
+              <input type="text" required class="form-control" placeholder="Título" [(ngModel)]="designInfo.title" name="designInfo.title"
+                #myTitle="ngModel" minLength="6">
+            </div>
+
+            <!--   <p>Title value: <b> {{ myTitle.value }} </b></p> -->
+            <div [hidden]="myTitle.valid || myTitle.pristine" class="alert alert-danger">
+              Title is required
+            </div>
+
+
+            <!--                  <div *ngIf="myTitle.errors && (myTitle.dirty || myTitle.touched)">
+                  <p class="error" [hidden]="!myTitle.errors.minlength">
+                    Username must be at least 6 characters long.
+                  </p>
+                </div> -->
+
+            <div class="form-group">
+              <label for="model">Imagen principal</label>
+              <input type="text" class="form-control" placeholder="Imagen principal" [(ngModel)]="designInfo.designMainImg" name="designInfo.designMainImg">
+            </div>
+
+            <div class="form-group">
+              <label for="model">Imagenes</label>
+              <input type="text" class="form-control" #myGallery="ngModel" [(ngModel)]="img" name="img">
+            </div>
+
+            <div class="form-group">
+              <label for="model">Descripción</label>
+              <input type="text" class="form-control" placeholder="Descripcion" [(ngModel)]="designInfo.description" name="designInfo.description">
+            </div>
+
+            <span class="label label-default" *ngFor="let img of designInfo.designGallery">{{ img }}</span>
+            <button [disabled]=" (!myGallery.dirty)" type="button" class="btn btn-default" (click)="addImg()">Añadir imagen</button>
+
+<!--             <button type="submit" class="btn btn-default">Submit</button>
+ -->            <button [disabled]=" (!myForm.valid)" type="submit" class="btn btn-default">
+              Crear</button>
+
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
