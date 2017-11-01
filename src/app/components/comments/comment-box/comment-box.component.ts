@@ -13,13 +13,7 @@ export class CommentBoxComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    console.log("ESTOY EN BOX");
-    console.log(`component box commentsInfo-->${JSON.stringify(this.commentItem)}`);
-
-    console.log(this.commentItem);
-
-  }
+  ngOnInit() {}
 
   addLike(){
     this.commentItem.creator = this.currentUser._id;

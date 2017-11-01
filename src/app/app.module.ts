@@ -1,3 +1,4 @@
+import { ProductService } from './services/product.service';
 import { CommentService } from './services/comment.service';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -47,6 +48,8 @@ import { CommentBoxComponent } from './components/comments/comment-box/comment-b
 import { CommentFormComponent } from './components/comments/comment-form/comment-form.component';
 import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
 import { CommentWrapperComponent } from './components/comments/comment-wrapper/comment-wrapper.component';
+import { ProductWrapperComponent } from './components/product-wrapper/product-wrapper.component';
+import { ProductItemComponent } from './components/product-item/product-item.component';
 
 
 @NgModule({
@@ -76,7 +79,9 @@ import { CommentWrapperComponent } from './components/comments/comment-wrapper/c
     CommentBoxComponent,
     CommentFormComponent,
     CommentListComponent,
-    CommentWrapperComponent
+    CommentWrapperComponent,
+    ProductWrapperComponent,
+    ProductItemComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +90,7 @@ import { CommentWrapperComponent } from './components/comments/comment-wrapper/c
     AppRoutingModule
   ],
   // providers: [PhonesService, SessionService, {provide: APP_BASE_HREF, useValue: '/phoneappprod'}],
-  providers: [PhonesService, SessionService, UserService, DesignService,CommentService],
+  providers: [PhonesService, SessionService, UserService, DesignService,CommentService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

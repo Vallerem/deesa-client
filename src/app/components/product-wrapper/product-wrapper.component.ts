@@ -1,0 +1,17 @@
+import { Component, OnInit, Input } from '@angular/core';
+
+@Component({
+  selector: 'product-wrapper',
+  templateUrl: './product-wrapper.component.html',
+  styleUrls: ['./product-wrapper.component.css']
+})
+export class ProductWrapperComponent implements OnInit {
+
+  @Input() productsTypes;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

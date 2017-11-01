@@ -1,19 +1,31 @@
-<div>
-    {{designInfo.creator.avatarUrl}}
-</div>
+<div class="card-deck">
+  <div class="card">
+    <div class="card-header">
+      <div class="media">
+        <img class="d-flex mr-3 resize-avatar" src="https://www.shareicon.net/data/128x128/2015/09/18/103160_man_512x512.png" alt="Generic placeholder image">
+        <div class="media-body">
+          <h4 class="mt-0">{{designInfo.title}}</h4>
 
-<div>
-  <h3>{{designInfo.title}}</h3>
-  <span>by</span>
-  <span>{{designInfo.creator.username}}</span>
-  <span>on</span>
-  <span>{{designInfo.createdAt}}</span>
-</div>
+          <!--                 <div>{{designInfo.creator.avatarUrl}}</div>
+ -->
+          <span>by</span>
+          <span>{{designInfo.creator.username}}</span>
+          <span>on</span>
+          <span>{{designInfo.createdAt}}</span>
+        </div>
+      </div>
+      <div>
+      </div>
+    </div>
+    <img class="card-img-top" src="{{designInfo.designMainImg}}" alt="Card image cap">
+    <div class="card-body">
+      <p class="card-text">{{designInfo.description}}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">
 
-<div>
-  {{designInfo.designImg}}
-</div>
-
-<div>
-    {{designInfo.description}}
+      </small>
+    </div>
   </div>
+</div>
+

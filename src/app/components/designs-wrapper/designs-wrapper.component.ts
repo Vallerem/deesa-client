@@ -1,3 +1,4 @@
+import { ProductService } from './../../services/product.service';
 import { CommentService } from './../../services/comment.service';
 import { DesignService } from './../../services/design.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,6 +15,7 @@ export class DesignsWrapperComponent implements OnInit {
   currentUser: any = JSON.parse(localStorage.getItem('user'));
   designInfo: any;
   commentsInfo: any;
+  productsTypes: any;
 
 
   private routerUser = {
@@ -21,7 +23,7 @@ export class DesignsWrapperComponent implements OnInit {
   }
   private idDesign: String;
 
-  constructor(private userAPI: UserService, private route: ActivatedRoute, private designAPI: DesignService, private commentAPI: CommentService) {}
+  constructor(private userAPI: UserService, private route: ActivatedRoute, private designAPI: DesignService, private commentAPI: CommentService, private productAPI: ProductService) {}
 
 
   ngOnInit() {
@@ -41,5 +43,8 @@ export class DesignsWrapperComponent implements OnInit {
 
     //ToDo: Retrieve products Info
 
+    this.productAPI.getAllProductTypes().subscribe((res)=>{
+      this.productsTypes = res.products;
+    })
   }
 }
