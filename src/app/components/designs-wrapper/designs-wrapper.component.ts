@@ -1,3 +1,4 @@
+import { CommentService } from './../../services/comment.service';
 import { DesignService } from './../../services/design.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -12,28 +13,33 @@ export class DesignsWrapperComponent implements OnInit {
 
   currentUser: any = JSON.parse(localStorage.getItem('user'));
   designInfo: any;
-  designsList: any;
+  commentsInfo: any;
+
 
   private routerUser = {
     username: ''
   }
   private idDesign: String;
 
+  constructor(private userAPI: UserService, private route: ActivatedRoute, private designAPI: DesignService, private commentAPI: CommentService) {}
 
-
-  constructor(private userAPI: UserService, private route: ActivatedRoute, private designAPI: DesignService) {}
 
   ngOnInit() {
 
     this.routerUser.username = this.route.snapshot.paramMap.get('username'); //catch route param
     this.idDesign = this.route.snapshot.paramMap.get('idDesign'); //catch route param
 
-
+    //Retrieve Design Info
     this.designAPI.getDesign(this.idDesign).subscribe((res)=>{
       this.designInfo = res.design;
-      console.log(`designInfo   -->${JSON.stringify(this.designInfo)}`);
+    });
 
+    //Retrieve Comments Info
+    this.commentAPI.getCommentsFromDesign(this.idDesign).subscribe((res)=>{
+      this.commentsInfo = res.comments;
     })
-  }
 
+    //ToDo: Retrieve products Info
+
+  }
 }

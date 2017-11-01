@@ -3,6 +3,10 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import {Observable} from 'rxjs/Rx';
+
+
 
 @Injectable()
 export class DesignService {
@@ -58,7 +62,9 @@ export class DesignService {
     console.log("getAllDesigns method INVOKED!");
 
   	return this.http.get(`${this.BASE_URL}/designs/allDesigns`, options)
-  		.map((res) => res.json() );
+      .map((res) => res.json() )
+      //...errors if any
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   newDesign(design) {
@@ -69,6 +75,8 @@ export class DesignService {
     console.log(design);
 
   	return this.http.post(`${this.BASE_URL}/designs/new`,design, options)
-  		.map((res) => res.json() );
+      .map((res) => res.json() )
+      //...errors if any
+      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
   }
 }

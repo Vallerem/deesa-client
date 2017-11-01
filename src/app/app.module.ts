@@ -1,3 +1,4 @@
+import { CommentService } from './services/comment.service';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -42,6 +43,10 @@ import { DesignInfoComponent } from './components/design-info/design-info.compon
 import { AllDesignsWrapperComponent } from './components/all-designs-wrapper/all-designs-wrapper.component';
 import { DesignNewWrapperComponent } from './components/design-new-wrapper/design-new-wrapper.component';
 import { DesignNewFormComponent } from './components/design-new-form/design-new-form.component';
+import { CommentBoxComponent } from './components/comments/comment-box/comment-box.component';
+import { CommentFormComponent } from './components/comments/comment-form/comment-form.component';
+import { CommentListComponent } from './components/comments/comment-list/comment-list.component';
+import { CommentWrapperComponent } from './components/comments/comment-wrapper/comment-wrapper.component';
 
 
 @NgModule({
@@ -67,7 +72,11 @@ import { DesignNewFormComponent } from './components/design-new-form/design-new-
     DesignInfoComponent,
     AllDesignsWrapperComponent,
     DesignNewWrapperComponent,
-    DesignNewFormComponent
+    DesignNewFormComponent,
+    CommentBoxComponent,
+    CommentFormComponent,
+    CommentListComponent,
+    CommentWrapperComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +85,7 @@ import { DesignNewFormComponent } from './components/design-new-form/design-new-
     AppRoutingModule
   ],
   // providers: [PhonesService, SessionService, {provide: APP_BASE_HREF, useValue: '/phoneappprod'}],
-  providers: [PhonesService, SessionService, UserService, DesignService],
+  providers: [PhonesService, SessionService, UserService, DesignService,CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
