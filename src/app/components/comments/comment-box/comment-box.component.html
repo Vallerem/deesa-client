@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-header">
+    <div></div>
+    <p class="card-title">    {{commentItem.creator.username}}</p>
+      <div class="card-img-top">{{commentItem.creator.avatarUrl}}</div>
+  </div>
+  <div class="card-body">
+      {{commentItem.message}}
+  </div>
+  <div class="card-footer">
+      <button class="btn btn-info" (click)="addLike()"><i class="fa fa-heart"></i>{{commentItem.likedBy.length}}</button>
+  </div>
+</div>

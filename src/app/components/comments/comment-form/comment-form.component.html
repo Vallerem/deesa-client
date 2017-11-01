@@ -1,0 +1,16 @@
+<div *ngIf='currentUser'>
+<form (ngSubmit)="submitComment()">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="fa fa-user-circle-o"></span></span>
+            <span type="text" class="form-control">{{currentUser.username}}</span>
+        </div>
+        <br />
+            <label for="exampleFormControlTextarea1">Comentario:</label>
+            <textarea class="form-control" rows="3" [(ngModel)]="newComment.message" name="text"></textarea>
+        <br />
+        <button type="submit" class="btn btn-primary">Añadir comentario</button>
+
+    </div>
+</form>
+</div>

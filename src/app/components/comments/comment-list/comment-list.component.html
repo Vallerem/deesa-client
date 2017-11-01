@@ -1,0 +1,6 @@
+
+<h3>Comentarios</h3>
+<div class="col">
+  <comment-box *ngFor="let comment of commentsInfo" [commentItem]="comment" (submittedLike)="addLike($event)"></comment-box>
+</div>
+

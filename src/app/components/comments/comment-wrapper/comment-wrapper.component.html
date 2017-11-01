@@ -1,0 +1,12 @@
+<!-- <div>
+  <comment-form [listId]="listId"</comment-form>
+  <comment-list [listId]="listId"</comment-list>
+</div>
+ -->
+
+ <div class="container">
+  <div class="row">
+  <comment-form [commentsInfo]="commentsInfo" (submittedForm)="submittedCommentForm($event)"></comment-form>
+  <comment-list [commentsInfo]="commentsInfo" (submittedLike)="addLike($event)"></comment-list>
+  </div>
+</div>
