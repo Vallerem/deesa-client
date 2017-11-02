@@ -12,8 +12,6 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log("ESTOY EN EL COMPONENTE");
-
 /*     this.designService.getAllDesigns().subscribe( (res) => {
 
     this.designService.designList = res; //store designList in service when application is initialized.

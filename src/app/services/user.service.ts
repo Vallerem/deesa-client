@@ -9,10 +9,9 @@ import 'rxjs/add/operator/map';
 export class UserService {
 
   private BASE_URL: string = environment.baseAPI; //http://localhost:3000
-  //private checkDesignerRole: boolean;
 
-  currentUser: any = JSON.parse(localStorage.getItem('user'));
-
+  _currentUser: any = JSON.parse(localStorage.getItem('user'));
+  _userDesigns: any;
 
   constructor(
     private http: Http,
@@ -20,6 +19,23 @@ export class UserService {
   ) {}
 
   //Client API
+
+  //GETTERS & SETTERS
+  get userDesigns() {
+    return this._userDesigns;
+  }
+  set userDesigns(userDesigns) {
+    this._userDesigns = userDesigns;
+  }
+
+  get currentUser() {
+    return this._userDesigns;
+  }
+  set currentUser(currentUser) {
+    this._currentUser = currentUser;
+  }
+
+  //HTTP METHODS - API CLIENT
 
   getAccount(user) {
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
@@ -55,20 +71,13 @@ export class UserService {
     return this.http.put(`${this.BASE_URL}/account/address`,user, options).map((res) => {console.log("response:"+res); return res.json();});
   }
 
-  /*CONTROL FUNCTIONS */
-  /**
-   * Compare if some user is designer
-   * @param user
-   */
-/*   checkDesignerRole(user){
-    console.log("USER SERVICE USER:::"+JSON.stringify(user));
+  getUserDesigns(userId){
+  	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+    let options = new RequestOptions({ headers: headers });
+    console.log("getUserDesigns");
 
-    if(!user.role){
-      return false;
-    }else{
-      user.role==='DESIGNER'?true:false;
-    }
-  } */
+    return this.http.get(`${this.BASE_URL}/account/designs/${userId}`, options).map((res) => res.json());
+  }
 
 
 }

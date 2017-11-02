@@ -19,6 +19,15 @@ export class ProductService {
 
     return this.http.get(`${this.BASE_URL}/api/v1/products/allProductTypes`)
     .map((res) => res.json() );
-
   }
+
+  getProductType(name){
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.get(`${this.BASE_URL}/api/v1/products/productType/${name}`)
+    .map((res) => res.json() );
+  }
+
+
 }

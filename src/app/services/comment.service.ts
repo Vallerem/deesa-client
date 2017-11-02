@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { inject } from '@angular/core/testing';
 import { SessionService } from './session/session.service';
 import { Http, Headers, RequestOptions } from '@angular/http';
@@ -9,10 +10,8 @@ import 'rxjs/add/operator/map';
 export class CommentService {
 
   private BASE_URL: string = environment.baseAPI; //http://localhost:3000
-  currentUser: any = JSON.parse(localStorage.getItem('user'));
 
-  constructor(private http: Http, private session: SessionService) {}
-
+  constructor(private http: Http, private session: SessionService, private userAPI: UserService) {}
 
   newComment(comment){
     let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
@@ -25,6 +24,7 @@ export class CommentService {
     .map((res) => res.json() );
   }
 
+  //get all comments from one design
   getCommentsFromDesign(idDesign) {
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
@@ -33,6 +33,7 @@ export class CommentService {
   		.map((res) => res.json() );
   }
 
+  // adding likes to a comment. Check if an user liked before, insert like or not.
   addCommentLikes(comment) {
     console.log("SERVICE - COMMENT"+JSON.stringify(comment));
 
@@ -43,7 +44,7 @@ export class CommentService {
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
 
-    if(idUser === this.currentUser.id){console.log('same user');}
+    //if(idUser === this.userAPI._currentUser._id){console.log('same user');}
 
     return this.http.patch(`${this.BASE_URL}/api/v1/comments/likes/${idComment}/${idUser}`, options)
   		.map((res) => res.json() );

@@ -8,7 +8,7 @@ import { UserService } from '../../services/user.service';
 })
 export class AccountComponent implements OnInit {
 
-  currentUser: any = JSON.parse(localStorage.getItem('user'));
+  //currentUser: any = JSON.parse(localStorage.getItem('user'));
   currentView: string = "Account";
   accountInfo; //JSON
 
@@ -18,7 +18,7 @@ export class AccountComponent implements OnInit {
   constructor(private userAPI: UserService) {}
 
   ngOnInit() {
-    this.userAPI.getAccount(this.currentUser)
+    this.userAPI.getAccount(this.userAPI._currentUser)
       .subscribe((res) => {
         console.log(`ngOnInit[PARENT] subscribe response-->${JSON.stringify(res)}`);
         this.accountInfo = res;

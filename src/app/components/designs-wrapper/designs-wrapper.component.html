@@ -1,6 +1,6 @@
 <div class="container">
   <div>
-    <div *ngIf=(designInfo)>
+    <div *ngIf="designInfo && productsTypes">
       <div class="row">
         <div class="col-md-4">
           <design-info [designInfo]="designInfo"></design-info>
@@ -16,7 +16,6 @@
         <comment-wrapper [designId]="designInfo._id" [commentsInfo]="commentsInfo"></comment-wrapper>
       </div>
       <br>
-
     </div>
   </div>
 </div>

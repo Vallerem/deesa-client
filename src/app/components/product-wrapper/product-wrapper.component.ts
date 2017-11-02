@@ -1,3 +1,4 @@
+import { UserService } from './../../services/user.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -12,6 +13,7 @@ export class ProductWrapperComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("PRODUCT WRAPPER");
   }
 
 }

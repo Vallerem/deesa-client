@@ -16,6 +16,7 @@ export class DesignsWrapperComponent implements OnInit {
   designInfo: any;
   commentsInfo: any;
   productsTypes: any;
+  userDesigns: any;
 
 
   private routerUser = {
@@ -33,18 +34,27 @@ export class DesignsWrapperComponent implements OnInit {
 
     //Retrieve Design Info
     this.designAPI.getDesign(this.idDesign).subscribe((res)=>{
+
       this.designInfo = res.design;
+      this.designAPI._designInfo = res.design;
+      this.designAPI.designId=this.designInfo._id //calls the setter and passes designInfo._id
+
+            //Retrieve designs info
+            this.userAPI.getUserDesigns(this.designInfo.creator._id).subscribe((res)=>{
+              //Keep in userAPI service userDesigns variable
+              this.userAPI._userDesigns = res.designs; //calls the setter and passes res.designs
+            });
     });
 
     //Retrieve Comments Info
     this.commentAPI.getCommentsFromDesign(this.idDesign).subscribe((res)=>{
       this.commentsInfo = res.comments;
-    })
+    });
 
-    //ToDo: Retrieve products Info
-
+    //Retrieve products types
     this.productAPI.getAllProductTypes().subscribe((res)=>{
       this.productsTypes = res.products;
-    })
+    });
+
   }
 }

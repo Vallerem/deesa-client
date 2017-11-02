@@ -50,6 +50,8 @@ import { CommentListComponent } from './components/comments/comment-list/comment
 import { CommentWrapperComponent } from './components/comments/comment-wrapper/comment-wrapper.component';
 import { ProductWrapperComponent } from './components/product-wrapper/product-wrapper.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
+import { BuyItemWrapperComponent } from './components/buy-item-wrapper/buy-item-wrapper.component';
+import { BuyItemComponent } from './components/buy-item/buy-item.component';
 
 
 @NgModule({
@@ -81,7 +83,9 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     CommentListComponent,
     CommentWrapperComponent,
     ProductWrapperComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    BuyItemWrapperComponent,
+    BuyItemComponent
   ],
   imports: [
     BrowserModule,
