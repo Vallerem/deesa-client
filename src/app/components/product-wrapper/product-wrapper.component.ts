@@ -1,3 +1,4 @@
+import { ProductService } from './../../services/product.service';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -10,10 +11,8 @@ export class ProductWrapperComponent implements OnInit {
 
   @Input() productsTypes;
 
-  constructor() { }
+  constructor(private productAPI: ProductService) { }
 
-  ngOnInit() {
-    console.log("PRODUCT WRAPPER");
-  }
+  ngOnInit() {}
 
 }

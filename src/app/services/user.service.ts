@@ -18,8 +18,6 @@ export class UserService {
     private session: SessionService
   ) {}
 
-  //Client API
-
   //GETTERS & SETTERS
   get userDesigns() {
     return this._userDesigns;

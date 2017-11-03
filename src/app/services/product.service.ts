@@ -9,9 +9,33 @@ import 'rxjs/add/operator/map';
 export class ProductService {
 
   private BASE_URL: string = environment.baseAPI; //http://localhost:3000
-  currentUser: any = JSON.parse(localStorage.getItem('user'));
+  _productTypes: any;
 
-  constructor(private http: Http, private session: SessionService) {}
+  constructor(private http: Http, private session: SessionService) {
+
+    //HOW TO INITIALICE DATA ( QUIERO PONER TODOS LOS PRODUCTS TYPES AL INCIO, EN EL CONSTRUCTOR)
+/*       // Initialice at the beginning all product types in store.
+     this.getAllProductTypes().subscribe((res)=>{
+      this._productTypes = res.products;
+    });  */
+  }
+
+  /**
+   *  GETTERS & SETTERS
+   */
+
+  get productTypes(){
+    return this._productTypes;
+  }
+
+  set productTypes(productTypes){
+    this._productTypes = productTypes;
+  }
+
+
+  /**
+   *  HTTP METHODS - API CLIENT
+   */
 
   getAllProductTypes(){
     let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });

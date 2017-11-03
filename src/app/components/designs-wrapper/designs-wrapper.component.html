@@ -1,6 +1,7 @@
 <div class="container">
   <div>
-    <div *ngIf="designInfo && productsTypes">
+    <div *ngIf="designInfo && productsTypes&& userDesigns && commentsInfo">
+
       <div class="row">
         <div class="col-md-4">
           <design-info [designInfo]="designInfo"></design-info>
@@ -13,7 +14,7 @@
       </div>
 
       <div class=row>
-        <comment-wrapper [designId]="designInfo._id" [commentsInfo]="commentsInfo"></comment-wrapper>
+        <comment-wrapper [commentsInfo]="commentsInfo" [designId]="designInfo._id" ></comment-wrapper>
       </div>
       <br>
     </div>

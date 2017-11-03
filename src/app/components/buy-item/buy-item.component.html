@@ -24,19 +24,19 @@
 
         <div class="col-auto">
           <label class="mr-sm-2" for="inlineFormCustomSelect">Talla</label>
-          <select [(ngModel)]="buyProduct.qty">
-
-            <option *ngFor="let size of productInfo.size" [ngValue]="size">{{size}}</option>
+          <select [(ngModel)]="buyProduct.size">
+              <!-- <option selected>{{productInfo.size[0]}}</option> -->
+              <option *ngFor="let size of productInfo.size" [ngValue]="size">{{size}}</option>
           </select>
         </div>
 
       </div>
 
         <div class="form-group">
-          <button type="button" (click)="subtractQty()">-</button>
-          <label for="model">Cantidad</label>
-          <input type="text" class="form-control" [(ngModel)]="productInfo.qty" name="productInfo.qty">
-          <button type="button" (click)="addQty()">+</button>
+            <label for="model">Cantidad</label>
+          <button type="button" (click)="subtractQty()">+</button>
+          <input type="text" class="form-control" [(ngModel)]="buyProduct.qty" name="buyProduct.qty" value="{{buyProduct.qty}}">
+          <button type="button" (click)="addQty()">-</button>
         </div>
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
