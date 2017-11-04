@@ -10,7 +10,7 @@ export class CommentWrapperComponent implements OnInit {
 
   //private listId = 'COMMENT_COMPONENT_LIST';
 
-  @Input() commentsInfo;
+  @Input() commentsInfo; //array of comments
   @Input() designId;
   message: String;
 
@@ -19,13 +19,23 @@ export class CommentWrapperComponent implements OnInit {
 
   ngOnInit() {}
 
-  submittedCommentForm(event){
+  submittedCommentForm(comment){
     console.log("NEW COMMENT.");
+    console.log("COMMENTSINFO:");
+    console.log(this.commentsInfo);
+    console.log(comment);
 
-    event.design = this.designId;
-    console.log(event);
+    let newComment = {
+      creator: comment.creator,
+      message: comment.message,
+      design: this.designId,
+      likedBy: []
+    }
 
-    this.commentsAPI.newComment(event)
+    this.commentsInfo.push(newComment);
+    console.log(this.commentsInfo);
+
+      this.commentsAPI.newComment(newComment)
     .subscribe((res) => {
       this.message = res.message;
       console.log(`response new comment: ${this.message}`);

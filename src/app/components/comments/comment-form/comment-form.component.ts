@@ -21,10 +21,8 @@ export class CommentFormComponent implements OnInit {
   }
 
   submitComment(){
-    this.newComment.creator = this.userAPI._currentUser._id;
-    console.log(this.newComment.creator);
-
-  this.submittedForm.emit(this.newComment);
+    this.newComment.creator = this.userAPI._currentUser;
+    this.submittedForm.emit(this.newComment);
 }
 
 }
