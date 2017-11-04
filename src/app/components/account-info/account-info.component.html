@@ -34,7 +34,9 @@
         <form (ngSubmit)="submitForm()" #myForm="ngForm">
            <div class="form-group">
              <label for="name">New password</label>
-             <input type="text" class="form-control" [(ngModel)]="accountInfo.user.password" name="accountInfo.user.password">
+             <input type="text" class="form-control" 
+             [(ngModel)]="accountInfo.user.password"
+             name="accountInfo.user.password">
            </div>
 
            <div class="form-group">
@@ -98,11 +100,7 @@
 
 
 
-
-
-
-
-<div *ngIf="currentView === 'Designer profile'">
+<div *ngIf="currentView === 'Designer profile' && currentUser.role === 'DESIGNER' ">
     <form (ngSubmit)="submitForm()" #myForm="ngForm">
 
       <div class="form-group">

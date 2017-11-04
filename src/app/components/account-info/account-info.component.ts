@@ -7,6 +7,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class AccountInfoComponent implements OnInit {
   optionalParameter: string;
+  currentUser: any = JSON.parse(localStorage.getItem('user'));
+ 
 
   arr = [];
 
