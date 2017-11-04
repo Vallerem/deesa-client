@@ -1,5 +1,5 @@
 import { ProductService } from './../../../services/product.service';
-import { Component, OnInit, Input, NgZone } from '@angular/core';
+import { Component, OnInit, Input, NgZone, Output, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 
 @Component({
@@ -10,43 +10,18 @@ import { Http } from '@angular/http';
 export class CartItemComponent implements OnInit {
 
   @Input() buyItem;
+  @Output() delItem = new EventEmitter < boolean > ();
+
 
   subtotal: Number;
 
   constructor( private http: Http, private ngzone: NgZone, private productAPI: ProductService) {}
 
 
-  ngOnInit() {
-    console.log(this.buyItem);
-
-  }
+  ngOnInit() {}
 
   deleteItem(id){
-    this.ngzone.run(() => {
-      this.productAPI.deleteProduct(id).subscribe((res)=>{
-        console.log("PERO ESTO DEL NGZONE QUE ES!?!?!?");
-        console.log(res);
-        this.productAPI.sendCartChanged();
-
-      });
-    })
-
+    this.delItem.emit(id); //Output - Send to parent
   }
-
-/*   deleteItem(id){
-    this.route.params.subscribe(params => {
-      let productId = id;
-      let userId = this.localUser._id;
-      let index = this.cartItemsId.indexOf(productId);
-      this.cartItems.splice(index, 1);
-      this.calculateTotal();
-      this.ngzone.run(() => {
-      return this.http.put(`${this.BASE_URL}/my-cart/deleteItem`, {productId, userId} )
-      .subscribe((res)=> {
-            this.account.sendCartChanged();
-          });
-    })
-  })
-} */
 
 }

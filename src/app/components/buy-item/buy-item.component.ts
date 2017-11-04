@@ -27,6 +27,10 @@ export class BuyItemComponent implements OnInit {
   constructor(private userAPI: UserService) {}
 
   ngOnInit() {
+console.log("userDesigns:");
+
+    console.log(this.userDesigns);
+
     if(this.productInfo.size){
       this.selectedValue = this.productInfo.size[0]; //default size S
     }

@@ -14,8 +14,10 @@ export class CartWrapperComponent implements OnInit {
   cart: any;
 
   ngOnInit() {
+
+    console.log("ENTRA CART WRAPPER - this.userAPI._userCart");
+    console.log(this.userAPI._userCart);
     this.cart = this.userAPI._userCart;
-    console.log(this.userAPI);
 
 /*         //check if products are in service loaded
         if (this.userAPI._userCart) {

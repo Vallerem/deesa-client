@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { ProductService } from '../../../services/product.service';
 
@@ -9,17 +9,14 @@ import { ProductService } from '../../../services/product.service';
 })
 export class CartListComponent implements OnInit {
 
-  @Input() cartInfo;
+  @Input() cartInfo; //array of items in cart  [{…}, {…}, {…}, {…}, {…}, {…}]
 
   cartTotal: Number = 0;
 
   constructor(private userAPI: UserService, private productAPI: ProductService) { }
 
   ngOnInit() {
-    console.log(this.cartInfo);
-
     this.calculateTotal();
-
   }
 
   processOrder(){
@@ -32,4 +29,13 @@ export class CartListComponent implements OnInit {
     });
   }
 
+  deleteItem(id){
+
+    let index = this.cartInfo.indexOf(id);
+    this.cartInfo.splice(index, 1);
+    this.calculateTotal();
+      this.productAPI.deleteProduct(id).subscribe((res)=>{
+        console.log(res);
+      });
+  }
 }

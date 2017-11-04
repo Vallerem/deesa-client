@@ -9,7 +9,9 @@
         </thead>
         <tbody>
             <tr class="product-li" *ngFor="let item of cartInfo">
-                <cart-item [buyItem]="item"></cart-item>
+                <cart-item [buyItem]="item" (delItem)="deleteItem($event)"></cart-item>
+<!--                 <comment-list [commentsInfo]="commentsInfo" (submittedLike)="addLike($event)"></comment-list>
+ -->
             </tr>
         </tbody>
 
