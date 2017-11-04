@@ -1,20 +1,80 @@
-<a class="nav-link" [routerLink]="['home']">Home</a>
-<p>{{ currentUser.username }}</p>
-<p>{{ currentUser.avatarUrl }}</p>
+<!--<p>{{ currentUser.username }}</p>
+<p>{{ currentUser.avatarUrl }}</p>-->
 
-<div>
-  <ul class="navbar-nav ml-auto">
+<div class="row">
 
-    <li><button (click)="clicked($event)">Account</button></li>
-    <li><button (click)="clicked($event)">Password</button></li>
-    <li><button (click)="clicked($event)">Address</button></li>
-   <!--  <li><a class="nav-link" [routerLink]="['/designs']">Designs</a></li> -->
-    <!--<li><a class="nav-link" [routerLink]="['/designer']">Orders</a></li> -->
-  </ul>
 
-<div *ngIf='accountInfo'>
-  <account-info [accountInfo]="accountInfo" [currentView]="currentView" (submittedForm)="editAccount($event)">
-  </account-info>
+  <div class="col-12 col-md-12 col-lg-12 hidden-md-up" style="text-align:center; margin: auto;">
+
+
+
+      <div style="text-align:center;">
+        <form #myForm="ngForm">
+        <input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
+        <input type="hidden" name="_id" value="{{accountInfo.user._id}}">
+          <img class="img-fluid avatar-form-img" 
+          src="{{accountInfo.user.avatarUrl}}" alt="User image">
+          <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+        </form>
+      </div>
+
+    <ul class="nav nav-tabs">
+      <li class="nav-item" style="width: 25%; margin-left: -20px;">
+        <a class="nav-link" (click)="clicked($event)" active href="#">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Password</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Address</a>
+      </li>
+      <li *ngIf="currentUser.role === 'DESIGNER' "  class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Designer profile</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-12 col-md-12 col-lg-2 hidden-sm-down"
+  style="text-align:center; margin: 20px auto 0 auto;">
+
+
+      <div style="text-align:center;">
+        <form (ngSubmit)="submitImage()">
+        <input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
+        <input type="hidden" name="_id" value="{{accountInfo.user._id}}">
+          <img class="img-fluid avatar-form-img" 
+          src="{{accountInfo.user.avatarUrl}}" alt="User image">
+          <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
+
+          <button class="btn btn-primary" type="submit">Upload image</button>
+        </form>
+        <p>{{feedback}}</p>
+      </div>
+
+
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" active href="#">Account</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Password</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Address</a>
+      </li>
+      <li *ngIf="currentUser.role === 'DESIGNER' " class="nav-item">
+        <a class="nav-link" (click)="clicked($event)" href="#">Designer profile</a>
+      </li>
+
+    </ul>
+  </div>
+
+<div class="col-12 col-md-12 col-lg-10">
+  
+  <div *ngIf='accountInfo' style="margin: 30px 0 30px 0;">
+    <account-info [accountInfo]="accountInfo" [currentView]="currentView" (submittedForm)="editAccount($event)">
+    </account-info>
+  </div>
 </div>
 
 

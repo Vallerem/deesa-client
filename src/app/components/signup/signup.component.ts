@@ -15,16 +15,15 @@ export class SignupComponent implements OnInit {
 	error = null;
   authenticated: boolean;
   currentUser: Object;
+  message = "";
 
 
   user = {
 		username: '',
 		password: '',
     email: '',
-    userInfo: {
-       name: '', 
-       surname: ''
-    },
+    name: '', 
+    surname: '',
     role: ''
 	}
 
@@ -63,7 +62,11 @@ export class SignupComponent implements OnInit {
   				this.router.navigate(['/account']);
   			},
   			(err) => {
+
+          console.log(err);
   				this.error = err;
+          // this.message = message;
   			});
   }
 }
+

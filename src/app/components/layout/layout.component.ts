@@ -17,10 +17,15 @@ export class LayoutComponent implements OnInit {
   constructor(private userAPI: UserService, private designAPI: DesignService) {}
 
   ngOnInit() {
+    console.log("ngOnInit() - this.userApi:");
+    console.log(this.userAPI);
+    
         //check if current User are in service loaded
         if (!this.userAPI._currentUser) {
           this.userAPI._currentUser= this.currentUser;
         }
+    console.log(" before ngOnInit() - this.userApi:");
+    console.log(this.userAPI);
 
 console.log("HOLA");
 
