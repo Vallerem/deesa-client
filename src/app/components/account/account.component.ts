@@ -11,15 +11,11 @@ import { FileUploader } from 'ng2-file-upload';
 })
 export class AccountComponent implements OnInit {
 
-<<<<<<< HEAD
   uploader: FileUploader = new FileUploader({
     url: `http://localhost:3000/account/avatar`
   });
 
   currentUser: any = JSON.parse(localStorage.getItem('user'));
-=======
-  //currentUser: any = JSON.parse(localStorage.getItem('user'));
->>>>>>> 6ee65f2c3fced2c7e2ec959994500cf8647e4b29
   currentView: string = "Account";
   accountInfo; //JSON
   innerWidth = (window.screen.width) + "px";
