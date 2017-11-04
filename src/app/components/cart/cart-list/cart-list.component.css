@@ -9,3 +9,7 @@
   color: #555;
 /*   border-bottom: 1px solid #ddd;
  */}
+
+ .alert-link{
+   cursor: pointer;
+ }

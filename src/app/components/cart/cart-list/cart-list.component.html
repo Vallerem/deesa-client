@@ -14,6 +14,7 @@
  -->
             </tr>
         </tbody>
+        <div class="alert alert-danger" role="alert" *ngIf="message">{{message}} -<a (click)="revertDeleteProduct()" class="alert-link"> Deshacer ultimo</a></div>
 
       </table>
       <table class="table">

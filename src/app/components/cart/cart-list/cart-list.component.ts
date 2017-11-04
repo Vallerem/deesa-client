@@ -9,9 +9,13 @@ import { ProductService } from '../../../services/product.service';
 })
 export class CartListComponent implements OnInit {
 
-  @Input() cartInfo; //array of items in cart  [{…}, {…}, {…}, {…}, {…}, {…}]
+  @Input() cartInfo; //array of items in cart  [{_id,creator,...}, {…}, {…}, {…}, {…}, {…}]
 
   cartTotal: Number = 0;
+  message: any;
+  serverDelete = false;   // flag to proceed delete item in server side.
+  zombieIndexItem: any;  // index to return
+  zombieItem: any = {};  // item to return
 
   constructor(private userAPI: UserService, private productAPI: ProductService) { }
 
@@ -29,13 +33,44 @@ export class CartListComponent implements OnInit {
     });
   }
 
-  deleteItem(id){
+  revertDeleteProduct(){
+    this.cartInfo.splice(this.zombieIndexItem, 0, this.zombieItem); //insert item into cartInfo at the specified index (deleting 0 items first).
+    this.message = (function () { return; })(); // set message undefined
+    this.serverDelete=false;
+  }
 
-    let index = this.cartInfo.indexOf(id);
-    this.cartInfo.splice(index, 1);
-    this.calculateTotal();
-      this.productAPI.deleteProduct(id).subscribe((res)=>{
-        console.log(res);
-      });
+  /**
+   *
+   * @param id item
+   */
+  deleteItem(id) {
+    console.log(this.serverDelete);
+    console.log(this.cartInfo);
+
+    if (this.serverDelete === true) {
+
+        this.calculateTotal();
+        this.productAPI.deleteProduct(this.zombieItem._id).subscribe((res) => {
+          console.log(res);
+          this.message = res.message;
+        });
+
+      this.serverDelete = false;
+      this.getZombieItem(id);
+
+    } else {
+      this.getZombieItem(id);
+      this.calculateTotal();
+
+      this.message = "Producto eliminado"
+      this.serverDelete = true;
+    }
+  }
+
+  //find id inside an array of items and retrieve this index. Slice this item from cart info
+  getZombieItem(id){
+    this.zombieIndexItem = this.cartInfo.map(function(element) {return element._id; }).indexOf(id);
+    this.zombieItem = this.cartInfo[this.zombieIndexItem];
+    this.cartInfo.splice(this.zombieIndexItem, 1);
   }
 }
