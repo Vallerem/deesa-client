@@ -4,9 +4,14 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import { Subject } from 'rxjs/Subject';
+
 
 @Injectable()
 export class ProductService {
+
+  private subject = new Subject<any>();
+
 
   private BASE_URL: string = environment.baseAPI; //http://localhost:3000
   _productTypes: any;
@@ -59,5 +64,16 @@ export class ProductService {
 
     return this.http.post(`${this.BASE_URL}/api/v1/products/new`, product, options)
       .map((res) => res.json());
+  }
+
+  deleteProduct(id) {
+  	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+  	let options = new RequestOptions({ headers: headers });
+  	return this.http.delete(`${this.BASE_URL}/api/v1/products/${id}`, options)
+  		.map( (res) => res.json());
+  }
+
+  sendCartChanged() {
+    this.subject.next({"changed": true});
   }
 }

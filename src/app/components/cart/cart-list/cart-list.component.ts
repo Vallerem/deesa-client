@@ -11,11 +11,25 @@ export class CartListComponent implements OnInit {
 
   @Input() cartInfo;
 
+  cartTotal: Number = 0;
+
   constructor(private userAPI: UserService, private productAPI: ProductService) { }
 
   ngOnInit() {
     console.log(this.cartInfo);
 
+    this.calculateTotal();
+
+  }
+
+  processOrder(){
+    console.log("PROCESS");
+  }
+
+  calculateTotal(){
+    this.cartInfo.forEach(element => {
+      this.cartTotal += element.productType.price;
+    });
   }
 
 }
