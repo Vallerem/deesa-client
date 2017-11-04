@@ -4,9 +4,11 @@
 </div>
  -->
 
- <div class="container">
   <div class="row">
-  <comment-form [commentsInfo]="commentsInfo" (submittedForm)="submittedCommentForm($event)"></comment-form>
-  <comment-list [commentsInfo]="commentsInfo" (submittedLike)="addLike($event)"></comment-list>
+    <comment-form [commentsInfo]="commentsInfo" (submittedForm)="submittedCommentForm($event)"></comment-form>
   </div>
-</div>
+  <div class="row">
+    <comment-list [commentsInfo]="commentsInfo" (submittedLike)="addLike($event)"></comment-list>
+  </div>
+
+

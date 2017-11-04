@@ -14,7 +14,11 @@ export class DesignService {
   private BASE_URL: string = environment.baseAPI; //http://localhost:3000
   currentUser: any = JSON.parse(localStorage.getItem('user'));
 
+  public _designId: any;
+
   public _designList: any;
+
+  public _designInfo: any;
 
 
   constructor(private http: Http, private session: SessionService) {
@@ -25,6 +29,19 @@ export class DesignService {
   /**
    * GETTERS & SETTERS
    */
+  get designId() {
+    return this._designId;
+  }
+  set designId(designId) {
+    this._designId = designId;
+  }
+
+  get designInfo() {
+    return this._designInfo;
+  }
+  set designInfo(designInfo) {
+    this._designInfo = designInfo;
+  }
 
     set designList(value:any) {
       this._designList = value;

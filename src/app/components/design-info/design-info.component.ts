@@ -14,8 +14,6 @@ export class DesignInfoComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 }
