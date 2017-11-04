@@ -1,0 +1,7 @@
+<div *ngIf="userDesigns && productInfo&& designInfo">
+  <div class="container">
+    <div>
+      <buy-item [userDesigns]="userDesigns" [productInfo]="productInfo"  [designInfo]="designInfo" (submittedForm)="submitForm($event)" ></buy-item>
+    </div>
+  </div>
+</div>

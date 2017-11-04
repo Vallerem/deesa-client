@@ -1,0 +1,41 @@
+
+  <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <th></th>
+          <th>Item</th>
+          <th>Size</th>
+          <th>Price</th>
+        </thead>
+        <tbody>
+            <tr class="product-li" *ngFor="let item of cartInfo">
+                <cart-item [buyItem]="item"></cart-item>
+            </tr>
+        </tbody>
+
+      </table>
+      <table class="table">
+        <thead>
+          <th class="col-md-1"></th>
+          <th class="col-md-4"></th>
+          <th class="col-md-1"></th>
+          <th class="col-md-1"></th>
+          <th class="col-md-2">Total:</th>
+          <th class="col-md-4"></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-md-1"></td>
+            <td class="col-md-4"></td>
+            <td class="col-md-1"></td>
+            <td class="col-md-1"></td>
+            <td class="col-md-2">{{ cartTotal }}€</td>
+             <td class="col-md-4 cartitem cartItem-delete">
+                  <button type="button" class="btn btn-default" (click)="processOrder()">Process Order
+                  </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p id="added"></p>
