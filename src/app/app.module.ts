@@ -52,6 +52,9 @@ import { ProductWrapperComponent } from './components/product-wrapper/product-wr
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { BuyItemWrapperComponent } from './components/buy-item-wrapper/buy-item-wrapper.component';
 import { BuyItemComponent } from './components/buy-item/buy-item.component';
+import { CartWrapperComponent } from './components/cart/cart-wrapper/cart-wrapper.component';
+import { CartListComponent } from './components/cart/cart-list/cart-list.component';
+import { CartItemComponent } from './components/cart/cart-item/cart-item.component';
 
 
 @NgModule({
@@ -85,7 +88,10 @@ import { BuyItemComponent } from './components/buy-item/buy-item.component';
     ProductWrapperComponent,
     ProductItemComponent,
     BuyItemWrapperComponent,
-    BuyItemComponent
+    BuyItemComponent,
+    CartWrapperComponent,
+    CartListComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,

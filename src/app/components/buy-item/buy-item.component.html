@@ -7,9 +7,8 @@
   </div>
   <div class="col-md-6 col-sm-12 buy-right-side">
     <div>
-      <p>{{designInfo.title}}</p>
+      <h3>{{designInfo.title}}</h3>
     </div>
-
     <div>
       <span>PRECIO:</span>
       <span>{{productInfo.price}}€</span>
@@ -24,9 +23,8 @@
 
         <div class="col-auto">
           <label class="mr-sm-2" for="inlineFormCustomSelect">Talla</label>
-          <select [(ngModel)]="buyProduct.size">
-              <!-- <option selected>{{productInfo.size[0]}}</option> -->
-              <option *ngFor="let size of productInfo.size" [ngValue]="size">{{size}}</option>
+          <select [(ngModel)]="selectedValue" name="talla">
+              <option *ngFor="let size of productInfo.size" [ngValue]="size" [selected]="size">{{size}}</option>
           </select>
         </div>
 
@@ -39,7 +37,9 @@
           <button type="button" (click)="addQty()">-</button>
         </div>
 
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+       <!--  OTROS DISEÑOS
+         -->
+       <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -64,9 +64,9 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>
-        <button [disabled]=" (!myForm.valid)" type="submit" class="btn btn-default">
-          Añadir</button>
+        </div> -->
+
+        <button class="btn btn-primary" [disabled]=" (!myForm.valid)" type="submit">Añadir</button>
 
       </form>
 

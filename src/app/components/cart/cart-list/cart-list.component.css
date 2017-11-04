@@ -1,0 +1,11 @@
+.product-li{
+  list-style: none;
+  float: none;
+  width: auto;
+  margin: 0 0 20px 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.4em;
+  color: #555;
+/*   border-bottom: 1px solid #ddd;
+ */}

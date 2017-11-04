@@ -1,3 +1,4 @@
+import { CartWrapperComponent } from './components/cart/cart-wrapper/cart-wrapper.component';
 import { AllDesignsWrapperComponent } from './components/all-designs-wrapper/all-designs-wrapper.component';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
 import { NgModule } from '@angular/core';
@@ -31,6 +32,7 @@ children: [
    { path: 'designs/new', component: DesignNewWrapperComponent, canActivate: [SessionService]},
    { path: 'designs/:username', component: UserWrapperComponent, canActivate: [SessionService]},
    { path: 'designs/view/:idDesign/product/:productName', component: BuyItemWrapperComponent, canActivate: [SessionService]},
+   { path: 'cart', component: CartWrapperComponent, canActivate: [SessionService]},
 
 ] },
   { path: 'signup', component: SignupComponent },

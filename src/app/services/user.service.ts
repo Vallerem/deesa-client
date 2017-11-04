@@ -12,6 +12,7 @@ export class UserService {
 
   _currentUser: any = JSON.parse(localStorage.getItem('user'));
   _userDesigns: any;
+  _userCart:any;
 
   constructor(
     private http: Http,
@@ -31,6 +32,13 @@ export class UserService {
   }
   set currentUser(currentUser) {
     this._currentUser = currentUser;
+  }
+
+  get userCart() {
+    return this._userCart;
+  }
+  set userCart(userCart) {
+    this._userCart = userCart;
   }
 
   //HTTP METHODS - API CLIENT
@@ -75,6 +83,14 @@ export class UserService {
     console.log("getUserDesigns");
 
     return this.http.get(`${this.BASE_URL}/account/designs/${userId}`, options).map((res) => res.json());
+  }
+
+  getCart(userId){
+  	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+    let options = new RequestOptions({ headers: headers });
+    console.log("getCart");
+
+    return this.http.get(`${this.BASE_URL}/account/cart/${userId}`, options).map((res) => res.json());
   }
 
 

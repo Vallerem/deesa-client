@@ -13,63 +13,51 @@ export class BuyItemWrapperComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private userAPI: UserService, private designAPI: DesignService, private productAPI: ProductService) { }
 
+  //async variables
   userDesigns:any;
+  productInfo:any;
+  designInfo:any;
+
   designId: any;
   productName:any;
-  productInfo:any;
-  designInfo:any={};
-  designInfoService:any={};
 
-
-  //Necesitas diseño info y diseños del usuario
-  //  { path: 'designs/view/:idDesign/product/:productName', component: BuyItemWrapperComponent, canActivate: [SessionService]}
+  message: any={};
 
   ngOnInit() {
 
-    console.log("AI");
-    console.log("AI");
-
-
-
-    this.designId = this.route.snapshot.paramMap.get('designId');
+    this.designId = this.route.snapshot.paramMap.get('idDesign');
     this.productName = this.route.snapshot.paramMap.get('productName'); //catch route param
-    console.log("LLEGA AQUI BUY WRAPPER");
 
-    this.designAPI.getDesign('59f1bf09e792f547483299ee').subscribe((res)=>{
+    this.designAPI.getDesign(this.designId).subscribe((res)=>{
       this.designInfo = res.design;
-      console.log("OnInit() designInfo");
-      console.log(this.designInfo);
     });
 
-    this.userAPI.getUserDesigns('59ed2620c326752790c62c12').subscribe((res)=>{
-      this.userDesigns = res.designs;
-      console.log(this.userDesigns);
-    });
+    //check if products are in service loaded
+    if (this.userAPI._userDesigns) {
+      this.userDesigns = this.userAPI._userDesigns;
+    } else {
+      this.userAPI.getUserDesigns(this.userAPI._currentUser._id).subscribe((res)=>{
+        this.userDesigns = res.designs;
+        console.log(this.userDesigns);
+      });
+    }
 
     this.productAPI.getProductType(this.productName).subscribe((res)=>{
       this.productInfo = res.product;
-      console.log("OnInit() productInfo");
-
-      console.log(this.productInfo);
     });
-
-/*     this.getDesign('59f1bf09e792f547483299ee');
-    this.getDesignFromService();
- */
   }
 
-/*   getDesign(id){
-    this.designAPI.getDesign('59f1bf09e792f547483299ee').subscribe((res)=>{
-      this.designInfo = res;
-      console.log("getDesign() - designInfo");
-      console.log(this.designInfo);
+
+  submitForm(event){
+    console.log("sdfsdsfsfdsfdsfdsf");
+    console.log(event);
+
+    this.productAPI.newBuyProduct(event)
+    .subscribe((res) => {
+      this.message = res.message;
+      this.userAPI._userCart=event; //store item un user shopping cart
+      console.log(`response new comment: ${this.message}`);
     });
-  } */
 
-/*   getDesignFromService(){
-    this.designInfoService=this.designAPI._designInfo;
-    console.log("designInfoService");
-    console.log(this.designInfoService);
-
-  } */
+  }
 }

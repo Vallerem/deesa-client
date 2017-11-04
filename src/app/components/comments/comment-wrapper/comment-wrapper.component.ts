@@ -17,13 +17,7 @@ export class CommentWrapperComponent implements OnInit {
 
   constructor(private commentsAPI: CommentService) { }
 
-  ngOnInit() {
-console.log("COMMENT WRAPPER");
-console.log(`commentsInfo${JSON.stringify(this.commentsInfo)}`);
-
-
-
-  }
+  ngOnInit() {}
 
   submittedCommentForm(event){
     console.log("NEW COMMENT.");

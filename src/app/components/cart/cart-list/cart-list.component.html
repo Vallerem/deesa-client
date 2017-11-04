@@ -1,0 +1,7 @@
+<h3>CARRITO</h3>
+  <ol>
+    <li class="product-li" *ngFor="let item of cartInfo">
+        <cart-item [buyItem]="item"></cart-item>
+    </li>
+  </ol>
+

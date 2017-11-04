@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/user.service';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
@@ -7,22 +8,22 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class CommentFormComponent implements OnInit {
 
-  currentUser: any = JSON.parse(localStorage.getItem('user'));
   @Input() commentsInfo;
   @Output() submittedForm = new EventEmitter<boolean>();
 
+
   newComment: any = {};
 
-  constructor() { }
+  constructor(private userAPI: UserService) { }
   ngOnInit() {
-    console.log(`currentUser-->${JSON.stringify(this.currentUser)}`);
+    console.log(`currentUser-->${JSON.stringify(this.userAPI._currentUser)}`);
 
   }
 
   submitComment(){
-    console.log(this.commentsInfo);
+    this.newComment.creator = this.userAPI._currentUser._id;
+    console.log(this.newComment.creator);
 
-    this.newComment.creator = this.currentUser._id;
   this.submittedForm.emit(this.newComment);
 }
 

@@ -53,5 +53,11 @@ export class ProductService {
     .map((res) => res.json() );
   }
 
+  newBuyProduct(product){
+    let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+    let options = new RequestOptions({ headers: headers });
 
+    return this.http.post(`${this.BASE_URL}/api/v1/products/new`, product, options)
+      .map((res) => res.json());
+  }
 }
