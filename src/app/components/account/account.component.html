@@ -1,5 +1,3 @@
-
-
 <!--<p>{{ currentUser.username }}</p>
 <p>{{ currentUser.avatarUrl }}</p>-->
 
@@ -8,11 +6,13 @@
 
   <div class="col-12 col-md-12 col-lg-12 hidden-md-up" style="text-align:center; margin: auto;">
 
+
+
       <div style="text-align:center;">
         <form #myForm="ngForm">
         <input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
         <input type="hidden" name="_id" value="{{accountInfo.user._id}}">
-          <img class="img-fluid rounded avatar-form-img" 
+          <img class="img-fluid avatar-form-img" 
           src="{{accountInfo.user.avatarUrl}}" alt="User image">
           <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
         </form>
@@ -39,12 +39,12 @@
 
 
       <div style="text-align:center;">
-        <form (ngSubmit)="submitImage()" #myForm="ngForm">
+        <form (ngSubmit)="submitImage()">
         <input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
         <input type="hidden" name="_id" value="{{accountInfo.user._id}}">
-          <img class="img-fluid rounded avatar-form-img" 
+          <img class="img-fluid avatar-form-img" 
           src="{{accountInfo.user.avatarUrl}}" alt="User image">
-          <input type="file" name="imgUrl" ng2FileSelect [uploader]="uploader"/>
+          <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
 
           <button class="btn btn-primary" type="submit">Upload image</button>
         </form>
