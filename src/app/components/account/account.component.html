@@ -9,14 +9,21 @@
 
 
       <div style="text-align:center;">
-        <form #myForm="ngForm">
-        <input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
-        <input type="hidden" name="_id" value="{{accountInfo.user._id}}">
+        <form (ngSubmit)="submitImage()">
+        <!--<input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
+        <input type="hidden" name="_id" value="{{accountInfo.user._id}}">-->
           <img class="img-fluid avatar-form-img" 
           src="{{accountInfo.user.avatarUrl}}" alt="User image">
-          <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+          <label style="" class="fileContainer"> Select a new image
+          <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
+          </label> 
+          <button style="clear:left;" class="btn btn-primary" type="submit">Upload image</button>
         </form>
+        <div *ngIf="feedback === undefined" >
+          <p class="alert alert-success"> {{feedback}} </p>
+        </div>
       </div>
+
 
     <ul class="nav nav-tabs">
       <li class="nav-item" style="width: 25%; margin-left: -20px;">
@@ -40,15 +47,19 @@
 
       <div style="text-align:center;">
         <form (ngSubmit)="submitImage()">
-        <input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
-        <input type="hidden" name="_id" value="{{accountInfo.user._id}}">
+        <!--<input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
+        <input type="hidden" name="_id" value="{{accountInfo.user._id}}">-->
           <img class="img-fluid avatar-form-img" 
           src="{{accountInfo.user.avatarUrl}}" alt="User image">
+          <label class="fileContainer"> Select a new image
           <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
-
+          </label> 
           <button class="btn btn-primary" type="submit">Upload image</button>
         </form>
-        <p>{{feedback}}</p>
+    
+            <div *ngIf="feedback !== undefined" >
+          <p class="alert-success avatar-succes"> {{feedback}} </p>
+        </div>
       </div>
 
 
