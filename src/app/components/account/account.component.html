@@ -1,50 +1,41 @@
-<!--<p>{{ currentUser.username }}</p>
-<p>{{ currentUser.avatarUrl }}</p>-->
+<div *ngIf="accountInfo">
+  <div class="row">
 
-<div class="row">
-
-
-  <div class="col-12 col-md-12 col-lg-12 hidden-md-up" style="text-align:center; margin: auto;">
-
-
+    <div class="col-12 col-md-12 col-lg-12 hidden-md-up" style="text-align:center; margin: auto;">
 
       <div style="text-align:center;">
         <form #myForm="ngForm">
-        <input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
-        <input type="hidden" name="_id" value="{{accountInfo.user._id}}">
-          <img class="img-fluid avatar-form-img" 
-          src="{{accountInfo.user.avatarUrl}}" alt="User image">
+          <input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
+          <input type="hidden" name="_id" value="{{accountInfo.user._id}}">
+          <img class="img-fluid avatar-form-img" src="{{accountInfo.user.avatarUrl}}" alt="User image">
           <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
         </form>
       </div>
 
-    <ul class="nav nav-tabs">
-      <li class="nav-item" style="width: 25%; margin-left: -20px;">
-        <a class="nav-link" (click)="clicked($event)" active href="#">Account</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="clicked($event)" href="#">Password</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="clicked($event)" href="#">Address</a>
-      </li>
-      <li *ngIf="currentUser.role === 'DESIGNER' "  class="nav-item">
-        <a class="nav-link" (click)="clicked($event)" href="#">Designer profile</a>
-      </li>
-    </ul>
-  </div>
+      <ul class="nav nav-tabs">
+        <li class="nav-item" style="width: 25%; margin-left: -20px;">
+          <a class="nav-link" (click)="clicked($event)" active href="#">Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="clicked($event)" href="#">Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="clicked($event)" href="#">Address</a>
+        </li>
+        <li *ngIf="currentUser.role === 'DESIGNER' " class="nav-item">
+          <a class="nav-link" (click)="clicked($event)" href="#">Designer profile</a>
+        </li>
+      </ul>
+    </div>
 
-  <div class="col-12 col-md-12 col-lg-2 hidden-sm-down"
-  style="text-align:center; margin: 20px auto 0 auto;">
-
+    <div class="col-12 col-md-12 col-lg-2 hidden-sm-down" style="text-align:center; margin: 20px auto 0 auto;border-right: 1px solid #d0d0d0;">
 
       <div style="text-align:center;">
         <form (ngSubmit)="submitImage()">
-        <input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
-        <input type="hidden" name="_id" value="{{accountInfo.user._id}}">
-          <img class="img-fluid avatar-form-img" 
-          src="{{accountInfo.user.avatarUrl}}" alt="User image">
-          <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
+          <input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
+          <input type="hidden" name="_id" value="{{accountInfo.user._id}}">
+          <img class="img-fluid avatar-form-img" src="{{accountInfo.user.avatarUrl}}" alt="User image">
+          <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
 
           <button class="btn btn-primary" type="submit">Upload image</button>
         </form>
@@ -52,32 +43,30 @@
       </div>
 
 
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <a class="nav-link" (click)="clicked($event)" active href="#">Account</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="clicked($event)" href="#">Password</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" (click)="clicked($event)" href="#">Address</a>
-      </li>
-      <li *ngIf="currentUser.role === 'DESIGNER' " class="nav-item">
-        <a class="nav-link" (click)="clicked($event)" href="#">Designer profile</a>
-      </li>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" (click)="clicked($event)" active href="#">Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="clicked($event)" href="#">Password</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="clicked($event)" href="#">Address</a>
+        </li>
+        <li *ngIf="currentUser.role === 'DESIGNER' " class="nav-item">
+          <a class="nav-link" (click)="clicked($event)" href="#">Designer profile</a>
+        </li>
 
-    </ul>
-  </div>
+      </ul>
+    </div>
+    <div class="col-12 col-md-12 col-lg-10">
+      <div *ngIf='accountInfo' style="margin: 30px 0 30px 0;">
+        <account-info [accountInfo]="accountInfo" [currentView]="currentView" (submittedForm)="editAccount($event)">
+        </account-info>
+        <br>
+        <div class="alert alert-success" role="alert" *ngIf="message">{{message}}</div>
 
-<div class="col-12 col-md-12 col-lg-10">
-  
-  <div *ngIf='accountInfo' style="margin: 30px 0 30px 0;">
-    <account-info [accountInfo]="accountInfo" [currentView]="currentView" (submittedForm)="editAccount($event)">
-    </account-info>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-</div>
-
