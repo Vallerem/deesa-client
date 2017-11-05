@@ -11,7 +11,6 @@ import { environment } from '../../../environments/environment';
 })
 export class AccountComponent implements OnInit {
 
-
   BASE_URL: string = environment.baseAPI; //http://localhost:3000
 
   uploader: FileUploader = new FileUploader({
@@ -23,18 +22,33 @@ export class AccountComponent implements OnInit {
   accountInfo: any; //JSON
   userAvatar: any = JSON.parse(localStorage.getItem('user'));
   innerWidth = (window.screen.width) + "px";
-  feedback;
+  arr = [];
+  feedback = undefined;
   message:any;
 
 
   constructor(private userAPI: UserService) {}
 
   ngOnInit() {
+
     this.userAPI.getAccount(this.userAPI._currentUser)
       .subscribe((res) => {
         this.accountInfo = res;
         this.userAvatar = res.avatarUrl;
       });
+    // console.log("********************");
+    // console.log(this.userAPI._currentUser);
+    
+    this.userAPI.getAccount(this.userAPI._currentUser)
+      .subscribe((res) => {
+        // console.log(`ngOnInit[PARENT] subscribe response-->${JSON.stringify(res)}`);
+        this.accountInfo = res;
+        this.userAvatar = res.avatarUrl;
+      });
+      this.arr.push(this.accountInfo);
+      this.arr.forEach((e)=>{
+        // console.log(e);
+      })
 
     this.uploader.onSuccessItem = (item, response) => {
       this.feedback = JSON.parse(response).message;
@@ -48,10 +62,10 @@ export class AccountComponent implements OnInit {
   submitImage() {
 
     this.uploader.onBuildItemForm = (item, form) => {
-      item.withCredentials = false;
-      form.append('_id', this.userAPI._currentUser._id);
-      form.append('old_imgUrl', this.userAPI._currentUser.avatarUrl);
-    };
+          item.withCredentials = false;
+          form.append('_id', this.userAPI._currentUser._id );
+          form.append('old_imgUrl', this.accountInfo.user.avatarUrl );       
+        };
 
     this.uploader.uploadAll();
   }

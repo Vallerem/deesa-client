@@ -2,14 +2,15 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-12 col-md-3">
         </div>
-        <div class="col-md-9">
-          <form (ngSubmit)="submitForm(myForm.value)" #myForm="ngForm">
+        <div class="col-12 col-md-9">
+          <form (ngSubmit)="submitForm()" #myForm="ngForm">
 
             <div class="form-group">
               <label for="model">Título</label>
-              <input type="text" required class="form-control" placeholder="Título" [(ngModel)]="designInfo.title" name="designInfo.title"
+              <input type="text" required class="form-control" placeholder="Título" 
+              [(ngModel)]="designInfo.title" name="designInfo.title"
                 #myTitle="ngModel" minLength="6">
             </div>
 
@@ -25,27 +26,28 @@
                   </p>
                 </div> -->
 
-            <div class="form-group">
-              <label for="model">Imagen principal</label>
-              <input type="text" class="form-control" placeholder="Imagen principal" [(ngModel)]="designInfo.designMainImg" name="designInfo.designMainImg">
-            </div>
-
-            <div class="form-group">
+            <!--<div class="form-group">
               <label for="model">Imagenes</label>
               <input type="text" class="form-control" #myGallery="ngModel" [(ngModel)]="img" name="img">
-            </div>
+            </div>-->
 
             <div class="form-group">
               <label for="model">Descripción</label>
-              <input type="text" class="form-control" placeholder="Descripcion" [(ngModel)]="designInfo.description" name="designInfo.description">
+              <textarea rows="4" class="form-control" [(ngModel)]="designInfo.description" name="designInfo.description">
+              </textarea >
             </div>
 
+                        <div class="form-group">
+              <label for="model">Imagen principal</label>
+              <input type="file" name="file" ng2FileSelect [uploader]="uploader" required/>
+            </div>
+<!--
             <span class="label label-default" *ngFor="let img of designInfo.designGallery">{{ img }}</span>
-            <button [disabled]=" (!myGallery.dirty)" type="button" class="btn btn-default" (click)="addImg()">Añadir imagen</button>
+            <button [disabled]=" (!myGallery.dirty)" type="button" class="btn btn-default" (click)="addImg()">Añadir imagen</button>-->
 
-<!--             <button type="submit" class="btn btn-default">Submit</button>
- -->            <button [disabled]=" (!myForm.valid)" type="submit" class="btn btn-default">
-              Crear</button>
+<!-- <button type="submit" class="btn btn-default">Submit</button>-->    
+             <button [disabled]=" (!myForm.valid)" type="submit" class="btn btn-success">
+              Crear Diseño</button>
 
           </form>
 
@@ -55,4 +57,6 @@
     </div>
   </div>
 </div>
+
+
 
