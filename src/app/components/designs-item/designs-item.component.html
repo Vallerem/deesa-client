@@ -1,14 +1,16 @@
-<div class="card teaser-wrapper-design">
+<div class="card teaser-wrapper-design" (mouseenter) ="changeImgHover($event)" (mouseout)="changeImgHover($event)">
   <a [routerLink]="['/designs/view', designsItem._id]" role="button">
-    <img class="card-img-top resize-img" src="{{designsItem.designMainImg}}" alt="Card image cap">
+    <img class="card-img-top resize-img" [ngClass]="hover" src="{{designsItem.designMainImg}}" alt="Card image cap">
 
   <div class="card-block">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text" (mouseenter) ="changeImgHover2($event)" (mouseout)="changeImgHover2($event)">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <div>
+      <div class="card-footer text-muted">
+          <span>{{designsItem.title}}</span>
+      </div>
   </div>
 
-  <div class="card-footer text-muted">
-      2 days ago
-  </div>
 </a>
 </div>
 
