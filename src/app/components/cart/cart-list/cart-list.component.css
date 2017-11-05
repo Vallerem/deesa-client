@@ -1,4 +1,4 @@
-.product-li{
+/* .product-li{
   list-style: none;
   float: none;
   width: auto;
@@ -7,8 +7,8 @@
   font-size: 15px;
   line-height: 1.4em;
   color: #555;
-/*   border-bottom: 1px solid #ddd;
- */}
+  border-bottom: 1px solid #ddd;
+} */
 
  .alert-link{
    cursor: pointer;

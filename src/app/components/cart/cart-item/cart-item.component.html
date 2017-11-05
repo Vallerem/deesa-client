@@ -1,11 +1,11 @@
+<tr>
+  <th class="col-md-3">{{ buyItem.productType.name }}</th>
+  <td class="col-md-3">{{ buyItem.size}}</td>
+  <td class="col-md-3">{{ buyItem.productType.price}}€</td>
+  <td class="col-md-3">
+    <button type="button" class="btn btn-danger" (click)="deleteItem(buyItem._id)">
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+  </td>
+</tr>
 
-<!--     <td class="col-md-1"><img class="cartitem cartItem-image" src="http://images.nicethings.es/ecommerce/024/{{cartItem?.productId.mpn}}_{{cartItem?.ordered_color}}_M.jpg" height=50px/></td>
- -->    <td class="col-md-4 cartitem cartItem-title">{{ buyItem.productType.name }}</td>
-    <td *ngIf="buyItem.size" class="col-md-1 cartitem cartItem-size">{{ buyItem.size}}</td>
-    <td class="col-md-2 cartitem cartItem-price">{{ buyItem.productType.price}}€</td>
-
-    <td class="col-md-4 cartitem cartItem-delete">
-          <button type="button" class="btn btn-danger" (click)="deleteItem(buyItem._id)">
-              <i class="fa fa-trash" aria-hidden="true"></i>
-          </button>
-    </td>

@@ -24,7 +24,7 @@ export class CartListComponent implements OnInit {
   }
 
   processOrder(){
-    console.log("PROCESS");
+    alert("PASARELA DE PAGO");
   }
 
   calculateTotal(){
