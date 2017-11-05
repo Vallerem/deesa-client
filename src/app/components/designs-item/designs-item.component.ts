@@ -7,11 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DesignsItemComponent implements OnInit {
 
+  /**
+   * params: {_id, title, creator, description, designGallery[], designMainImg, likedBy[]}
+   */
   @Input() designsItem;
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

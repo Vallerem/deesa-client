@@ -1,8 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Gafata|Quicksand");
+@import url('https://fonts.googleapis.com/css?family=Gafata|Quicksand');
+$font:'Quicksand', sans-serif;
+
 .design {
-  font-family: "Quicksand", sans-serif;
+  font-family: $font;
   font-size: 1.2em;
 }
+
+
 
 .product {
   margin-bottom: 25px;
@@ -14,15 +18,14 @@
   margin: auto;
 }
 
-.product-title {
+.product-title{
   text-align: center;
 }
 
 .price-colors {
   display: block;
 }
-
-.product-price {
+.product-price{
   text-align: center;
 }
 
@@ -55,7 +58,7 @@
   align-items: flex-start;
 }
 
-.btn {
+.btn{
   order: 0;
   flex: 0 1 auto;
   align-self: auto;
