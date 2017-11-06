@@ -12,12 +12,7 @@ export class UserWrapperComponent implements OnInit {
   currentUser: any = JSON.parse(localStorage.getItem('user'));
   accountInfo: any;
   designsList: any;
-  createDesignFlag: boolean = false; //control variable for add Design button
-
-
-/*   private sub: any;
-  private parentRouteId: number; */
-
+  createDesignFlag: boolean = false; //flag to check if is the same user
 
   private routerUser = {
     username: ''
@@ -25,44 +20,21 @@ export class UserWrapperComponent implements OnInit {
 
   constructor(private userAPI: UserService, private route: ActivatedRoute ) { }
 
-
+/**
+ * Check if is user logged is the same user catched by route param.
+ * true --> is the same user
+ * false --> is differente.
+ */
 checkLoggedUser(){
-  return (this.routerUser.username === this.currentUser.username) ? true : false //If they are the same Add Design
+  return (this.routerUser.username === this.currentUser.username) ? true : false;
 }
 
-/* foo = this.checkLoggedUser();
-foo2 = this.checkLoggedUser; */
 
   ngOnInit() {
    this.routerUser.username = this.route.snapshot.paramMap.get('username'); //catch route param
-   this.createDesignFlag = (this.routerUser.username === this.currentUser.username) ? true : false //If they are the same Add Design
+/*     this.createDesignFlag = (this.routerUser.username === this.currentUser.username) ? true : false //If they are the same Add Design
+ */this.createDesignFlag = this.checkLoggedUser();
    console.log(this.createDesignFlag);
-
- /*   this.designerRole = this.userAPI.checkDesignerRole(this.routerUser);
-   console.log("designerRole --> "+this.designerRole); */
-
-
-    //if(this.routerUser.username === this.currentUser.username) {this.createDesignFlag=true} //If they are the same Add Design
-
-
-/*     console.log(`checkLoggedUser() ${this.foo}`);
-    console.log(`checkLoggedUser ${this.foo2()}`); */
-
-/* console.log(`queryparams${this.route.queryParams}`);
- */
-
-/*  this.sub = this.route.parent.params.subscribe(params => {
-  this.parentRouteId = +params["username"];
-});
- console.log(`parentRouteId   -->${JSON.stringify(this.parentRouteId)}`);
-console.log(`sub   -->${JSON.stringify(this.sub)}`);
-
-*/
-
-/**
- * If user logged are the same show button
- */
-
 
     /**
      * toDo:
@@ -77,7 +49,4 @@ console.log(`sub   -->${JSON.stringify(this.sub)}`);
     });
   }
 
-/*   ngOnDestroy() {
-    this.sub.unsubscribe();
-} */
 }

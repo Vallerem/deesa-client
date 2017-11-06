@@ -19,12 +19,9 @@ export class UserInfoComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    console.log("ACCOUNT INFO-->>");
 
-    console.log("HOLA");
-
-/*     console.log(`${this.accountInfo.user.designerInfo.socialMedia.twitter}`);
- */    console.log(`this.accountInfo   -->${JSON.stringify(this.accountInfo.user)}`);
-
+    console.log(this.accountInfo);
 
     this.routerUser.username = this.route.snapshot.paramMap.get('username'); //catch route param
     if(this.routerUser.username === this.currentUser.username) this.createDesignFlag=true;

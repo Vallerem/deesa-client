@@ -1,4 +1,61 @@
 <div *ngIf='accountInfo'>
+  <div class="col-md-12 info-wrapper">
+
+    <div class="row">
+      <div class="avatar-wrapper">
+        <img class="resize-avatar" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Robe_Iniesta_en_Valladolid_en_2014.jpg/245px-Robe_Iniesta_en_Valladolid_en_2014.jpg">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="centered">
+        <span class="info-h1">{{accountInfo.user.username}}</span>
+        <div class="centered">
+          <span class="info-h2">{{accountInfo.user.addressInfo.townName}}</span>
+          <span>,</span>
+          <span class="info-h2">{{accountInfo.user.addressInfo.country}}</span>
+          <hr class="style1">
+          <p class="info-description">{{accountInfo.user.designerInfo.description}}</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="style2">
+    <div class="row">
+
+      <div class="centered">
+        <p class="info-h3">{{accountInfo.user.designerInfo.contactMail}}</p>
+        <div>
+          <a href="{{accountInfo.user.designerInfo.socialMedia.facebook}}" class="fa fa-facebook"></a>
+          <a href="{{accountInfo.user.designerInfo.socialMedia.twitter}}" class="fa fa-twitter"></a>
+          <a href="{{accountInfo.user.designerInfo.socialMedia.google}}" class="fa fa-google"></a>
+          <a href="{{accountInfo.user.designerInfo.socialMedia.linkedin}}" class="fa fa-linkedin"></a>
+        </div>
+      </div>
+    </div>
+    <hr class="style2">
+    <div class="row">
+      <div class="centered">
+        <div *ngIf='createDesignFlag;else foreignUser'>
+          <p class="text-center">
+            <a class="btn btn-default btn-block" [routerLink]="['/account']">Edit Account</a>
+          </p>
+        </div>
+        <ng-template #foreignUser>
+          <p class="text-center">
+            <button (click)="messageButton($event)" class="btn btn-default btn-block">Message</button>
+          </p>
+          <p class="text-center">
+            <button (click)="followButton($event)" class="btn btn-default btn-block">Follow</button>
+          </p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div *ngIf='accountInfo'>
 
   <div class="col-md-12">
     <div class="panel panel-default">
@@ -47,4 +104,6 @@
     </div>
   </div>
 </div>
+
+ -->
 
