@@ -2,14 +2,13 @@
   <div class="card">
     <div class="card-header">
       <div class="media">
-        <img class="d-flex mr-3 resize-avatar" src="https://www.shareicon.net/data/128x128/2015/09/18/103160_man_512x512.png" alt="Generic placeholder image">
+        <img class="d-flex mr-3 resize-avatar" src="{{designInfo.creator.avatarUrl}}" alt="Generic placeholder image">
         <div class="media-body">
-          <h4 class="mt-0">{{designInfo.title}}</h4>
-
-          <!--                 <div>{{designInfo.creator.avatarUrl}}</div>
- -->
+          <span class="info-h1">{{designInfo.title}}</span>
+          <br>
+          <!--                 <div>{{designInfo.creator.avatarUrl}}</div>-->
           <span>by</span>
-          <span>{{designInfo.creator.username}}</span>
+          <a [routerLink]="['/designs/', designInfo.creator.username]"><span class="info-h2">{{designInfo.creator.username}}</span></a>
           <span>on</span>
           <span>{{designInfo.createdAt}}</span>
         </div>
@@ -17,7 +16,7 @@
       <div>
       </div>
     </div>
-    <img class="card-img-top" src="{{designInfo.designMainImg}}" alt="Card image cap">
+    <img class="card-img-top resize-img" src="{{designInfo.designMainImg}}" alt="Card image cap">
     <div class="card-body">
       <p class="card-text">{{designInfo.description}}</p>
     </div>

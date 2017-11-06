@@ -1,4 +1,24 @@
 .resize-avatar{
   height: 50px;
   width: 50px;
+  border-radius: 50%;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.resize-img {
+  max-height: 400px;
+  max-width: 300px;
+}
+
+.info-h1 {
+  font-family: "Quattrocento", serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+.info-h2 {
+  font-family: "Antic Slab", serif;
 }
