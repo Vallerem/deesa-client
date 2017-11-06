@@ -9,14 +9,11 @@
         <a class="nav-link" href="/account">Cuenta <span class="sr-only">Perfil</span></a>
       </li>
       <li class="nav-item" *ngIf="checkUser()"><a class="nav-link" [routerLink]="['/designs']">Diseños</a></li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Nose</a>
-      </li>
     </ul>
 
 
     <ul class="navbar-nav ml-auto">
-        <li *ngIf="checkUser()"> <span class="nav-link" >{{currentUser.username}} </span></li>
+        <li *ngIf="checkUser()"> <span class="nav-link" >Welcome, {{currentUser.username}} </span></li>
         <li class="nav-item" *ngIf="checkUser()"><a class="nav-link" [routerLink]="['/cart']">Carrito</a></li>
         <li class="nav-item" *ngIf="!checkUser()"><a class="nav-link" [routerLink]="['/login']">Login</a></li>
         <li class="nav-item" *ngIf="!checkUser()"><a class="nav-link" [routerLink]="['/signup']">Signup</a></li>
