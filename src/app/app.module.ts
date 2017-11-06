@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from "@angular/router";
 
-import { FileSelectDirective } from "ng2-file-upload";
+import { FileSelectDirective, FileUploadModule } from "ng2-file-upload";
 
 
 //components
@@ -66,7 +66,6 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
     HomeComponent,
     AddPhoneComponent,
     LoginComponent,
-    FileSelectDirective,
     SignupComponent,
     FooterComponent,
     LayoutComponent,
@@ -97,7 +96,8 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FileUploadModule
   ],
   // providers: [PhonesService, SessionService, {provide: APP_BASE_HREF, useValue: '/phoneappprod'}],
   providers: [PhonesService, SessionService, UserService, DesignService,CommentService, ProductService],
