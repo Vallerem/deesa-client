@@ -38,7 +38,7 @@ console.log("userDesigns:");
 
   }
 
-  submitForm(){
+  submitForm(event){
     this.buyProduct.creator=this.userAPI._currentUser._id;
 
     this.buyProduct.productType=this.productInfo;

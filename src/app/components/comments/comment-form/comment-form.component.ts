@@ -11,6 +11,7 @@ export class CommentFormComponent implements OnInit {
   @Input() commentsInfo;
   @Output() submittedForm = new EventEmitter<boolean>();
 
+  currentUser: any = JSON.parse(localStorage.getItem('user'));
 
   newComment: any = {};
 
