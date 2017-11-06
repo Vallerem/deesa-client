@@ -28,6 +28,7 @@ export class CartListComponent implements OnInit {
   }
 
   calculateTotal(){
+    this.cartTotal=0;
     this.cartInfo.forEach(element => {
       this.cartTotal += element.productType.price;
     });
@@ -37,6 +38,8 @@ export class CartListComponent implements OnInit {
     this.cartInfo.splice(this.zombieIndexItem, 0, this.zombieItem); //insert item into cartInfo at the specified index (deleting 0 items first).
     this.message = (function () { return; })(); // set message undefined
     this.serverDelete=false;
+    this.calculateTotal();
+
   }
 
   /**

@@ -14,6 +14,11 @@ export class DesignInfoComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("DESIGNINFO LOG");
+
+    console.log(this.designInfo);
+
+  }
 
 }

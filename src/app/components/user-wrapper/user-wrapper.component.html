@@ -1,29 +1,26 @@
-<p>
-  NAVBAR OR SOMETHING, will see...
-</p>
+<div class="container-fluid">
+  <div class="container-wrapper">
 
+    <div class="row">
+      <div class="col-md-3">
+        <div *ngIf='accountInfo'>
+          <user-info [accountInfo]="accountInfo"></user-info>
+        </div>
+      </div>
 
-<div *ngIf='accountInfo'>
-  <user-info [accountInfo]="accountInfo"></user-info>
-</div>
+      <div class="col-md-9">
+        <div *ngIf='designsList'>
+          <designs-list [designsList]="designsList"></designs-list>
+          <div *ngIf='checkLoggedUser()'>
+            <p class="text-center">
+              <a class="btn btn-primary btn-sm" [routerLink]="['/designs/new']">Add Design</a>
+            </p>
+          </div>
+        </div>
+      </div>
 
+    </div>
 
-
-<!-- <div *ngIf='designsList'>
-  <designs-list [designsList]="designsList"></designs-list>
-
-  <div *ngIf='createDesignFlag'>
-      <p class="text-center"><a class="btn btn-primary btn-sm" [routerLink]="['/designs/new']">Add Design</a></p>
-  </div>
-</div> -->
-
-
-<div *ngIf='designsList'>
-    <designs-list [designsList]="designsList"></designs-list>
-    <div *ngIf='checkLoggedUser()'>
-      <p class="text-center">
-        <a class="btn btn-primary btn-sm" [routerLink]="['/designs/new']">Add Design</a>
-      </p>
   </div>
 </div>
 

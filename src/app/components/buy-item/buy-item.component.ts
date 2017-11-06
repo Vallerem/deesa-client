@@ -13,6 +13,7 @@ export class BuyItemComponent implements OnInit {
   @Input() productInfo;
 
   @Output() submittedForm = new EventEmitter<boolean>();
+  message:any;
 
 
   buyProduct: any = {
@@ -44,6 +45,8 @@ console.log("userDesigns:");
     this.buyProduct.design=this.designInfo._id;
     this.buyProduct.size = this.selectedValue;
 console.log(this.buyProduct);
+this.message="Producto añadido al carrito";
+
 
     this.submittedForm.emit(this.buyProduct);
   }

@@ -1,6 +1,8 @@
 .wrapper-img-design{
   position: relative;
-  background-color: grey;
+ /*  background-color: grey; */
+ border-radius: 1px solid #fdfdfdad;
+ text-align: center;
 }
 
 .resize-product{
@@ -11,12 +13,12 @@
  .resize-design{
    position: absolute;
    top: 3.2em;
-   left: 4.8em;
+   left: 41%;
   height: 100px;
   width: 100px;
 }
 
 .buy-right-side{
-  background-color: #DCE9EA;
-  border: 1px solid grey;
+/*   background-color: #DCE9EA; */
+/*   border: 1px solid grey; */
 }

@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=Antic+Slab|Arapey|Bellefair|Delius|Forum|Gilda+Display|Pompiere|Quattrocento|Wire+One");
+.avatar-wrapper {
+  width: 100%;
+  text-align: center;
+  height: auto;
+  margin-top: 8px;
+}
+
+.resize-avatar {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.centered {
+  width: 100%;
+  text-align: center;
+}
+
+.info-wrapper{
+
+  background-color:white;
+  border-radius: 10px;
+}
+
+.info-h1 {
+  font-family: "Quattrocento", serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.info-h2 {
+  font-family: "Antic Slab", serif;
+}
+
+.info-h3 {
+  font-family: "Bellefair", serif;
+}
+
+.info-description {
+  font-family: 'Pompiere', cursive;
+  font-size: larger;
+}
+
+hr.style1 {
+  height: 30px;
+  border-style: solid;
+  border-color: #8c8b8b;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+hr.style1:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: #8c8b8b;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+hr.style2 {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 0;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+

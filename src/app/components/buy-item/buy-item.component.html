@@ -32,9 +32,11 @@
 
         <div class="form-group">
             <label for="model">Cantidad</label>
-          <button type="button" (click)="subtractQty()">+</button>
-          <input type="text" class="form-control" [(ngModel)]="buyProduct.qty" name="buyProduct.qty" value="{{buyProduct.qty}}">
-          <button type="button" (click)="addQty()">-</button>
+            <div>
+                <button type="button" (click)="subtractQty()">+</button>
+                <input type="text" class="form-control" [(ngModel)]="buyProduct.qty" name="buyProduct.qty" value="{{buyProduct.qty}}">
+                <button type="button" (click)="addQty()">-</button>
+            </div>
         </div>
 
        <!--  OTROS DISEÑOS
@@ -67,6 +69,9 @@
         </div> -->
 
         <button class="btn btn-primary" [disabled]=" (!myForm.valid)" type="submit">Añadir</button>
+
+        <div class="alert alert-success" role="alert" *ngIf="message">{{message}}</div>
+
 
       </form>
 
