@@ -38,3 +38,7 @@
   font-size: 14px;
   padding: 0 0 0 0 !important;
 }
+
+.border-right{
+  border-right: 1px solid rgba(141, 141, 141, 0.43);
+}

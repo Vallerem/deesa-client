@@ -1,17 +1,17 @@
 <div *ngIf="accountInfo">
   <div class="row">
 
-    <div class="col-12 col-md-12 col-lg-12 hidden-md-up" style="text-align:center; margin: auto;">
+    <div class="col-12 col-md-12 col-lg-12 hidden-md-up " style="text-align:center; margin: auto;">
 
       <div style="text-align:center;">
         <form (ngSubmit)="submitImage()">
         <!--<input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
         <input type="hidden" name="_id" value="{{accountInfo.user._id}}">-->
-          <img class="img-fluid avatar-form-img" 
+          <img class="img-fluid avatar-form-img"
           src="{{accountInfo.user.avatarUrl}}" alt="User image">
           <label style="" class="fileContainer"> Select a new image
           <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
-          </label> 
+          </label>
           <button style="clear:left;" class="btn btn-primary" type="submit">Upload image</button>
         </form>
         <div *ngIf="feedback === undefined" >
@@ -36,7 +36,7 @@
     </ul>
   </div>
 
-  <div class="col-12 col-md-12 col-lg-2 hidden-sm-down"
+  <div class="col-12 col-md-12 col-lg-2 hidden-sm-down border-right"
   style="text-align:center; margin: 20px auto 0 auto;">
 
 
@@ -44,14 +44,14 @@
         <form (ngSubmit)="submitImage()">
         <!--<input type="hidden" name="old_imgUrl" value="{{accountInfo.user.avatarUrl}}">
         <input type="hidden" name="_id" value="{{accountInfo.user._id}}">-->
-          <img class="img-fluid avatar-form-img" 
+          <img class="img-fluid avatar-form-img"
           src="{{accountInfo.user.avatarUrl}}" alt="User image">
           <label class="fileContainer"> Select a new image
           <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
-          </label> 
+          </label>
           <button class="btn btn-primary" type="submit">Upload image</button>
         </form>
-    
+
             <div *ngIf="feedback !== undefined" >
           <p class="alert-success avatar-succes"> {{feedback}} </p>
         </div>
