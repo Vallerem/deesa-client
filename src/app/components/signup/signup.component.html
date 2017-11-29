@@ -1,17 +1,14 @@
 <div class="all-wrapper">
 	<div class="row">
-      <div id="signup-wrapper">  
+      <div id="signup-wrapper">
         <div class="row signup-info">
         <div class="col-12 col-md-6 col-lg-6 register-as">
            <h1>Regístrate</h1>
           </div>
         <div class="col-12 col-md-6 col-lg-6 role-content sm-flex-first">
-           <h3>Si ya estás registrado <br/> <a [routerLink]="['/login']">¡Logeate!</a> </h3>
+           <h3>Si ya estás registrado <br/> <a [routerLink]="['/login']">¡Loguéate!</a></h3>
           </div>
           </div>
-  
-                 
-
           <div *ngIf="formPhase === 0" class="choose-role">
             <div class="row">
                 <div (click)="changePhaseDesigner()" class="type-user col-12 col-md-12 col-lg-12">
@@ -21,8 +18,7 @@
                   </div>
                   <div class="col-12 col-md-8 col-lg-8 role-content">
                     <h2>Diseñador</h2>
-
-                    <p>Lorem ipsum dolor sit equam norem ito suc numak til ferrem. Lorem ipsum dolor sit equam norem ito suc numak til ferrem. Lorem ipsum dolor sit equam norem ito suc numak til ferrem.</p>
+                    <p>¿Quieres subir tus propios diseños?, no lo dudes y regístrate como diseñador para formar parte de nuestra red! </p>
                   </div>
                   </div>
                 </div>
@@ -32,16 +28,15 @@
                     <img class="image-fluid role-ima" src="assets/images/fan_user.png"  alt="Fan user">
                   </div>
                   <div class="col-12 col-md-8 col-lg-8 role-content">
-                    <h2>Fan / Bussiness</h2>
-
-                    <p>Lorem ipsum dolor sit equam norem ito suc numak til ferrem. Lorem ipsum dolor sit equam norem ito suc numak til ferrem. Lorem ipsum dolor sit equam norem ito suc numak til ferrem.</p>
+                    <h2>Fan</h2>
+                    <p>¿No quieres subir diseños?, ¡no hay problema!, regístrate como Fan y echa un vistazo a los diseños de la gente!</p>
                   </div>
                   </div>
                 </div>
             </div>
           </div>
 
-        <div *ngIf="formPhase === 1" id="form-wrapper">  
+        <div *ngIf="formPhase === 1" id="form-wrapper">
          <div class="row">
           <div class="col-12 col-md-2 col-lg-2" style="display: flex;">
                <i (click)="resetPhase()" class="fa fa-angle-left signup-back" aria-hidden="true"> </i>
@@ -54,7 +49,7 @@
 			    				<input type="text" name="username" id="username" class="form-control input-sm"  [(ngModel)]="user.username" placeholder="Username" minlength="3" maxlength="15"  #username="ngModel" required>
 			    			</div>
 
-                
+
 
 			    			<div class="row">
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
@@ -82,7 +77,7 @@
 			    				</div>
 			    				<div class="col-xs-5 col-sm-5 col-md-5">
 			    					<div class="form-group">
-			    						<input type="password" name="password-confirmation" 
+			    						<input type="password" name="password-confirmation"
                       [(ngModel)]="passwordConfirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirmar Password" minlength="7" #passwordConfirm="ngModel" required>
 			    					</div>
 			    				</div>
@@ -96,9 +91,9 @@
                 </div>
 
                 <div *ngIf="error" class="alert alert-danger alert-signup" role="alert">{{ error.statusText }}</div>
-			    			
+
 			    			<button [disabled]=" (!signupForm.valid) || (passwordConfirm.value !== password.value)" type="submit" class="btn btn-info btn-block btn-signup">
-			    			Registrarse</button>
+			    			Regístrarse</button>
           </form>
          </div>
        </div>
