@@ -5,7 +5,7 @@
   bottom: 0;
   right: 0;
   overflow: auto;
-  background: linear-gradient(135deg, #144392 20%, #564896 80%);
+  background: #f7f7f7;
 }
 
 #signup-wrapper {
@@ -28,7 +28,7 @@
 
 h1 {
   text-align: center;
-  color: white;
+  color: #363636;
   font-size: 45px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
@@ -36,7 +36,11 @@ h1 {
 }
 
 .choose-role {
-  margin: 40px 30px 0 30px;
+  margin-top: 40px;
+  padding: 40px 30px 0 30px;
+  border: 1px solid #585858;
+  background-color: #f0f0f0;
+  border-radius: 25px;
 }
 
 .role-ima {
@@ -64,14 +68,14 @@ h1 {
 }
 
 .role-content h2 {
-  color: red;
+  color: #363636;
   margin-top: 25px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
 
 .role-content p {
-  color: white;
+  color: #585858;
 }
 
 .type-user {
@@ -90,7 +94,7 @@ h1 {
 }
 
 .type-user:hover {
-  background: #ff9900;
+  background: white;
   cursor: pointer;
 }
 
@@ -99,7 +103,7 @@ h1 {
 }
 
 .register-as {
-  border-right: solid 1px #fff;
+  border-right: solid 1px #585858;
   padding-top: 15px;
   padding-bottom: 15px;
 }
@@ -115,17 +119,17 @@ h1 {
 }
 
 h3 {
-  color: white;
+  color: #363636;
   text-align: center;
   margin-top: 15px;
 }
 
 h3 a {
-  color: red;
+  color: #414141;
 }
 
 .signup-back {
-  color: #fff;
+  color: #585858;
   font-size: 90px;
   cursor: pointer;
   align-self: center;

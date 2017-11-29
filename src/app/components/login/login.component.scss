@@ -1,20 +1,24 @@
+$text: rgb(88, 88, 88);
+$header: rgb(54, 54, 54);
+
 .alert-login {
   padding: 5px;
   margin-top: 10px;
 }
 
 .btn {
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-.login-wrapper { 
+.login-wrapper {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   overflow: auto;
-  background: linear-gradient(135deg,#1e5799 20%, #092756 80%);
+  //background: linear-gradient(135deg,#1e5799 20%, #092756 80%);
+  background:  #f7f7f7;
 }
 
 .wraper-all {
@@ -28,7 +32,7 @@
   }
 }
 
-.login { 
+.login {
   border-right: solid 1px grey;
   padding-right: 15px;
   padding-bottom: 30px;
@@ -44,11 +48,11 @@
 
 .other-signup {
   text-align: center;
-  color:white;
+  color:$text;
   margin-top: 40px;
 
   a {
-    color: red;
+    color: rgb(48, 48, 48);
 
     &:hover {
       text-decoration: none;
@@ -56,24 +60,24 @@
   }
 }
 
-.login h1 { 
-  color: #fff; 
-  text-shadow: 0 0 10px rgba(0,0,0,0.3); 
-  letter-spacing:1px; 
-  text-align:center; 
+.login h1 {
+  color: $text;
+  text-shadow: 0 0 10px rgba(0,0,0,0.3);
+  letter-spacing:1px;
+  text-align:center;
   margin-bottom: 20px;
 }
 
-input { 
-	width: 100%; 
-	margin-bottom: 10px; 
-	background: rgba(0,0,0,0.3);
+input {
+	width: 100%;
+	margin-bottom: 10px;
+	background: rgba(255, 255, 255, 0.37);
 	border: none;
 	outline: none;
 	padding: 10px;
 	font-size: 13px;
-	color: #fff;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	//color: #fff;
+	//text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 	border: 1px solid rgba(0,0,0,0.3);
 	border-radius: 4px;
 	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
@@ -85,8 +89,8 @@ input {
 }
 
 
-input:focus { 
-  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); 
+input:focus {
+  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2);
 }
 
 .btn-google {

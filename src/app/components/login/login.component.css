@@ -14,7 +14,7 @@
   bottom: 0;
   right: 0;
   overflow: auto;
-  background: linear-gradient(135deg, #1e5799 20%, #092756 80%);
+  background: #f7f7f7;
 }
 
 .wraper-all {
@@ -44,12 +44,12 @@
 
 .other-signup {
   text-align: center;
-  color: white;
+  color: #585858;
   margin-top: 40px;
 }
 
 .other-signup a {
-  color: red;
+  color: #303030;
 }
 
 .other-signup a:hover {
@@ -57,7 +57,7 @@
 }
 
 .login h1 {
-  color: #fff;
+  color: #585858;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   letter-spacing: 1px;
   text-align: center;
@@ -67,13 +67,11 @@
 input {
   width: 100%;
   margin-bottom: 10px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.37);
   border: none;
   outline: none;
   padding: 10px;
   font-size: 13px;
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
