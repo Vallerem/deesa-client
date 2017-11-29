@@ -1,7 +1,16 @@
 <app-navbar></app-navbar>
 <div class="container-fluid font-type">
-    <div *ngIf='cart'>
+    <div *ngIf='currentUser  else userNotLogged'>
     <router-outlet></router-outlet>
   </div>
+
+  <ng-template #userNotLogged>
+    <div class="wrap-inner">
+          <div class="initial-message">
+              <h2>No estas registrado todavía.</h2>
+              <p>Los últimos diseños subidos por los diseñadores aparecerán aquí!</p>
+          </div>
+    </div>
+  </ng-template>
 </div>
 <app-footer></app-footer>

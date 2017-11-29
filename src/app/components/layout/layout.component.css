@@ -1,0 +1,12 @@
+.wrap-inner {
+  padding: 30px 30px 40px 30px;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.initial-message {
+  color: #bbb;
+  margin: 40px;
+  text-align: center;
+  font-style: normal;
+}

@@ -2,11 +2,11 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/home">Deesa</a>
+  <a class="navbar-brand font-deesa" [routerLink]="['/home']">Deesa</a>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/account">Cuenta <span class="sr-only">Perfil</span></a>
+        <a class="nav-link" *ngIf="checkUser()" href="/account">Cuenta <span class="sr-only">Perfil</span></a>
       </li>
       <li class="nav-item" *ngIf="checkUser()"><a class="nav-link" [routerLink]="['/designs']">Diseños</a></li>
     </ul>

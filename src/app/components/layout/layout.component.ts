@@ -10,26 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
 
   currentUser: any = JSON.parse(localStorage.getItem('user'));
-
   cart: any;
-
 
   constructor(private userAPI: UserService, private designAPI: DesignService) {}
 
   ngOnInit() {
-    console.log("ngOnInit() - this.userApi:");
-    console.log(this.userAPI);
-    
         //check if current User are in service loaded
         if (!this.userAPI._currentUser) {
           this.userAPI._currentUser= this.currentUser;
         }
-    console.log(" before ngOnInit() - this.userApi:");
-    console.log(this.userAPI);
 
-console.log("HOLA");
-
-          //check if products are in service loaded
+/*           //check if products are in service loaded
     if (this.userAPI._userCart) {
       this.cart = this.userAPI._userCart;
     } else {
@@ -38,7 +29,6 @@ console.log("HOLA");
         this.cart = res.products;
         this.userAPI._userCart = res.products;
       });
-    }
+    } */
   }
-
 }
