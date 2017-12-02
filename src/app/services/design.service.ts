@@ -85,7 +85,10 @@ export class DesignService {
   }
 
   newDesign(design) {
-  	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
+  	let headers = new Headers({ 
+      'Authorization': 'JWT ' + this.session.token,
+      "Access-Control-Allow-Origin" : "*" 
+    });
     let options = new RequestOptions({ headers: headers });
 
     console.log("DESIGN SERVICE");
