@@ -14,17 +14,13 @@ import { FileSelectDirective, FileUploadModule } from "ng2-file-upload";
 
 //components
 import { NavbarComponent } from './components//navbar/navbar.component';
-import { PhonesListComponent } from './components//phones-list/phones-list.component';
-import { PhonesDetailsComponent } from './components//phones-details/phones-details.component';
 import { HomeComponent } from './components//home/home.component';
-import { AddPhoneComponent } from './components//add-phone/add-phone.component';
 import { LoginComponent } from './components//login/login.component';
 import { SignupComponent } from './components//signup/signup.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 
 // Services
-import { PhonesService } from './services/phones.service';
 import { SessionService } from './services/session/session.service';
 import { DesignService } from './services/design.service';
 import { UserService } from './services/user.service';
@@ -61,10 +57,7 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
   declarations: [
     AppComponent,
     NavbarComponent,
-    PhonesListComponent,
-    PhonesDetailsComponent,
     HomeComponent,
-    AddPhoneComponent,
     LoginComponent,
     SignupComponent,
     FooterComponent,
@@ -99,8 +92,7 @@ import { CartItemComponent } from './components/cart/cart-item/cart-item.compone
     AppRoutingModule,
     FileUploadModule
   ],
-  // providers: [PhonesService, SessionService, {provide: APP_BASE_HREF, useValue: '/phoneappprod'}],
-  providers: [PhonesService, SessionService, UserService, DesignService,CommentService, ProductService],
+  providers: [SessionService, UserService, DesignService,CommentService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { FileSelectDirective } from "ng2-file-upload";
 import { FileUploader } from 'ng2-file-upload';
@@ -19,17 +20,27 @@ export class DesignNewFormComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
     url: `${this.BASE_URL}/designs/new`
   });
-
   designInfo: any = {
     designGallery: []
   };
 
-  // //designInfo: any = {};
+  designImage: "";
+  localImageUrl: "";
 
+  // //designInfo: any = {};
   // img : any;
   // @Output() submittedForm = new EventEmitter < boolean > ();
 
-  constructor(private userAPI: UserService) { }
+  constructor(private userAPI: UserService, private sanitizer:DomSanitizer) { 
+
+  this.uploader.onAfterAddingFile = (fileItem) => {
+    let url = (window.URL) ? window.URL.createObjectURL(fileItem._file) : (window as any).webkitURL.createObjectURL(fileItem._file);
+    this.localImageUrl = url
+}
+  }
+
+  
+
 
   ngOnInit() {}
 
@@ -44,6 +55,7 @@ export class DesignNewFormComponent implements OnInit {
 
         this.uploader.uploadAll();
   }
+  
 
   // console.log("event:");
   // console.log(event);

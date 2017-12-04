@@ -10,6 +10,7 @@ a {
 }
 
 .card-block {
+  height: 300px !important;
   position: absolute;
   top: 0;
   bottom: 0;

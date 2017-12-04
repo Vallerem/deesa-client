@@ -5,19 +5,21 @@
   <a class="navbar-brand font-deesa" [routerLink]="['/home']">Deesa</a>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" *ngIf="checkUser()" href="/account">Cuenta <span class="sr-only">Perfil</span></a>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="checkUser()" [routerLink]="['/account']" >Cuenta</a>
       </li>
-      <li class="nav-item" *ngIf="checkUser()"><a class="nav-link" [routerLink]="['/designs']">Diseños</a></li>
+      <li class="nav-item" *ngIf="checkUser()">
+        <a class="nav-link" [routerLink]="['/designs']">Diseños</a>
+      </li>
     </ul>
 
 
     <ul class="navbar-nav ml-auto">
-        <li *ngIf="checkUser()"> <span class="nav-link" >Welcome, {{currentUser.username}} </span></li>
         <li class="nav-item" *ngIf="checkUser()"><a class="nav-link" [routerLink]="['/cart']">Carrito</a></li>
-        <li class="nav-item" *ngIf="!checkUser()"><a class="nav-link" [routerLink]="['/login']">Login</a></li>
-        <li class="nav-item" *ngIf="!checkUser()"><a class="nav-link" [routerLink]="['/signup']">Signup</a></li>
         <li class="nav-item" *ngIf="checkUser()"><a class="nav-link" href="#" (click)="logout()">Logout</a></li>
+
+        <li class="nav-item" *ngIf="!checkUser()">
+          <a class="btn-success btn-login" [routerLink]="['/login']">Inicia sesión</a></li>
     </ul>
   </div>
 </nav>

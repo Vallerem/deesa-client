@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Cookie|Merienda|Oranienbaum|Rochester|Sacramento");
 .font-deesa {
   font-family: 'Cookie', cursive;
-  font-size: 40px;
+  font-size: 30px;
   opacity: 1;
 }
 
@@ -10,5 +10,16 @@
 }
 
 .nav-item {
-  font-size: 23px;
+  font-size: 15px;
+}
+
+.btn-login {
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 20px;
+  background: #c070ac;
+}
+
+.btn-login:hover {
+  text-decoration: none;
 }
