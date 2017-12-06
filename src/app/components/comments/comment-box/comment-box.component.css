@@ -1,0 +1,21 @@
+.resize-avatar{
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
+
+.card-body{
+  padding: 20px;
+}
+
+.card-footer{
+   padding: 5px 10px 5px 5px;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.btn{
+  cursor: pointer;
+}

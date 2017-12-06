@@ -1,13 +1,22 @@
 <div class="card">
   <div class="card-header">
-    <div></div>
-    <p class="card-title">    {{commentItem.creator.username}}</p>
-      <div class="card-img-top">{{commentItem.creator.avatarUrl}}</div>
+    <div class="media">
+      <img class="d-flex mr-3 align-self-center resize-avatar" src="{{commentItem.creator.avatarUrl}}">
+      <div class="media-body">
+        <a [routerLink]="['/designs/', commentItem.creator.username]">
+          <h5 class="mt-0 mb-1 align-self-center">{{commentItem.creator.username}}</h5>
+        </a>
+        <small>{{commentItem.createdAt | date: 'dd-MM-yy' }}</small>
+      </div>
+
+    </div>
   </div>
   <div class="card-body">
-      {{commentItem.message}}
+    {{commentItem.message}}
   </div>
   <div class="card-footer">
-      <button class="btn btn-info" (click)="addLike()"><i class="fa fa-heart"></i>{{commentItem.likedBy.length}}</button>
+    <button class="btn btn-info" (click)="addLike()">
+      <i class="fa fa-heart"></i>{{commentItem.likedBy.length}}</button>
   </div>
 </div>
+

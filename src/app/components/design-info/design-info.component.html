@@ -2,27 +2,29 @@
   <div class="card">
     <div class="card-header">
       <div class="media">
-        <img class="d-flex mr-3 resize-avatar" src="{{designInfo.creator.avatarUrl}}" alt="Generic placeholder image">
+        <img class="d-flex mr-3 align-self-center resize-avatar" src="{{designInfo.creator.avatarUrl}}" alt="Generic placeholder image">
         <div class="media-body">
           <span class="info-h1">{{designInfo.title}}</span>
           <br>
           <!--                 <div>{{designInfo.creator.avatarUrl}}</div>-->
-          <span>by</span>
+          <span>por</span>
           <a [routerLink]="['/designs/', designInfo.creator.username]"><span class="info-h2">{{designInfo.creator.username}}</span></a>
-          <span>on</span>
-          <span>{{designInfo.createdAt}}</span>
+          <span>el</span>
+          <span>{{designInfo.createdAt | date: 'dd-MM-yy' }}</span>
         </div>
       </div>
       <div>
       </div>
     </div>
-    <img class="card-img-top resize-img" src="{{designInfo.designMainImg}}" alt="Card image cap">
     <div class="card-body">
-      <p class="card-text">{{designInfo.description}}</p>
+        <div class=" d-flex justify-content-center">
+          <img class="card-img-top resize-img" src="{{designInfo.designMainImg}}" alt="{{designInfo.title}}">
+        </div>
+
     </div>
     <div class="card-footer">
       <small class="text-muted">
-
+        {{designInfo.description}}
       </small>
     </div>
   </div>
