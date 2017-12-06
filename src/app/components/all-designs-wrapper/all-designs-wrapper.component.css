@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Gafata|Quicksand");
 @import url("https://fonts.googleapis.com/css?family=Homemade+Apple|Luckiest+Guy|Monoton|Press+Start+2P|Shadows+Into+Light+Two");
+@import url("https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Cookie");
 .design {
   font-family: "Quicksand", sans-serif;
   font-size: 1.2em;
@@ -70,10 +71,11 @@
 .title {
   width: 100%;
   text-align: center;
-  margin-top: 1em;
-  color: black;
-  font-family: 'Monoton', cursive;
-  font-size: 40px;
+  margin-top: 10px;
+  color: rgba(32, 32, 32, 0.801);
+  font-family: "Cookie", cursive;
+  font-size: 60px;
+  border-bottom: 1px solid grey;
 }
 
 .bottom-line {

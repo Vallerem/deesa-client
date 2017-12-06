@@ -11,6 +11,10 @@
   font-style: normal;
 }
 
+.container-fluid {
+  background-color: #f7f7f7;
+}
+
 a {
   text-decoration: none;
 }

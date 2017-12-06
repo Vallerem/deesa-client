@@ -1,13 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Gafata|Quicksand');
 @import url('https://fonts.googleapis.com/css?family=Homemade+Apple|Luckiest+Guy|Monoton|Press+Start+2P|Shadows+Into+Light+Two');
+@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Cookie');
+
 
 $font:'Quicksand', sans-serif;
+$fontDeesa:'Cookie', cursive;
 
 .design {
   font-family: $font;
   font-size: 1.2em;
 }
-
 
 
 .product {
@@ -76,10 +78,11 @@ $font:'Quicksand', sans-serif;
 .title{
   width: 100%;
   text-align: center;
-  margin-top: 1em;
-  color: black;
-  font-family: 'Monoton', cursive;
-  font-size: 40px;
+  margin-top: 10px;
+  color: rgba(32, 32, 32, 0.801);
+  font-family: $fontDeesa;
+  font-size: 60px;
+  border-bottom: 1px solid grey;
 }
 .bottom-line{
   width: 100%;
