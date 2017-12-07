@@ -4,7 +4,20 @@
 }
 
 .btn {
+  display: block;
+  background-color: #e2e2e2;
+  border: 2px solid #d7d7d8;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btn:hover {
+  border: 2px solid rgba(0, 0, 0, 0.5);
   cursor: pointer;
+}
+
+.form-control:focus {
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .login-wrapper {

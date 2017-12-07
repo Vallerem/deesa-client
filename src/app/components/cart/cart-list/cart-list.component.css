@@ -1,15 +1,16 @@
-/* .product-li{
-  list-style: none;
-  float: none;
-  width: auto;
-  margin: 0 0 20px 0;
-  padding: 0;
-  font-size: 15px;
-  line-height: 1.4em;
-  color: #555;
-  border-bottom: 1px solid #ddd;
-} */
+.alert-link {
+  cursor: pointer;
+}
 
- .alert-link{
-   cursor: pointer;
- }
+.btn {
+  display: block;
+  background-color: #e2e2e2;
+  border: 2px solid #d7d7d8;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btn:hover {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}

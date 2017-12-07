@@ -9,13 +9,13 @@
 				  <input type="text" class="form-control" id="InputUsername" placeholder="Nombre de usuario" [(ngModel)]="user.username" name="username" required>
 				  <input type="password" class="form-control" id="InputPassword" placeholder="Contraseña" [(ngModel)]="user.password" name="password" required>
 				  <div *ngIf="error" class="alert alert-danger alert-login" role="alert">{{ error.statusText }}</div>
-          <button type="submit" class="btn btn-primary btn-block btn-large">Iniciar sesión</button>
+          <button type="submit" class="btn btn-block btn-large">Iniciar sesión</button>
       </form>
   	</div>
 	<div class="col-12 col-md-6 col-lg-6 .other-login ">
-		<a class="btn btn-block btn-large btn-google" href="/google-signup"><i class="fa fa-google icon-g-login" aria-hidden="true"></i>Registrarse con Google</a>
+		<a class="btn btn-block btn-large btn-google" href="/google-signup"><i class="fa fa-google icon-g-login" aria-hidden="true"></i>Regístrarse con Google</a>
 
-		<p class="other-signup">¿No tienes cuenta? <a [routerLink]="['/signup']">¡Registrate!</a></p>
+		<p class="other-signup">¿No tienes cuenta? <a [routerLink]="['/signup']">¡Regístrate!</a></p>
 	</div>
 
 	<!--</div>

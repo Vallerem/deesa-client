@@ -70,7 +70,7 @@ p{
 
 .btn-add{
   display: block;
-  background-color: #e2e2e2;
+  background-color: $bg-color;
   border: $border;
   margin-top: 10px;
   width: 100%;
@@ -89,7 +89,7 @@ p{
     padding: 5px 20px 5px 20px;
     float: left;
     color: #444;
-    background-color: #e2e2e2;
+    background-color: $bg-color;
     border: $border;
 }
 

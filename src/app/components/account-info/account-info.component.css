@@ -1,3 +1,15 @@
+.btn {
+  display: block;
+  background-color: #e2e2e2;
+  border: 2px solid #d7d7d8;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
 .avatar-form-img {
   border-radius: 50%;
   border: 1px solid grey;
