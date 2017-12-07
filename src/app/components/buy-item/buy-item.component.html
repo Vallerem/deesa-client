@@ -1,42 +1,33 @@
-<div style="margin: 20px 0 20px 0;">
-  <div class="row">
-  <div class="col-12 col-md-6" >
+
+<div class="row">
+  <div class="col-sm-12 col-md-6">
     <div class="wrapper-img-design">
       <img class="resize-product" src="{{productInfo.images[0]}}" alt="">
       <img class="resize-design" src="{{designInfo.designMainImg}}" alt="imagen">
     </div>
   </div>
-  <div class="col-md-6 col-sm-12 buy-right-side">
+  <div class="col-sm-12 col-md-6 buy-right-side">
     <div>
       <h3>{{designInfo.title}}</h3>
     </div>
-    <div>
-      <span>PRECIO:</span>
-      <span>{{productInfo.price}}€</span>
-    </div>
-    <br>
-
+      <h1 class="price">{{productInfo.price}} €</h1>
     <div>
       <form (ngSubmit)="submitForm(myForm.value)" #myForm="ngForm">
           <div *ngIf="productInfo.size">
-
-
         <div class="col-auto">
-          <label class="mr-sm-2" for="inlineFormCustomSelect">Talla</label>
-          <select [(ngModel)]="selectedValue" name="talla">
+          <!-- <label class="mr-sm-2" for="inlineFormCustomSelect">Talla</label> -->
+          <p>Talla</p>
+          <select class="select_size" [(ngModel)]="selectedValue" name="talla">
               <option *ngFor="let size of productInfo.size" [ngValue]="size" [selected]="size">{{size}}</option>
           </select>
         </div>
-
       </div>
-
-        <div class="form-group">
-            <label for="model">Cantidad</label>
-            <div>
-                <button type="button" (click)="subtractQty()">+</button>
-                <input type="text" class="form-control" [(ngModel)]="buyProduct.qty" name="buyProduct.qty" value="{{buyProduct.qty}}">
-                <button type="button" (click)="addQty()">-</button>
-            </div>
+      <br>
+      <p>Cantidad</p>
+        <div class="btn-group">
+                <button type="button" class="btn quantity" (click)="subtractQty()">+</button>
+                <input type="text" class="form-control input-units" min="0" step="1"  [(ngModel)]="buyProduct.qty" name="buyProduct.qty" value="{{buyProduct.qty}}">
+                <button type="button" class="btn quantity" (click)="addQty()">-</button>
         </div>
 
        <!--  OTROS DISEÑOS
@@ -68,17 +59,9 @@
           </a>
         </div> -->
 
-        <button class="btn btn-primary" [disabled]=" (!myForm.valid)" type="submit">Añadir</button>
-
+        <button class="btn btn-add" [disabled]=" (!myForm.valid)" type="submit">Añadir</button>
         <div class="alert alert-success" role="alert" *ngIf="message">{{message}}</div>
-
-
+        <div class="alert alert-danger" role="alert" *ngIf="message_err">{{message_err}}</div>
       </form>
-
-
-
     </div>
   </div>
-</div>
-
-

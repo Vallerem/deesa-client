@@ -1,18 +1,21 @@
+$bg-color: #e2e2e2;
+$border: 2px solid #d7d7d8;
+
 .wrapper-img-design {
   position: relative;
-  text-align: center;
-  padding: 10px 10px;
-  border: 1px solid #BFBFBF;
-  background-color: white;
-  box-shadow: 6px 6px 5px #aaaaaa;
+ text-align: center;
+ padding: 10px 10px;
+ border: 1px solid #BFBFBF;
+ background-color: white;
+ box-shadow: 6px 6px 5px #aaaaaa;
 }
 
-.resize-product {
+.resize-product{
   height: 250px;
   width: 250px;
 }
 
-.resize-design {
+ .resize-design{
   position: absolute;
   height: 85px;
   width: 85px;
@@ -21,21 +24,20 @@
   border-radius: 10%;
 }
 
-.buy-right-side {
-  /*   background-color: #DCE9EA; */
-  /*   border: 1px solid grey; */
+.buy-right-side{
+/*   background-color: #DCE9EA; */
+/*   border: 1px solid grey; */
 }
 
-.price {
+.price{
   font-weight: bold;
   font-size: 175%;
 }
-
-p {
+p{
   margin: 0;
 }
 
-.select_size {
+.select_size{
   width: 100%;
   margin-left: 0;
   -webkit-appearance: none;
@@ -46,53 +48,52 @@ p {
   outline: 0;
   padding-left: 20px;
   color: #000;
-  background: url(//st.mngbcn.com/static/assets/img/arrowDown.png) no-repeat;
+  background: (url(//st.mngbcn.com/static/assets/img/arrowDown.png) no-repeat);
   background-position: 95% center;
   background-size: 12px;
-  border: 2px solid #d7d7d8;
+  border: $border;
   height: 45px;
   cursor: pointer;
   font-weight: bold;
 }
 
-.btn-group {
+.btn-group{
   display: inline-block;
   vertical-align: middle;
 }
 
-.btn {
+.btn{
   border-radius: 0;
   outline: none !important;
   box-shadow: none;
 }
 
-.btn-add {
+.btn-add{
   display: block;
   background-color: #e2e2e2;
-  border: 2px solid #d7d7d8;
+  border: $border;
   margin-top: 10px;
   width: 100%;
+  &:hover{
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
 }
 
-.btn-add:hover {
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  cursor: pointer;
+.quantity{
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 5px 20px 5px 20px;
+    float: left;
+    color: #444;
+    background-color: #e2e2e2;
+    border: $border;
 }
 
-.quantity {
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  padding: 5px 20px 5px 20px;
-  float: left;
-  color: #444;
-  background-color: #e2e2e2;
-  border: 2px solid #d7d7d8;
-}
-
-.input-units {
+.input-units{
   border-radius: 0px;
   float: left;
   font-weight: bold;
@@ -103,7 +104,7 @@ p {
   text-align: center;
   /* top: 0px; */
   /* width: 38px; */
-  border: 2px solid #d7d7d8;
+  border: $border;
   border-right: 0;
   border-left: 0;
   /* border-color: rgb(169, 169, 169); */

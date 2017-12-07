@@ -14,7 +14,7 @@ export class BuyItemComponent implements OnInit {
 
   @Output() submittedForm = new EventEmitter<boolean>();
   message:any;
-
+  message_err:any;
 
   buyProduct: any = {
     creator: {},
@@ -38,18 +38,25 @@ console.log("userDesigns:");
 
   }
 
-  submitForm(event){
-    this.buyProduct.creator=this.userAPI._currentUser._id;
+  submitForm(event) {
 
-    this.buyProduct.productType=this.productInfo;
-    this.buyProduct.design=this.designInfo._id;
-    this.buyProduct.size = this.selectedValue;
-console.log(this.buyProduct);
-this.message="Producto añadido al carrito";
+    if (this.buyProduct.qty < 0) {
+      if(this.message){this.message="";}
+      this.buyProduct.qty = 0;
+      this.message_err = "Cantidad errónea";
 
-
-    this.submittedForm.emit(this.buyProduct);
+    } else {
+      if(this.message_err){this.message_err="";}
+      this.buyProduct.creator = this.userAPI._currentUser._id;
+      this.buyProduct.productType = this.productInfo;
+      this.buyProduct.design = this.designInfo._id;
+      this.buyProduct.size = this.selectedValue;
+      console.log(this.buyProduct);
+      this.message = "Producto añadido al carrito";
+      this.submittedForm.emit(this.buyProduct);
+    }
   }
+
 
   subtractQty(){
     this.buyProduct.qty++;
