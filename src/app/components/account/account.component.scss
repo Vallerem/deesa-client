@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+$bg-color: #e2e2e2;
+$border: 2px solid #d7d7d8;
+$font_deesa: 'Nunito', sans-serif;
+$color_font_deesa: #444;
+.row{
+/*   font-family: "Haas Grot Text R Web"; */
+  font-family: $font_deesa;
+  color: #444;
+}
+
 .avatar-form-img {
   border-radius: 50%;
   border: 1px solid grey;
@@ -39,5 +51,34 @@
   margin-top: 5px;
   font-size: 14px;
   padding: 0 0 0 0!important;
+}
+
+.btn{
+  color: $color_font_deesa;
+  display: block;
+  background-color: $bg-color;
+  border: $border;
+  margin-top: 10px;
+  width: 100%;
+  &:hover{
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  &:focus{
+    box-shadow: none;
+  }
+}
+
+.form-control:focus{
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+a{
+  color: black;
+}
+
+
+.border-right{
+  border-right: 1px solid rgba(141, 141, 141, 0.43);
 }
 

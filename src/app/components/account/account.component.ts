@@ -18,12 +18,10 @@ export class AccountComponent implements OnInit {
   });
 
   currentUser: any = JSON.parse(localStorage.getItem('user'));
-  currentView: string = "Account";
+  currentView: string = "Cuenta";
   accountInfo: any; //JSON
-  userAvatar: any = JSON.parse(localStorage.getItem('user'));
   innerWidth = (window.screen.width) + "px";
-  arr = [];
-  feedback = undefined;
+/*   feedback = undefined; */
   message:any;
 
 
@@ -33,89 +31,81 @@ export class AccountComponent implements OnInit {
 
     this.userAPI.getAccount(this.userAPI._currentUser)
       .subscribe((res) => {
-        this.accountInfo = res;
-        this.userAvatar = res.avatarUrl;
-      });
-    // console.log("********************");
-    // console.log(this.userAPI._currentUser);
-    
-    this.userAPI.getAccount(this.userAPI._currentUser)
-      .subscribe((res) => {
         // console.log(`ngOnInit[PARENT] subscribe response-->${JSON.stringify(res)}`);
         this.accountInfo = res;
-        this.userAvatar = res.avatarUrl;
-      });
-      this.arr.push(this.accountInfo);
-      this.arr.forEach((e)=>{
-        // console.log(e);
-      })
+        console.log(this.accountInfo);
 
-    this.uploader.onSuccessItem = (item, response) => {
+      });
+
+/*     this.uploader.onSuccessItem = (item, response) => {
       this.feedback = JSON.parse(response).message;
     };
 
     this.uploader.onErrorItem = (item, response, status, headers) => {
       this.feedback = JSON.parse(response).message;
-    };
+    }; */
   }
 
   submitImage() {
 
-    this.uploader.onBuildItemForm = (item, form) => {
+/*     this.uploader.onBuildItemForm = (item, form) => {
           item.withCredentials = false;
           form.append('_id', this.userAPI._currentUser._id );
-          form.append('old_imgUrl', this.accountInfo.user.avatarUrl );       
+          form.append('old_imgUrl', this.accountInfo.user.avatarUrl );
         };
+    this.uploader.uploadAll(); */
 
-    this.uploader.uploadAll();
+    if (this.uploader.queue[0].file) {
+      this.message="Imagen subida";
+      this.accountInfo.user.avatarUrl = `assets/images/profile/${this.uploader.queue[0].file.name}`;
+      this.uploader.queue =[];
+      this.userAPI.editAvatarAccount(this.accountInfo.user)
+        .subscribe((res) => {
+          //this.accountInfo.user.avatarUrl= res.avatarUrl;
+        });
+    }
+    else{
+      this.message="Error al subir imagen";
+    }
   }
 
+  /**
+   * Submit form change profile
+   * @param accountInfo
+   */
   editAccount(accountInfo) {
 
-    if (accountInfo.currentView === 'Account') {
-      this.message="Cuenta mofificada";
+    if (accountInfo.currentView === 'Cuenta') {
+      this.message="Cuenta modificada";
       this.userAPI.editAccount(accountInfo.user)
         .subscribe((res) => {
           this.accountInfo.user.userInfo = res.user.userInfo;
-          console.log(`response editAccount:`);
-          console.log(this.accountInfo);
-
         });
     }
 
-    if (accountInfo.currentView === 'Password') {
+    if (accountInfo.currentView === 'Contraseña') {
       //this.message="Contraseña modificada";
       this.userAPI.editPasswordAccount(accountInfo.user)
         .subscribe((res) => {
           //this.accountInfo = res;
           this.message = res.message;
-          console.log(`response password: ${this.accountInfo}`);
 
         });
     }
 
-    if (accountInfo.currentView === 'Address') {
-      this.message = "Direccion mofificada";
+    if (accountInfo.currentView === 'Dirección') {
+      this.message = "Dirección modificada";
       this.userAPI.editAddressAccount(accountInfo.user)
         .subscribe((res) => {
           this.accountInfo.user.addressInfo = res.user.addressInfo;
-          console.log(`response editAccount: ${this.accountInfo}`);
         });
     }
   }
 
   clicked(event) {
-    console.log("CLICK");
-    console.log("this.accountInfo");
-    console.log(this.accountInfo);
-    console.log("message:");
-
-    console.log(this.message);
     this.message="";
-
     //this.message = (function () { return; })(); // set message undefined
     event.preventDefault();
     this.currentView = event.target.innerHTML;
   }
 }
-

@@ -1,7 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
 $bg-color: #e2e2e2;
 $border: 2px solid #d7d7d8;
+$font_deesa: 'Nunito', sans-serif;
+$color_font_deesa: #444;
+
+.form-group{
+  font-family: $font_deesa;
+  color: $color_font_deesa;
+}
+
+.form-control{
+    font-family: $font_deesa;
+    color: $color_font_deesa;
+}
+
 
 .btn{
+  font-family: $font_deesa;
   display: block;
   background-color: $bg-color;
   border: $border;
@@ -10,6 +26,10 @@ $border: 2px solid #d7d7d8;
     border: 2px solid rgba(0, 0, 0, 0.5);
     cursor: pointer;
   }
+}
+
+.btn:focus{
+  box-shadow: none;
 }
 
 .avatar-form-img {

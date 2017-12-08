@@ -1,4 +1,4 @@
-<div *ngIf="currentView == 'Account'">
+<div *ngIf="currentView == 'Cuenta'">
      <form (ngSubmit)="submitForm()" #myForm="ngForm">
         <div class="form-group">
           <label for="name">Nombre</label>
@@ -8,10 +8,6 @@
           <label for="model">Email</label>
           <input type="text" class="form-control" [(ngModel)]="accountInfo.user.email" name="accountInfo.user.email">
         </div>
-<!--         <div class="form-group">
-          <label for="image">Avatar</label>
-          <input type="text" class="form-control" [(ngModel)]="accountInfo.user.avatarUrl" name="accountInfo.user.avatarUrl">
-        </div> -->
         <div class="form-group">
           <label for="phone1">Teléfono</label>
           <input type="number" class="form-control" [(ngModel)]="accountInfo.user.userInfo.phone1" name="accountInfo.user.userInfo.phone1">
@@ -29,8 +25,7 @@
       </form>
 </div>
 
-<div *ngIf="currentView == 'Password'">
-    <div *ngIf="currentView == 'Password'">
+<div *ngIf="currentView == 'Contraseña'">
         <form (ngSubmit)="submitForm()" #myForm="ngForm">
            <div class="form-group">
              <label for="name">Nueva contraseña</label>
@@ -49,10 +44,9 @@
               </div>
            <button type="submit" class="btn">Guardar</button>
          </form>
-   </div>
 </div>
 
-<div *ngIf="currentView == 'Address'">
+<div *ngIf="currentView == 'Dirección'">
     <form (ngSubmit)="submitForm()" #myForm="ngForm">
 
       <div class="form-group">
@@ -99,7 +93,7 @@
 
 
 
-<div *ngIf="currentView === 'Designer profile' && currentUser.role === 'DESIGNER' ">
+<div *ngIf="currentView === 'Mis diseños' && currentUser.role === 'DESIGNER' ">
     <form (ngSubmit)="submitForm()" #myForm="ngForm">
 
       <div class="form-group">

@@ -9,12 +9,12 @@
         <input type="hidden" name="_id" value="{{accountInfo.user._id}}">-->
           <img class="img-fluid avatar-form-img"
           src="{{accountInfo.user.avatarUrl}}" alt="User image">
-          <label style="" class="fileContainer"> Select a new image
+          <label style="" class="fileContainer"> Selecciona una imagen
           <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
           </label>
-          <button style="clear:left;" class="btn btn-primary" type="submit">Upload image</button>
+          <button style="clear:left;" class="btn" type="submit">Sube la imagen de perfil</button>
         </form>
-        <div *ngIf="feedback === undefined" >
+        <div *ngIf="feedback" >
           <p class="alert alert-success"> {{feedback}} </p>
         </div>
       </div>
@@ -22,16 +22,16 @@
 
     <ul class="nav nav-tabs">
       <li class="nav-item" style="width: 25%; margin-left: -20px;">
-        <a class="nav-link" (click)="clicked($event)" active href="#">Account</a>
+        <a class="nav-link" (click)="clicked($event)" active href="#">Cuenta</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="clicked($event)" href="#">Password</a>
+        <a class="nav-link" (click)="clicked($event)" href="#">Contraseña</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="clicked($event)" href="#">Address</a>
+        <a class="nav-link" (click)="clicked($event)" href="#">Dirección</a>
       </li>
       <li *ngIf="currentUser.role === 'DESIGNER' "  class="nav-item">
-        <a class="nav-link" (click)="clicked($event)" href="#">Designer profile</a>
+        <a class="nav-link" (click)="clicked($event)" href="#">Mis diseños</a>
       </li>
     </ul>
   </div>
@@ -46,10 +46,10 @@
         <input type="hidden" name="_id" value="{{accountInfo.user._id}}">-->
           <img class="img-fluid avatar-form-img"
           src="{{accountInfo.user.avatarUrl}}" alt="User image">
-          <label class="fileContainer"> Select a new image
+          <label class="fileContainer"> Selecciona una imagen
           <input type="file" name="file" ng2FileSelect [uploader]="uploader"/>
           </label>
-          <button class="btn btn-primary" type="submit">Upload image</button>
+          <button class="btn" type="submit">Sube la imagen de perfil</button>
         </form>
 
             <div *ngIf="feedback !== undefined" >
@@ -60,16 +60,16 @@
 
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link" (click)="clicked($event)" active href="#">Account</a>
+          <a class="nav-link" (click)="clicked($event)" active href="#">Cuenta</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="clicked($event)" href="#">Password</a>
+          <a class="nav-link" (click)="clicked($event)" href="#">Contraseña</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" (click)="clicked($event)" href="#">Address</a>
+          <a class="nav-link" (click)="clicked($event)" href="#">Dirección</a>
         </li>
         <li *ngIf="currentUser.role === 'DESIGNER' " class="nav-item">
-          <a class="nav-link" (click)="clicked($event)" href="#">Designer profile</a>
+          <a class="nav-link" (click)="clicked($event)" href="#">Mis diseños</a>
         </li>
 
       </ul>
