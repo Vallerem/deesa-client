@@ -1,34 +1,38 @@
-@import url("https://fonts.googleapis.com/css?family=Antic+Slab|Arapey|Bellefair|Delius|Forum|Gilda+Display|Pompiere|Quattrocento|Wire+One");
-@import url("https://fonts.googleapis.com/css?family=Nunito");
-p {
-  font-family: "Nunito", sans-serif;
-}
 
-hr {
+@import url('https://fonts.googleapis.com/css?family=Antic+Slab|Arapey|Bellefair|Delius|Forum|Gilda+Display|Pompiere|Quattrocento|Wire+One');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+$bg-color: #e2e2e2;
+$border: 2px solid #d7d7d8;
+$font_deesa: 'Nunito', sans-serif;
+$color_font_deesa: #444;
+
+
+p{font-family: $font_deesa;}
+
+hr{
   margin-bottom: 0;
 }
 
-.btn-deesa {
+.btn-deesa{
   display: block;
-  background-color: #e2e2e2;
-  border: 2px solid #d7d7d8;
+  background-color: $bg-color;
+  border: $border;
   margin-top: 5px;
   width: 100%;
+  &:hover{
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  &:focus{
+    box-shadow: none;
+  }
 }
 
-.btn-deesa:hover {
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-
-.btn-deesa:focus {
-  box-shadow: none;
-}
-
-.user-info-wrapper {
+.user-info-wrapper{
   margin: 25px 10px 25px 10px;
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
 }
 
@@ -44,6 +48,7 @@ hr {
   border: 0;
   background: transparent;
 }
+
 
 .avatar-wrapper {
   width: 100%;
@@ -63,8 +68,9 @@ hr {
   text-align: center;
 }
 
-.info-wrapper {
-  background-color: white;
+.info-wrapper{
+
+  background-color:white;
   border-radius: 10px;
 }
 
@@ -87,36 +93,38 @@ hr {
   font-size: larger;
 }
 
-.no-padding {
+.no-padding{
   padding: 0;
 }
 
 hr.style1 {
   height: 30px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.125);
+  border-color:  rgba(0,0,0,.125);
   border-width: 1px 0 0 0;
   border-radius: 20px;
 }
-
 hr.style1:before {
   display: block;
   content: "";
   height: 30px;
   margin-top: -31px;
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.125);
+  border-color:   rgba(0,0,0,.125);
+
   border-width: 0 0 1px 0;
   border-radius: 20px;
 }
 
 hr.style2 {
-  height: 6px;
-  background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
-  border: 0;
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 0;
 }
 
-a {
+a{
   text-decoration: none;
   color: black;
 }
+
+
