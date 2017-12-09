@@ -63,7 +63,9 @@ login(user) {
         	  	_id: user._id,
         	  	username: user.username,
               role: user.role,
-              avatarUrl: user.avatarUrl
+              avatarUrl: user.avatarUrl,
+              shoppingCart: user.shoppingCart,
+              designerInfo: user.designerInfo
         	  };
         	  this.isAuth = true;
         	  // store username and jwt token in local storage to keep user logged in between page refreshes

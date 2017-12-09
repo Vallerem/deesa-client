@@ -17,7 +17,7 @@ export class AccountComponent implements OnInit {
     url: `${this.BASE_URL}/avatar`
   });
 
-  currentUser: any = JSON.parse(localStorage.getItem('user'));
+  currentUser: any = JSON.parse(localStorage.getItem('user')); //current user when login or signup
   currentView: string = "Cuenta";
   accountInfo: any; //JSON
   innerWidth = (window.screen.width) + "px";
@@ -28,13 +28,11 @@ export class AccountComponent implements OnInit {
   constructor(private userAPI: UserService) {}
 
   ngOnInit() {
-
-    this.userAPI.getAccount(this.userAPI._currentUser)
+    //We save user information in the user's service to save future calls to the server
+    this.userAPI.getAccount(this.currentUser)
       .subscribe((res) => {
-        // console.log(`ngOnInit[PARENT] subscribe response-->${JSON.stringify(res)}`);
         this.accountInfo = res;
-        console.log(this.accountInfo);
-
+        this.userAPI._currentUser=this.currentUser;
       });
 
 /*     this.uploader.onSuccessItem = (item, response) => {

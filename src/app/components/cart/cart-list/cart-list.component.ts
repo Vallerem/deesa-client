@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { ProductService } from '../../../services/product.service';
 
@@ -7,11 +7,11 @@ import { ProductService } from '../../../services/product.service';
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.css']
 })
-export class CartListComponent implements OnInit {
+export class CartListComponent implements OnInit, OnDestroy {
 
   @Input() cartInfo; //array of items in cart  [{_id,creator,...}, {…}, {…}, {…}, {…}, {…}]
 
-  cartTotal: Number = 0;
+  cartTotal: any;
   message: any;
   serverDelete = false;   // flag to proceed delete item in server side.
   zombieIndexItem: any;  // index to return
@@ -19,8 +19,13 @@ export class CartListComponent implements OnInit {
 
   constructor(private userAPI: UserService, private productAPI: ProductService) { }
 
-  ngOnInit() {
-    this.calculateTotal();
+  ngOnInit() {this.calculateTotal();}
+
+  ngOnDestroy() {
+     if( this.serverDelete){
+      this.productAPI.deleteProduct(this.zombieItem._id).subscribe((res) => {
+      });
+    }
   }
 
   processOrder(){
@@ -30,7 +35,8 @@ export class CartListComponent implements OnInit {
   calculateTotal(){
     this.cartTotal=0;
     this.cartInfo.forEach(element => {
-      this.cartTotal += element.productType.price;
+
+      this.cartTotal += (element.productType.price*element.qty);
     });
   }
 
@@ -50,7 +56,7 @@ export class CartListComponent implements OnInit {
     console.log(this.serverDelete);
     console.log(this.cartInfo);
 
-    if (this.serverDelete === true) {
+    if (this.serverDelete) {
 
         this.calculateTotal();
         this.productAPI.deleteProduct(this.zombieItem._id).subscribe((res) => {

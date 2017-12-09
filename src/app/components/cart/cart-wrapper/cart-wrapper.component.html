@@ -1,7 +1,10 @@
 <div class='container'>
   <div class="row">
-    <p class="title-cart">CARRITO</p>
+    <div class="col-12">
+        <p class="title-cart">Resumen de compra</p>
+    </div>
   </div>
-  <cart-list [cartInfo]="cart"></cart-list>
+  <div *ngIf='cart'>
+      <cart-list [cartInfo]="cart"></cart-list>
+  </div>
 </div>
-

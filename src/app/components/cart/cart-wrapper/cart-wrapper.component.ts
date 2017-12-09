@@ -9,12 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartWrapperComponent implements OnInit {
 
-  constructor(private userAPI: UserService, private productAPI: ProductService) { }
+  constructor(private userAPI: UserService, private productAPI: ProductService) {}
 
   cart: any;
 
   ngOnInit() {
-    this.cart = this.userAPI._userCart;
-  }
 
+    this.userAPI.getCart(this.userAPI._currentUser._id).subscribe((res) => {
+      this.cart = res.products;
+      /*           console.log("[ACCOUNT-INFO] - this.accountInfo");
+            console.log(this.accountInfo);
+            console.log("[ACCOUNT-INFO] - this.userAPI._currentUser");
+            console.log(this.userAPI._currentUser); */
+    });
+  }
 }
+

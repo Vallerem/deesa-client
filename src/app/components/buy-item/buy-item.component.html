@@ -25,9 +25,9 @@
       <br>
       <p>Cantidad</p>
         <div class="btn-group">
-                <button type="button" class="btn quantity" (click)="subtractQty()">+</button>
-                <input type="text" class="form-control input-units" min="0" step="1"  [(ngModel)]="buyProduct.qty" name="buyProduct.qty" value="{{buyProduct.qty}}">
                 <button type="button" class="btn quantity" (click)="addQty()">-</button>
+                <input type="text" class="form-control input-units" min="0" step="1"  [(ngModel)]="buyProduct.qty" name="buyProduct.qty" value="{{buyProduct.qty}}">
+                <button type="button" class="btn quantity" (click)="subtractQty()">+</button>
         </div>
 
        <!--  OTROS DISEÑOS

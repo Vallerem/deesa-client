@@ -55,7 +55,7 @@ export class BuyItemWrapperComponent implements OnInit {
     this.productAPI.newBuyProduct(event)
     .subscribe((res) => {
       this.message = res.message;
-      this.userAPI._userCart.push(event); //store item un user shopping cart
+      this.userAPI._currentUser.shoppingCart.push(event); //store item un user shopping cart
     });
 
   }
