@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+$bg-color: #e2e2e2;
+$border: 2px solid #d7d7d8;
+$font_deesa: 'Nunito', sans-serif;
+$color_font_deesa: #444;
+
+
+p{font-family: $font_deesa;}
+
+.container-wrapper{
+  margin: 0 auto;
+  background-color: rgba(128, 128, 128, 0.15);
+  padding: 20px;
+}
+
+a{
+  text-decoration: none;
+  color: $color_font_deesa;
+}
+
+.mt-5{
+  margin-top: 90px !important;
+}
+
+.btn-deesa{
+  display: block;
+  background-color: $bg-color;
+  border: $border;
+  margin-top: 5px;
+  text-align: center;
+  &:hover{
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  &:focus{
+    box-shadow: none;
+  }
+}

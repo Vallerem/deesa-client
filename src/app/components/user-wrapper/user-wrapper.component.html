@@ -1,17 +1,18 @@
 <div class="container-fluid row">
-      <div class="col-sm-12 col-md-3">
-        <div *ngIf='accountInfo'>
-          <user-info [accountInfo]="accountInfo"></user-info>
-        </div>
-      </div>
-      <div class="col-md-9">
-        <div *ngIf='designsList'>
-          <designs-list [designsList]="designsList"></designs-list>
-          <div *ngIf='checkLoggedUser()'>
-            <p class="text-center">
-              <a class="btn btn-primary btn-sm" [routerLink]="['/designs/new']">Add Design</a>
-            </p>
-          </div>
-        </div>
+  <div class="col-sm-12 col-md-3">
+    <div *ngIf='accountInfo'>
+      <user-info [accountInfo]="accountInfo"></user-info>
     </div>
+  </div>
+  <div class="col-md-9">
+    <div *ngIf='designsList'>
+      <designs-list [designsList]="designsList"></designs-list>
+    </div>
+    <div *ngIf='checkLoggedUser()'>
+      <div class="d-flex justify-content-center align-items-end align-self-end mt-5">
+        <a class="btn btn-deesa" [routerLink]="['/designs/new']">Añadir diseño</a>
+      </div>
+    </div>
+  </div>
 </div>
+
