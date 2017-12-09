@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { FileSelectDirective } from "ng2-file-upload";
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'design-new-wrapper',
@@ -18,35 +19,18 @@ export class DesignNewWrapperComponent implements OnInit {
     url: `${this.BASE_URL}/new`
   });
 
-  currentUser: any = JSON.parse(localStorage.getItem('user'));
-  designInfo: any = {};
-  arr = [];
+  /*   designInfo: any = {}; */
 
-  constructor(private userAPI: UserService, private designService: DesignService) { }
+  constructor(private userAPI: UserService, private designAPI: DesignService, private router: Router) {}
 
-  ngOnInit() {
-    this.userAPI.getAccount(this.currentUser).subscribe((res) => {
-      this.currentUser.idCreator = res.user._id;
-      console.log(`designsList -->${JSON.stringify(this.currentUser)}`);
-    });
-  }
+  ngOnInit() {}
 
   newDesign(designForm) {
 
-        console.log("desgin-new-wrapper.component.");
-        designForm.creator = this.currentUser.idCreator; // add id creator
-        console.log(`designForm--> ${JSON.stringify(designForm)}`);
-
-          this.designService.newDesign(designForm)
-          .subscribe((res) => {
-            this.designInfo = res;
-            console.log(`response newDesign designInfo: ${this.designInfo}`);
-
-            this.arr.push(this.designInfo);
-            this.arr.forEach((e)=>{
-              console.log(e);
-            });
-
-          });
-      }
+      this.designAPI.newDesign(designForm)
+      .subscribe((res) => {
+        this.router.navigate(['/designs', designForm.username]);
+      });
+  }
 }
+

@@ -15,7 +15,7 @@ import { UserService } from '../../services/user.service';
 })
 export class DesignNewFormComponent implements OnInit {
 
-
+  @Output() submittedForm = new EventEmitter < boolean > ();
   BASE_URL: string = environment.baseAPI; //http://localhost:3000
 
   uploader: FileUploader = new FileUploader({
@@ -41,9 +41,6 @@ export class DesignNewFormComponent implements OnInit {
 }
   }
 
-
-
-
   ngOnInit() {}
 
   submitForm() {
@@ -54,27 +51,21 @@ export class DesignNewFormComponent implements OnInit {
           form.append('title', this.designInfo.title);
           form.append('description', this.designInfo.description );
         };
-
         this.uploader.uploadAll(); */
 
         if (this.uploader.queue[0].file) {
-          //this.message="Diseño subido";
 
           this.designInfo.creator = this.userAPI._currentUser._id;
-
+          this.designInfo.username = this.userAPI._currentUser.username;
           this.designInfo.designMainImg = `assets/images/designs/${this.uploader.queue[0].file.name}`;
           this.uploader.queue =[];
-          console.log("this.designInfo-->");
+          this.submittedForm.emit(this.designInfo); //Output - Send to parent
 
-          console.log(this.designInfo);
-
-          this.designAPI.newDesign(this.designInfo)
+/*           this.designAPI.newDesign(this.designInfo)
             .subscribe((res) => {
               console.log("diseño siubido a la bbdd");
 
-              this.message="Diseño subido a la bbdd";
-              //this.accountInfo.user.avatarUrl= res.avatarUrl;
-            });
+            }); */
         }
         else{
           this.message="Error al subir imagen";
