@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Cookie|Merienda|Oranienbaum|Rochester|Sacramento');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+$bg-color: #e2e2e2;
+$border: 2px solid #d7d7d8;
+$font_deesa: 'Nunito', sans-serif;
+$color_font_deesa: #444;
+
+
+li>*{font-family: $font_deesa;
+  font-size: 125%;
+}
 
 .font-deesa{
    font-family: 'Cookie', cursive;

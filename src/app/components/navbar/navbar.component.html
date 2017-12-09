@@ -1,12 +1,17 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <a class="navbar-brand font-deesa" [routerLink]="['/home']">Deesa</a>
   <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto d-flex align-items-center">
       <li class="nav-item">
-        <a class="nav-link" *ngIf="checkUser()" [routerLink]="['/account']" >Cuenta</a>
+        <!-- <a class="nav-link" *ngIf="checkUser()" [routerLink]="['/account']" >Cuenta</a> -->
+        <a class="nav-link" *ngIf="checkUser() && currentUser.role === 'DESIGNER'" [routerLink]="['/designs/', currentUser.username]"
+          role="button">
+          <i class="fa fa-cubes" aria-hidden="true"></i> Mis diseños</a>
+
       </li>
       <li class="nav-item" *ngIf="checkUser()">
         <a class="nav-link" [routerLink]="['/designs']">Diseños</a>
@@ -14,12 +19,20 @@
     </ul>
 
 
-    <ul class="navbar-nav ml-auto">
-        <li class="nav-item" *ngIf="checkUser()"><a class="nav-link" [routerLink]="['/cart']">Carrito</a></li>
-        <li class="nav-item" *ngIf="checkUser()"><a class="nav-link" href="#" (click)="logout()">Logout</a></li>
-
-        <li class="nav-item" *ngIf="!checkUser()">
-          <a class="btn-success btn-login" [routerLink]="['/login']">Inicia sesión</a></li>
+    <ul class="navbar-nav ml-auto d-flex align-items-center">
+      <li>
+        <a class="nav-link" *ngIf="checkUser()" [routerLink]="['/account']">{{currentUser.username}}</a>
+      </li>
+      <li class="nav-item" *ngIf="checkUser()">
+        <a class="nav-link" [routerLink]="['/cart']">Carrito</a>
+      </li>
+      <li class="nav-item" *ngIf="checkUser()">
+        <a class="nav-link" href="#" (click)="logout()">Logout</a>
+      </li>
+      <li class="nav-item" *ngIf="!checkUser()">
+        <a class="btn-success btn-login" [routerLink]="['/login']">Inicia sesión</a>
+      </li>
     </ul>
   </div>
 </nav>
+
