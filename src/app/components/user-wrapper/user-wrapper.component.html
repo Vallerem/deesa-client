@@ -1,11 +1,10 @@
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-3">
+<div class="container-fluid row">
+      <div class="col-sm-12 col-md-3">
         <div *ngIf='accountInfo'>
           <user-info [accountInfo]="accountInfo"></user-info>
         </div>
       </div>
-      <div class="col-9">
+      <div class="col-md-9">
         <div *ngIf='designsList'>
           <designs-list [designsList]="designsList"></designs-list>
           <div *ngIf='checkLoggedUser()'>
@@ -14,6 +13,5 @@
             </p>
           </div>
         </div>
-      </div>
     </div>
 </div>
