@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+$bg-color: #e2e2e2;
+$border: 2px solid #d7d7d8;
+$font_deesa: 'Nunito', sans-serif;
+$color_font_deesa: #444;
+
+.form-group{
+  font-family: $font_deesa;
+  color: $color_font_deesa;
+}
+
+.form-control{
+    font-family: $font_deesa;
+    color: $color_font_deesa;
+}
+
+.btn-deesa{
+  font-family: $font_deesa;
+  display: block;
+  background-color: $bg-color;
+  border: $border;
+  margin-top: 10px;
+  &:hover{
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  &:focus{
+    box-shadow: none;
+  }
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442; /* red */
+}
+
+.fileContainer {
+  overflow: hidden;
+  position: relative;
+  border: 1px black solid;
+  padding: 5px;
+}
+
+.fileContainer:hover {
+  opacity: 0.75;
+}
+
+.fileContainer [type=file] {
+  cursor: pointer;
+  display: block;
+  font-size: 999px;
+  filter: alpha(opacity=0);
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
+
+

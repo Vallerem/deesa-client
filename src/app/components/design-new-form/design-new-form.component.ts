@@ -1,3 +1,4 @@
+import { DesignService } from './../../services/design.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -26,12 +27,13 @@ export class DesignNewFormComponent implements OnInit {
 
   designImage: "";
   localImageUrl: "";
+  message: any;
 
   // //designInfo: any = {};
   // img : any;
   // @Output() submittedForm = new EventEmitter < boolean > ();
 
-  constructor(private userAPI: UserService, private sanitizer:DomSanitizer) { 
+  constructor(private userAPI: UserService, private designAPI: DesignService, private sanitizer:DomSanitizer) {
 
   this.uploader.onAfterAddingFile = (fileItem) => {
     let url = (window.URL) ? window.URL.createObjectURL(fileItem._file) : (window as any).webkitURL.createObjectURL(fileItem._file);
@@ -39,23 +41,46 @@ export class DesignNewFormComponent implements OnInit {
 }
   }
 
-  
+
 
 
   ngOnInit() {}
 
   submitForm() {
-    
-        this.uploader.onBuildItemForm = (item, form) => {
+
+/*         this.uploader.onBuildItemForm = (item, form) => {
           item.withCredentials = false;
           form.append('creator', this.userAPI._currentUser._id );
           form.append('title', this.designInfo.title);
-          form.append('description', this.designInfo.description );   
+          form.append('description', this.designInfo.description );
         };
 
-        this.uploader.uploadAll();
+        this.uploader.uploadAll(); */
+
+        if (this.uploader.queue[0].file) {
+          //this.message="Diseño subido";
+
+          this.designInfo.creator = this.userAPI._currentUser._id;
+
+          this.designInfo.designMainImg = `assets/images/designs/${this.uploader.queue[0].file.name}`;
+          this.uploader.queue =[];
+          console.log("this.designInfo-->");
+
+          console.log(this.designInfo);
+
+          this.designAPI.newDesign(this.designInfo)
+            .subscribe((res) => {
+              console.log("diseño siubido a la bbdd");
+
+              this.message="Diseño subido a la bbdd";
+              //this.accountInfo.user.avatarUrl= res.avatarUrl;
+            });
+        }
+        else{
+          this.message="Error al subir imagen";
+        }
   }
-  
+
 
   // console.log("event:");
   // console.log(event);
@@ -68,7 +93,7 @@ export class DesignNewFormComponent implements OnInit {
 
   //       this.submittedForm.emit(this.designInfo); //Output - Send to parent
 
- 
+
 
 
       // addImg() {
