@@ -1,4 +1,4 @@
-<div class="card teaser-wrapper-design" (mouseenter) ="changeImgHover($event)" (mouseout)="changeImgHover($event)">
+<!-- <div class="card teaser-wrapper-design" (mouseenter) ="changeImgHover($event)" (mouseout)="changeImgHover($event)">
   <a [routerLink]="['/designs/view', designsItem._id]" role="button">
     <img class="card-img-top resize-img" [ngClass]="hover" src="{{designsItem.designMainImg}}" alt="Card image cap">
 
@@ -9,7 +9,7 @@
 <div class="card-footer text-muted">
     <span>{{designsItem.title}}</span>
 </div>
-</div>
+</div> -->
 
 
 <!-- <div class="form-group">
@@ -22,3 +22,33 @@
 
 <!-- * params: {_id, title, creator, description, designGallery[], designMainImg, likedBy[]}
  -->
+
+    <div class="item-wrapper">
+      <div class="item-content">
+          <a class="deesa-link" [routerLink]="['/designs/view', designsItem._id]" role="button">
+            <picture>
+              <source srcset = "{{designsItem.designMainImg}}" media="(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx)">
+              <source srcset="{{designsItem.designMainImg}}">
+              <img alt="Pattern" class="resize-img" src="{{designsItem.designMainImg}}" alt="Card image cap" media="(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 1.5dppx)">
+            </picture>
+          </a>
+
+<!--         <a class="deesa-over" [routerLink]="['/designs/view', designsItem._id]" role="button">
+          <strong>{{designsItem.title}}</strong>
+          <span class="comment">{{designsItem.description}}</span>
+          <em class="timestamp">{{designsItem.timestamps | date: 'dd-MM-yy' }}</em>
+        </a> -->
+      </div>
+      <div>
+        <ul class="footer-list">
+          <li>
+              <span><i class="fa fa-comment-o" aria-hidden="true"></i> {{designsItem.comments.length}} </span>
+
+          </li>
+        </ul>
+<!--         <span>{{designsItem.title}}</span> -->
+<!--         <button type="button" class="btn btn-default" (click)="deleteItem(designsItem._id)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button> -->
+      </div>
+    </div>

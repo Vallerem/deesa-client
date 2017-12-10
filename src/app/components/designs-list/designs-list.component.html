@@ -1,9 +1,7 @@
-<div class="row">
-  <div class="col-12">
-    <div class="card-deck">
-      <designs-item class="item col-sm-12 col-lg-6 col-xl-4" *ngFor="let design of designsList" [designsItem]="design">
-      </designs-item>
-    </div>
-  </div>
+  <div id="content" class="main-full">
+  <ol class="list-wrapper">
+    <li class="item" *ngFor="let design of designsList">
+        <designs-item   [designsItem]="design"> </designs-item>
+    </li>
+  </ol>
 </div>
-

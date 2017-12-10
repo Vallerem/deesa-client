@@ -16,6 +16,79 @@
   margin: 0 12% 0 12%;
 }
 
-.card-deck{
-  margin: 25px 10px 25px 10px;
+/* .main-full{
+  float: none;
+  width: auto;
+  max-width: none;
 }
+
+
+
+.group{
+  max-width: 2700px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 auto;
+} */
+
+ol{
+  list-style: none;
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+}
+
+li{
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+
+#content{
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 14px;
+}
+
+.item {
+  width: calc(16.666% - 30px);
+  @media screen and (min-width: 0px) and (max-width: 767px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1169px) {
+    width: calc(50% - 30px);
+  }
+  @media screen and (min-width: 1170px) and (max-width: 1539px) {
+    width: calc(33.333% - 30px);
+  }
+  @media screen and (min-width: 1540px) and (max-width: 1909px) {
+    width: calc(25% - 30px);
+  }
+  @media screen and (min-width: 1910px) and (max-width: 2279px) {
+    width: calc(20% - 30px);
+  }
+}
+
+
+.list-wrapper {
+  padding: 27px 0 27px;
+  max-width: 2700px;
+  @media screen and (max-width: 767px) {
+    max-width: 420px;
+  }
+  @media screen and (max-width: 1169px) and (min-width: 961px) {
+    max-width: 900px;
+  }
+  @media screen and (max-width: 1539px) and (min-width: 1411px) {
+    max-width: 1350px;
+  }
+  @media screen and (max-width: 1909px) and (min-width: 1861px) {
+    max-width: 1800px;
+  }
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
