@@ -1,18 +1,20 @@
 
       <table class="table">
-        <thead>
-          <tr>
-            <th class="col-md-3">Objeto</th>
-            <th class="col-md-3">Cantidad</th>
-            <th class="col-md-3">Talla</th>
-            <th class="col-md-3">Precio</th>
-            <th class="col-md-3"></th>
-        </tr>
-        </thead>
 
-        <tbody>
-                <cart-item *ngFor="let item of cartInfo" [buyItem]="item" (delItem)="deleteItem($event)"></cart-item>
-        </tbody>
+        <tr>
+            <th class="col-md-3">Objeto</th>
+            <td class="col-md-3">Cantidad</td>
+            <td class="col-md-3">Talla</td>
+            <td class="col-md-3">Precio</td>
+            <td class="col-md-3" style="width: 50px;"></td>
+        </tr>
+
+      </table>
+    <table class="table">
+              <cart-item *ngFor="let item of cartInfo" 
+              [buyItem]="item" (delItem)="deleteItem($event)">
+              </cart-item>
+
         <div class="alert alert-danger" role="alert" *ngIf="message">{{message}} -<a (click)="revertDeleteProduct()" class="alert-link"> Deshacer ultimo</a></div>
 
       </table>

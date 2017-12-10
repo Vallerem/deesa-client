@@ -1,4 +1,4 @@
-<div *ngIf="designInfo && productsTypes&& userDesigns && commentsInfo">
+<div *ngIf="designInfo && productsTypes && userDesigns && commentsInfo">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -6,13 +6,7 @@
       </div>
       <br>
       <div class="col-md-6 d-flex align-items-center">
-
-        <div class="row">
-          <h5 class="info-h2">Imprime el diseño en alguno de estos productos!</h5>
-          <small>*Camisetas 100% algodón impresas mediante serigrafía. Impresión de alta calidad mediante tecnología UV. Los pedidos
-            que contengan tazas se retrasarán el envío unas 24/48h más</small>
           <product-wrapper [productsTypes]="productsTypes"></product-wrapper>
-        </div>
       </div>
       <br>
     </div>
@@ -20,7 +14,8 @@
     <div class=row>
       <div class="col">
         <br>
-        <comment-wrapper [commentsInfo]="commentsInfo" [designId]="designInfo._id"></comment-wrapper>
+        <comment-wrapper [commentsInfo]="commentsInfo" 
+        [designId]="designInfo._id"></comment-wrapper>
       </div>
     </div>
     <br>

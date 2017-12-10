@@ -1,13 +1,24 @@
 .resize{
   object-fit: contain;
-  width:100px;
   height:100px;
+  position: relative;
+  left: 30%;
 }
+
+/* @media(max-width: 1000px) {
+  .resize{
+    left: 200px;
+  }
+} */
 
 
 .item-box{
   cursor: pointer;
   position: relative;
+}
+
+.item-box:hover{
+  border-left: 2px solid #64BDE2;
 }
 
 .card-img-overlay{
@@ -19,4 +30,16 @@
 
   /* edit: added z-index */
   z-index: 1;
+}
+
+.card-text {
+  width: 70%;
+  padding-right: 5px;
+  margin-top: -7px;
+}
+
+.card-title {
+  color: #64BDE2;
+  font-weight: bolder;
+  font-size: 17px;
 }
