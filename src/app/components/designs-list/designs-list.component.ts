@@ -8,20 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DesignsListComponent implements OnInit {
 
   @Input() designsList;
-  arr = [];
 
   constructor() { }
 
   ngOnInit() {
-
-    this.arr.push(this.designsList);
-    this.arr.forEach((e) => {
-      console.log("designList::");
-      console.log(e);
-    });
-
-
-
   }
 
 }
