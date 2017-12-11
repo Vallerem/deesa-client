@@ -34,3 +34,15 @@ a {
 .btn-deesa:focus {
   box-shadow: none;
 }
+
+.btn-new-design {
+  margin: -10px 0 20px 0;
+  border-radius: 5px;
+  padding: 10px;
+  background: #c070ac;
+  color: white;
+}
+
+.btn-new-design:hover {
+  text-decoration: none;
+}

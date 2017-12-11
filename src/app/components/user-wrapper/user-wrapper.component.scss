@@ -37,3 +37,15 @@ a{
     box-shadow: none;
   }
 }
+
+.btn-new-design {
+  margin: -10px 0 20px 0;
+  border-radius: 5px;
+  padding: 10px;
+  background: rgb(192, 112, 172);
+  color: white;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
