@@ -12,24 +12,21 @@ import { UserService } from '../../services/user.service';
 })
 export class DesignsWrapperComponent implements OnInit {
 
-  currentUser: any = JSON.parse(localStorage.getItem('user'));
+  //currentUser: any = JSON.parse(localStorage.getItem('user'));
   designInfo: any;
   commentsInfo: any;
   productsTypes: any;
   userDesigns: any; //keep here to access to service variable in product item
 
-
-  private routerUser = {
-    username: ''
-  }
   private idDesign: String;
 
   constructor(private userAPI: UserService, private route: ActivatedRoute, private designAPI: DesignService, private commentAPI: CommentService, private productAPI: ProductService) {}
 
 
   ngOnInit() {
-    this.routerUser.username = this.route.snapshot.paramMap.get('username'); //catch route param
-    this.idDesign = this.route.snapshot.paramMap.get('idDesign'); //catch route param
+
+/*     this.routerUser.username = this.route.snapshot.paramMap.get('username'); //catch route param
+ */    this.idDesign = this.route.snapshot.paramMap.get('idDesign'); //catch route param
 
     //Retrieve Design Info
     this.designAPI.getDesign(this.idDesign).subscribe((res)=>{
@@ -52,7 +49,6 @@ export class DesignsWrapperComponent implements OnInit {
     });
 
     //Retrieve products types
-
     //check if products are in service loaded
     if (this.productAPI._productTypes) {
       this.productsTypes = this.productAPI._productTypes;
@@ -63,12 +59,5 @@ export class DesignsWrapperComponent implements OnInit {
         this.productAPI._productTypes = res.products;
       });
     }
-
-
-
-
-
-
-
   }
 }

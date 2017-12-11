@@ -6,25 +6,20 @@ import { Component, OnInit, Input, EventEmitter } from '@angular/core';
   templateUrl: './comment-wrapper.component.html',
   styleUrls: ['./comment-wrapper.component.css']
 })
+/**
+ * Container: form and list of comments
+ */
 export class CommentWrapperComponent implements OnInit {
-
-  //private listId = 'COMMENT_COMPONENT_LIST';
 
   @Input() commentsInfo; //array of comments
   @Input() designId;
   message: String;
 
-
-  constructor(private commentsAPI: CommentService) { }
+  constructor(private commentsAPI: CommentService) {}
 
   ngOnInit() {}
 
-  submittedCommentForm(comment){
-    console.log("NEW COMMENT.");
-    console.log("COMMENTSINFO:");
-    console.log(this.commentsInfo);
-    console.log(comment);
-
+  submittedCommentForm(comment) {
     let newComment = {
       creator: comment.creator,
       message: comment.message,
@@ -32,23 +27,19 @@ export class CommentWrapperComponent implements OnInit {
       likedBy: []
     }
 
-    this.commentsInfo.push(newComment);
-    console.log(this.commentsInfo);
+    this.commentsInfo.push(newComment); // data-binding comment
 
-      this.commentsAPI.newComment(newComment)
-    .subscribe((res) => {
-      this.message = res.message;
-      console.log(`response new comment: ${this.message}`);
-    });
+    this.commentsAPI.newComment(newComment)
+      .subscribe((res) => {
+        this.message = res.message;
+      });
   }
 
-  addLike(event){
-    console.log(`event---------> ${JSON.stringify(event)}`);
-
-   this.commentsAPI.addCommentLikes(event)
-   .subscribe((res) => {
-     this.message = res.message;
-     console.log(`response addCommentLikes: ${this.message}`);
-   });
+  addLike(event) {
+    this.commentsAPI.addCommentLikes(event)
+      .subscribe((res) => {
+        this.message = res.message;
+      });
   }
 }
+

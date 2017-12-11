@@ -4,19 +4,17 @@
       <img class="d-flex mr-3 align-self-center resize-avatar" src="{{commentItem.creator.avatarUrl}}">
       <div class="media-body">
         <a [routerLink]="['/designs/', commentItem.creator.username]">
-          <h5 class="mt-0 mb-1 align-self-center">{{commentItem.creator.username}}</h5>
+          <h5 class="mt-0 mb-1 lh-5">{{commentItem.creator.username}}</h5>
         </a>
-        <small>{{commentItem.createdAt | date: 'dd-MM-yy' }}</small>
       </div>
-
     </div>
   </div>
   <div class="card-body">
-    {{commentItem.message}}
+    <p>{{commentItem.message}}</p>
   </div>
-  <div class="card-footer">
-    <button class="btn btn-info" (click)="addLike()">
-      <i class="fa fa-heart"></i>{{commentItem.likedBy.length}}</button>
+  <div class="card-footer d-flex justify-content-between">
+    <small>{{commentItem.createdAt | date: 'dd-MM-yy' }}</small>
+    <button class="btn" (click)="addLike()">
+      <i class="fa fa-heart icon-heart"></i> {{commentItem.likedBy.length}}</button>
   </div>
 </div>
-

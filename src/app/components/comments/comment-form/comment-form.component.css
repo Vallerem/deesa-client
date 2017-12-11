@@ -3,10 +3,25 @@
   background-color: #e2e2e2;
   border: 2px solid #d7d7d8;
   margin-top: 10px;
-  width: 25%;
 }
 
 .btn:hover {
   border: 2px solid rgba(0, 0, 0, 0.5);
   cursor: pointer;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.input-group-addon {
+  padding: 5px;
+}
+
+.creator-avatar {
+  width: 32px;
+  height: 32px;
+  margin: 1px 5px 0 0;
+  border-radius: 50%;
+  vertical-align: sub;
 }

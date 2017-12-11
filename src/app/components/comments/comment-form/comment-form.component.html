@@ -1,8 +1,9 @@
 <form (ngSubmit)="submitComment()">
     <div class="form-group">
         <div class="input-group">
-            <span class="input-group-addon"><span class="fa fa-user-circle-o"></span></span>
-            <span type="text" class="form-control">{{currentUser.username}}</span>
+            <!-- <span class="input-group-addon"><span class="fa fa-user-circle-o"></span></span> -->
+            <span class="input-group-addon"><img class="creator-avatar" src="{{userAPI._currentUser.avatarUrl}}"></span>
+            <span type="text" class="form-control">{{userAPI._currentUser.username}}</span>
         </div>
         <br />
             <label for="exampleFormControlTextarea1">Comentario:</label>

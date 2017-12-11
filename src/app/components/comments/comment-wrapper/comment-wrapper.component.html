@@ -4,12 +4,12 @@
 </div>
  -->
 
-  <div class="row">
+  <div class="row centered">
       <div class="col">
           <comment-form [commentsInfo]="commentsInfo" (submittedForm)="submittedCommentForm($event)"></comment-form>
       </div>
   </div>
-  <div class="row">
+  <div class="row centered">
       <div class="col">
     <comment-list [commentsInfo]="commentsInfo" (submittedLike)="addLike($event)"></comment-list>
   </div>

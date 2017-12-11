@@ -6,24 +6,23 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   templateUrl: './comment-form.component.html',
   styleUrls: ['./comment-form.component.css']
 })
+
+/**
+ * Comment form to post a new comment
+ */
 export class CommentFormComponent implements OnInit {
 
   @Input() commentsInfo;
-  @Output() submittedForm = new EventEmitter<boolean>();
-
-  currentUser: any = JSON.parse(localStorage.getItem('user'));
+  @Output() submittedForm = new EventEmitter < boolean > ();
 
   newComment: any = {};
 
-  constructor(private userAPI: UserService) { }
-  ngOnInit() {
-    console.log(`currentUser-->${JSON.stringify(this.userAPI._currentUser)}`);
+  constructor(private userAPI: UserService) {}
+  ngOnInit() {}
 
-  }
-
-  submitComment(){
+  submitComment() {
     this.newComment.creator = this.userAPI._currentUser;
     this.submittedForm.emit(this.newComment);
+  }
 }
 
-}
