@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, OnDestroy } from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { ProductService } from '../../../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cart-list',
@@ -17,7 +18,7 @@ export class CartListComponent implements OnInit, OnDestroy {
   zombieIndexItem: any;  // index to return
   zombieItem: any = {};  // item to return
 
-  constructor(private userAPI: UserService, private productAPI: ProductService) { }
+  constructor(private userAPI: UserService, private productAPI: ProductService, private router: Router) { }
 
   ngOnInit() {this.calculateTotal();}
 
@@ -29,7 +30,12 @@ export class CartListComponent implements OnInit, OnDestroy {
   }
 
   processOrder(){
-    alert("PASARELA DE PAGO");
+    //alert("PASARELA DE PAGO");
+    console.log(this.cartTotal);
+    console.log(this.userAPI);
+   /*  this.router.navigate(['/paypal', 'cartTotal', this.cartTotal, 'user', this.userAPI]); */
+   this.router.navigate(['/paypal'],
+   {queryParams: {payment: this.cartTotal, user: this.userAPI._currentUser.username}});
   }
 
   calculateTotal(){

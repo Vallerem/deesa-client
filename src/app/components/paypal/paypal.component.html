@@ -1,0 +1,44 @@
+      <div class="container">
+        <div class="left">
+          <div class="info-box">
+            <div class="receipt">
+              Recibo de <br><span>Deesa</span>
+            </div>
+            <div class="entry">
+              <i class="icon-wallet" aria-hidden="true"></i>
+              <p>Cantidad:<br><span>{{payment}}€</span></p>
+            </div>
+            <div class="entry">
+              <i class="icon-calendar" aria-hidden="true"></i>
+              <p>Fecha:<br><span>{{ whatTime | date:'d/M/yy' }}</span></p>
+            </div>
+            <div class="entry">
+              <i class="icon-star" aria-hidden="true"></i>
+              <p>Comprador:<br><span>{{user}}</span></p>
+            </div>
+            <div class="entry">
+              <i class="icon-notebook" aria-hidden="true"></i>
+              <p>Nº Confirmación:<br><span>0YX123580219G</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="content">
+            <div class="header">
+              <img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png">
+            </div>
+            <div class="main">
+              <h3>Compra Deesa</h3>
+              <h5>Total: {{payment}}€ EUR</h5>
+            </div>
+            <div class="message">
+              <p>Hola {{user}},<br>Has enviado un pago de {{payment}}€ a Deesa (<a href="mailto:deesa@gmail.com">paypal@deesa.com</a>)</p>
+              <h6>Puede tomar unos minutos hasta que la transacción<br>aparezca en su cuenta.</h6>
+            </div>
+            <div class="footer">
+              <a href="#">www.paypal.com/help</a>
+              <h6>Invoice ID: 108165</h6>
+            </div>
+          </div>
+        </div>
+      </div>

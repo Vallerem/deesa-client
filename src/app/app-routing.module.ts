@@ -1,3 +1,4 @@
+import { PaypalComponent } from './components/paypal/paypal.component';
 import { CartWrapperComponent } from './components/cart/cart-wrapper/cart-wrapper.component';
 import { AllDesignsWrapperComponent } from './components/all-designs-wrapper/all-designs-wrapper.component';
 import { AccountInfoComponent } from './components/account-info/account-info.component';
@@ -31,6 +32,7 @@ children: [
 ] },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent, pathMatch: 'full', },
+  { path: 'paypal', component: PaypalComponent, pathMatch: 'full', },
   { path: '**', redirectTo: '/'},
 
 ];
