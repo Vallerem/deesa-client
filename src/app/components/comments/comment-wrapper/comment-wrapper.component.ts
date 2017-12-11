@@ -35,11 +35,10 @@ export class CommentWrapperComponent implements OnInit {
       });
   }
 
-  addLike(event) {
-    this.commentsAPI.addCommentLikes(event)
+  addLike(commentItem) {
+    this.commentsAPI.addCommentLikes(commentItem)
       .subscribe((res) => {
         this.message = res.message;
       });
   }
 }
-

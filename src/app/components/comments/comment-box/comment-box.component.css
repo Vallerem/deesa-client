@@ -1,22 +1,23 @@
-.resize-avatar{
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.resize-avatar {
   height: 48px;
   width: 48px;
   border-radius: 50%;
 }
 
-.card-body{
+.card-body {
   padding: 20px;
 }
 
-.card-footer{
-   padding: 5px 10px 5px 5px;
-}
-a{
-  text-decoration: none;
-  color: black;
+.card-footer {
+  padding: 5px 10px 5px 5px;
 }
 
-.btn{
+.btn {
   cursor: pointer;
   padding: 0;
   font-size: 13px;
@@ -27,15 +28,21 @@ a{
   -moz-transition: all 0s ease;
   transition: all 0s ease;
 }
-.btn:hover{
+
+.btn:hover {
   color: #1e6189;
   font-weight: bold;
 }
 
-.icon-heart{
+.btn:focus {
+  box-shadow: none;
+}
+
+.fa-heart {
   vertical-align: initial;
 }
 
-.lh-5{
+.lh-5 {
   line-height: 43px;
 }
+
