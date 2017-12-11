@@ -54,7 +54,7 @@ login(user) {
         .map((res) => {
         	let token = res.token;
         	let user = res.user;
-					let role = res.role;
+          let role = res.role;
 
         	if (token) {
         	  // set token property
@@ -70,7 +70,7 @@ login(user) {
         	  this.isAuth = true;
         	  // store username and jwt token in local storage to keep user logged in between page refreshes
         	  localStorage.setItem('token', token );
-        	  localStorage.setItem('user', JSON.stringify(this.user) );
+            localStorage.setItem('user', JSON.stringify(this.user) );
         	  // return true to indicate successful login
         	  return true;
         	} else {
@@ -100,7 +100,10 @@ login(user) {
         	  this.user = {
         	  	_id: user._id,
         	  	username: user.username,
-							role: user.role
+              role: user.role,
+              avatarUrl: user.avatarUrl,
+              shoppingCart: user.shoppingCart,
+              designerInfo: user.designerInfo
         	  };
         	  this.isAuth = true;
         	  localStorage.setItem('token', token );
@@ -120,6 +123,6 @@ login(user) {
   	this.isAuth = false;
   	localStorage.removeItem('token');
   	localStorage.removeItem('user');
-  	this.router.navigate(['/']);
+  	//this.router.navigate(['/login']);
   }
 }

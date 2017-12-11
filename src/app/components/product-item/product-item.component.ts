@@ -36,6 +36,8 @@ export class ProductItemComponent implements OnInit
    */
   imageClick(event){
  console.log("EVENT TARGET:");
+ console.log(event);
+
 console.log(event.target.innerHTML);
 
 let str = event.target.innerHTML;

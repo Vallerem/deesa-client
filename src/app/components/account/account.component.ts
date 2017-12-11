@@ -24,6 +24,8 @@ export class AccountComponent implements OnInit {
 /*   feedback = undefined; */
   message:any;
 
+  cart: any;
+
 
   constructor(private userAPI: UserService) {}
 
@@ -33,6 +35,16 @@ export class AccountComponent implements OnInit {
       .subscribe((res) => {
         this.accountInfo = res;
         this.userAPI._currentUser=this.currentUser;
+        console.log("this.userAPI._currentUser");
+        console.log(this.userAPI._currentUser);
+
+        console.log("this.accountInfo");
+        console.log(this.accountInfo);
+
+      });
+
+       this.userAPI.getCart(this.userAPI._currentUser._id).subscribe((res) => {
+        this.userAPI._currentUser.shoppingCart = res.products;
       });
 
 /*     this.uploader.onSuccessItem = (item, response) => {
@@ -56,10 +68,12 @@ export class AccountComponent implements OnInit {
     if (this.uploader.queue[0].file) {
       this.message="Imagen subida";
       this.accountInfo.user.avatarUrl = `assets/images/profile/${this.uploader.queue[0].file.name}`;
+      this.userAPI._currentUser.avatarUrl = `assets/images/profile/${this.uploader.queue[0].file.name}`;
       this.uploader.queue =[];
-      this.userAPI.editAvatarAccount(this.accountInfo.user)
+      this.userAPI.editAvatarAccount(this.userAPI._currentUser)
         .subscribe((res) => {
-          //this.accountInfo.user.avatarUrl= res.avatarUrl;
+          this.accountInfo.user.avatarUrl= res.avatarUrl;
+          this.userAPI._currentUser.avatarUrl = res.avatarUrl;
         });
     }
     else{
