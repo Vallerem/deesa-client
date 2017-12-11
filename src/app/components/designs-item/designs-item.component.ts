@@ -15,7 +15,14 @@ export class DesignsItemComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(
+      "dfsdfdsf"
+    );
+
+    console.log(this.designsItem);
+
+  }
 
 /*   changeImgHover(event){
     this.hover = (event.type === 'mouseenter') ? 'opacity-yes' : 'opacity-no';

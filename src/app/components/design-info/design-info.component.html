@@ -8,7 +8,7 @@
           <br>
           <!--                 <div>{{designInfo.creator.avatarUrl}}</div>-->
           <span>por</span>
-          <a [routerLink]="['/designs/', designInfo.creator.username]"><span class="info-h2">{{designInfo.creator.username}}</span></a>
+          <a [routerLink]="['/designs/', designInfo.creator.username]"><span class="creator-name">{{designInfo.creator.username}}</span></a>
           <span>el</span>
           <span>{{designInfo.createdAt | date: 'dd-MM-yy' }}</span>
         </div>

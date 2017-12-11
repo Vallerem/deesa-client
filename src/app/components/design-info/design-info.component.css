@@ -34,7 +34,12 @@ a {
   font-weight: bold;
 }
 
-.info-h2 {
+.creator-name {
+  color: #3a8bbb;
+  font-size: 1rem;
+}
+
+.creator-name:hover {
+  color: #1e6189;
   font-weight: bold;
-  color: black;
 }

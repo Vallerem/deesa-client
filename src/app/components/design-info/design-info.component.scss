@@ -33,8 +33,12 @@ a{
   font-size: x-large;
   font-weight: bold;
 }
-.info-h2 {
-  //font-family: "Antic Slab", serif;
-  font-weight: bold;
-  color: black;
+
+.creator-name {
+  color: #3a8bbb;
+  font-size: 1rem;
+  &:hover {
+    color: #1e6189;
+    font-weight: bold;
+  }
 }
