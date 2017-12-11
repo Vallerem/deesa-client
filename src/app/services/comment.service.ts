@@ -38,7 +38,7 @@ export class CommentService {
     console.log("SERVICE - COMMENT"+JSON.stringify(comment));
 
     let idComment = comment._id;
-    let idUser = comment.creator;
+    let idUser = comment.creator._id;
     console.log("idComment-->"+idComment);
     console.log("idUser-->"+idUser);
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });

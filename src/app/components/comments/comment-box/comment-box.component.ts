@@ -18,8 +18,6 @@ export class CommentBoxComponent implements OnInit {
   ngOnInit() {}
 
   addLike(){
-    this.commentItem.creator = this.currentUser._id;
     this.submittedLike.emit(this.commentItem); //Output - Send to parent
   }
-
 }
