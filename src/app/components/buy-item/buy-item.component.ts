@@ -51,7 +51,7 @@ console.log("userDesigns:");
       this.buyProduct.productType = this.productInfo;
       this.buyProduct.design = this.designInfo._id;
       this.buyProduct.size = this.selectedValue;
-      console.log("this.buyproduct");
+      console.log("this.buyItem Submit");
 
       console.log(this.buyProduct);
       this.message = "Producto añadido al carrito";

@@ -15,13 +15,11 @@ export class CartWrapperComponent implements OnInit {
 
   ngOnInit() {
 
-    this.userAPI.getCart(this.userAPI._currentUser._id).subscribe((res) => {
+    this.cart = this.userAPI._currentUser.shoppingCart;
+
+/*     this.userAPI.getCart(this.userAPI._currentUser._id).subscribe((res) => {
       this.cart = res.products;
-      /*           console.log("[ACCOUNT-INFO] - this.accountInfo");
-            console.log(this.accountInfo);
-            console.log("[ACCOUNT-INFO] - this.userAPI._currentUser");
-            console.log(this.userAPI._currentUser); */
-    });
+    }); */
   }
 }
 

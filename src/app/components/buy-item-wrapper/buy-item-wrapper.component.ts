@@ -48,14 +48,15 @@ export class BuyItemWrapperComponent implements OnInit {
   }
 
 
-  submitForm(event){
-    console.log("buy-item-wrapper-submit");
-    console.log(event);
-
-    this.productAPI.newBuyProduct(event)
+  submitForm(buyProduct){
+    this.productAPI.newBuyProduct(buyProduct)
     .subscribe((res) => {
       this.message = res.message;
-      this.userAPI._currentUser.shoppingCart.push(event); //store item un user shopping cart
+      this.userAPI._currentUser.shoppingCart.push(buyProduct); //store item in user shopping cart
+      console.log("PUSH this.userAPI._currentUser.shoppingCart");
+      console.log(buyProduct);
+      console.log(this.userAPI._currentUser.shoppingCart);
+
     });
 
   }

@@ -20,20 +20,33 @@ export class CartListComponent implements OnInit, OnDestroy {
 
   constructor(private userAPI: UserService, private productAPI: ProductService, private router: Router) { }
 
-  ngOnInit() {this.calculateTotal();}
+  ngOnInit() {this.calculateTotal();
+    console.log("CART INFO");
+
+  console.log(this.cartInfo);
+  console.log("this.userAPI._currentUser.shoppingCart AFTER");
+  console.log(this.userAPI._currentUser.shoppingCart);
+  }
 
   ngOnDestroy() {
      if( this.serverDelete){
+/*       console.log("this.userAPI._currentUser.shoppingCart AFTER");
+      console.log(this.userAPI._currentUser.shoppingCart);
+      console.log("this.zombieItem._id");
+      console.log(this.zombieItem._id);
+      let index = this.userAPI._currentUser.shoppingCart.indexOf(this.zombieItem._id);
+      if (index > -1) {
+        this.userAPI._currentUser.shoppingCart.splice(index, 1);
+      }
+      console.log("this.userAPI._currentUser.shoppingCart AFTER");
+      console.log(this.userAPI._currentUser.shoppingCart); */
+
       this.productAPI.deleteProduct(this.zombieItem._id).subscribe((res) => {
       });
     }
   }
 
   processOrder(){
-    //alert("PASARELA DE PAGO");
-    console.log(this.cartTotal);
-    console.log(this.userAPI);
-   /*  this.router.navigate(['/paypal', 'cartTotal', this.cartTotal, 'user', this.userAPI]); */
    this.router.navigate(['/paypal'],
    {queryParams: {payment: this.cartTotal, user: this.userAPI._currentUser.username}});
   }
@@ -41,7 +54,6 @@ export class CartListComponent implements OnInit, OnDestroy {
   calculateTotal(){
     this.cartTotal=0;
     this.cartInfo.forEach(element => {
-
       this.cartTotal += (element.productType.price*element.qty);
     });
   }
@@ -64,11 +76,15 @@ export class CartListComponent implements OnInit, OnDestroy {
 
     if (this.serverDelete) {
 
-        this.calculateTotal();
-        this.productAPI.deleteProduct(this.zombieItem._id).subscribe((res) => {
-          console.log(res);
-          this.message = res.message;
-        });
+      this.calculateTotal();
+/*       let index = this.userAPI._currentUser.shoppingCart.indexOf(this.zombieItem._id);
+      if (index > -1) {
+        this.userAPI._currentUser.shoppingCart.splice(index, 1);
+      } */
+      this.productAPI.deleteProduct(this.zombieItem._id).subscribe((res) => {
+        console.log(res);
+        this.message = res.message;
+      });
 
       this.serverDelete = false;
       this.getZombieItem(id);
@@ -81,6 +97,7 @@ export class CartListComponent implements OnInit, OnDestroy {
       this.serverDelete = true;
     }
   }
+
 
   //find id inside an array of items and retrieve this index. Slice this item from cart info
   getZombieItem(id){
