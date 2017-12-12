@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartWrapperComponent implements OnInit {
 
-  constructor(private userAPI: UserService, private productAPI: ProductService) {}
+  constructor(public userAPI: UserService, private productAPI: ProductService) {}
   currentUser: any = JSON.parse(localStorage.getItem('user'));
   cart: any;
 
