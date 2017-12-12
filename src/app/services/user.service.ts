@@ -52,7 +52,6 @@ export class UserService {
   }
 
   editAccount(user) {
-    console.log("user.service.edit"+JSON.stringify(user.userInfo));
 
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
@@ -61,36 +60,32 @@ export class UserService {
   }
 
   editPasswordAccount(user) {
-    console.log("user.service.password"+JSON.stringify(user));
 
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.put(`${this.BASE_URL}/account/password`,user, options).map((res) => {console.log("response:"+res); return res.json();});
+    return this.http.put(`${this.BASE_URL}/account/password`,user, options).map((res) => {return res.json();});
   }
 
   editAddressAccount(user) {
-    console.log("user.service"+JSON.stringify(user));
 
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.put(`${this.BASE_URL}/account/address`,user, options).map((res) => {console.log("response:"+res); return res.json();});
+    return this.http.put(`${this.BASE_URL}/account/address`,user, options).map((res) => {return res.json();});
   }
 
   editAvatarAccount(user) {
-    console.log("user.service"+JSON.stringify(user));
 
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.put(`${this.BASE_URL}/account/avatar`,user, options).map((res) => {console.log("response:"+res); return res.json();});
+    return this.http.put(`${this.BASE_URL}/account/avatar`,user, options).map((res) => {return res.json();});
   }
 
   getUserDesigns(userId){
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
-    console.log("getUserDesigns");
 
     return this.http.get(`${this.BASE_URL}/account/designs/${userId}`, options).map((res) => res.json());
   }
@@ -98,7 +93,6 @@ export class UserService {
   getCart(userId){
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
-    console.log("getCart");
 
     return this.http.get(`${this.BASE_URL}/account/cart/${userId}`, options).map((res) => res.json());
   }

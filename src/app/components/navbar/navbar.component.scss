@@ -39,3 +39,12 @@ li>*{font-family: $font_deesa;
     text-decoration: none;
   }
 }
+
+.color-blue{
+  color: #3a8bbb;
+  &:hover {
+    color: #1e6189;
+  }
+}
+
+

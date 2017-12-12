@@ -10,7 +10,7 @@
         <!-- <a class="nav-link" *ngIf="checkUser()" [routerLink]="['/account']" >Cuenta</a> -->
         <a class="nav-link" *ngIf="checkUser() && currentUser.role === 'DESIGNER'" [routerLink]="['/designs/', currentUser.username]"
           role="button">
-          <i class="fa fa-cubes" aria-hidden="true"></i> Mis diseños</a>
+          <i class="fa fa-cubes color-blue" aria-hidden="true"></i> Mis diseños</a>
 
       </li>
       <li class="nav-item" *ngIf="checkUser()">

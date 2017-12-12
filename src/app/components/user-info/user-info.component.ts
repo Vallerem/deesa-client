@@ -19,20 +19,14 @@ export class UserInfoComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    console.log("ACCOUNT INFO-->>");
-
-    console.log(this.accountInfo);
-
     this.routerUser.username = this.route.snapshot.paramMap.get('username'); //catch route param
     if(this.routerUser.username === this.currentUser.username) this.createDesignFlag=true;
   }
 
   followButton(event){
-    console.log("CLICK FOLLOW");
   }
 
   messageButton(event){
-    console.log("CLICK MESSAGE");
   }
 
 }

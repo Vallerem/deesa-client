@@ -11,11 +11,9 @@ export class ProductWrapperComponent implements OnInit {
 
   @Input() productsTypes;
 
-  constructor(private productAPI: ProductService) { }
+  constructor(private productAPI: ProductService) {}
 
-  ngOnInit() {
-    console.log("[PRODUCT-WRAPPER] this.productsTypes");
-    console.log(this.productsTypes);
-  }
+  ngOnInit() {}
 
 }
+

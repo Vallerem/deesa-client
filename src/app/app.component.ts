@@ -9,14 +9,13 @@ import { environment } from '../environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  
+
   constructor(
   	private session: SessionService,
   	private router: Router,
   ) { }
 
   ngOnInit() {
-    console.log(environment.sayHello);
-    
-  }  
+   /*  console.log(environment.sayHello); */
+  }
 }

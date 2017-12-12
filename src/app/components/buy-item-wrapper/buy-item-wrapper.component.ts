@@ -11,24 +11,22 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class BuyItemWrapperComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute, private userAPI: UserService, private designAPI: DesignService, private productAPI: ProductService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private userAPI: UserService, private designAPI: DesignService, private productAPI: ProductService) {}
 
   //async variables
-  userDesigns:any;
-  productInfo:any;
-  designInfo:any;
-
+  userDesigns: any;
+  productInfo: any;
+  designInfo: any;
   designId: any;
-  productName:any;
-
-  message: any={};
+  productName: any;
+  message: any = {};
 
   ngOnInit() {
 
     this.designId = this.route.snapshot.paramMap.get('idDesign');
     this.productName = this.route.snapshot.paramMap.get('productName'); //catch route param
 
-    this.designAPI.getDesign(this.designId).subscribe((res)=>{
+    this.designAPI.getDesign(this.designId).subscribe((res) => {
       this.designInfo = res.design;
     });
 
@@ -36,28 +34,22 @@ export class BuyItemWrapperComponent implements OnInit {
     if (this.userAPI._userDesigns) {
       this.userDesigns = this.userAPI._userDesigns;
     } else {
-      this.userAPI.getUserDesigns(this.userAPI._currentUser._id).subscribe((res)=>{
+      this.userAPI.getUserDesigns(this.userAPI._currentUser._id).subscribe((res) => {
         this.userDesigns = res.designs;
       });
     }
 
-    this.productAPI.getProductType(this.productName).subscribe((res)=>{
+    this.productAPI.getProductType(this.productName).subscribe((res) => {
       this.productInfo = res.product;
     });
   }
 
-
-  submitForm(buyProduct){
+  submitForm(buyProduct) {
     this.productAPI.newBuyProduct(buyProduct)
-    .subscribe((res) => {
-      this.message = res.message;
-      this.userAPI._currentUser.shoppingCart.push(buyProduct); //store item in user shopping cart
-      console.log("[BUY-ITEM-WRAPPER]");
-      console.log("PUSH this.userAPI._currentUser.shoppingCart");
-      console.log(buyProduct);
-      console.log(this.userAPI._currentUser.shoppingCart);
-
-    });
-
+      .subscribe((res) => {
+        this.message = res.message;
+        this.userAPI._currentUser.shoppingCart.push(buyProduct); //store item in user shopping cart
+      });
   }
 }
+

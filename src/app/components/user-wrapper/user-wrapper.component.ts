@@ -34,7 +34,6 @@ checkLoggedUser(){
    this.routerUser.username = this.route.snapshot.paramMap.get('username'); //catch route param
 /*     this.createDesignFlag = (this.routerUser.username === this.currentUser.username) ? true : false //If they are the same Add Design
  */this.createDesignFlag = this.checkLoggedUser();
-   console.log(this.createDesignFlag);
 
     /**
      * toDo:
@@ -45,7 +44,6 @@ checkLoggedUser(){
     this.userAPI.getAccount(this.routerUser).subscribe((res) => {
       this.accountInfo = res;
       this.designsList = res.user.designerInfo.designs;
-      console.log(`designsList   -->${JSON.stringify(this.designsList)}`);
     });
   }
 

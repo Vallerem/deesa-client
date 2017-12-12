@@ -71,7 +71,6 @@ login(user) {
         	  // store username and jwt token in local storage to keep user logged in between page refreshes
         	  localStorage.setItem('token', token );
             localStorage.setItem('user', JSON.stringify(this.user) );
-            console.log("******************AQUI HACE EL LOCALSTORAGE");
 
         	  // return true to indicate successful login
         	  return true;

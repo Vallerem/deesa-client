@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
 		username: '',
 		password: '',
     email: '',
-    name: '', 
+    name: '',
     surname: '',
     role: ''
 	}
@@ -62,7 +62,6 @@ export class SignupComponent implements OnInit {
   				this.router.navigate(['/account']);
   			},
   			(err) => {
-
           console.log(err);
   				this.error = err;
           // this.message = message;

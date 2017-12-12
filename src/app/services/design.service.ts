@@ -76,8 +76,6 @@ export class DesignService {
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
 
-    console.log("getAllDesigns method INVOKED!");
-
   	return this.http.get(`${this.BASE_URL}/designs/allDesigns`, options)
       .map((res) => res.json() )
       //...errors if any
@@ -90,9 +88,6 @@ export class DesignService {
       "Access-Control-Allow-Origin" : "*"
     });
     let options = new RequestOptions({ headers: headers });
-
-    console.log("DESIGN SERVICE");
-    console.log(design);
 
   	return this.http.post(`${this.BASE_URL}/designs/new`,design, options)
       .map((res) => res.json() )

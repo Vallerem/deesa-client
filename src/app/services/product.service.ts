@@ -67,7 +67,6 @@ export class ProductService {
   }
 
   deleteProduct(id) {
-    console.log("ENTRA A deleteProduct");
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
   	let options = new RequestOptions({ headers: headers });
   	return this.http.delete(`${this.BASE_URL}/api/v1/products/${id}`, options)

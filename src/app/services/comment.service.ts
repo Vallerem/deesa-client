@@ -17,9 +17,6 @@ export class CommentService {
     let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
 
-    console.log("NEW COMMENT");
-    console.log(comment);
-
   	return this.http.post(`${this.BASE_URL}/api/v1/comments/new`,comment, options)
     .map((res) => res.json() );
   }
@@ -35,12 +32,8 @@ export class CommentService {
 
   // adding likes to a comment. Check if an user liked before, insert like or not.
   addCommentLikes(comment) {
-    console.log("SERVICE - COMMENT"+JSON.stringify(comment));
-
     let idComment = comment._id;
     let idUser = comment.creator._id;
-    console.log("idComment-->"+idComment);
-    console.log("idUser-->"+idUser);
   	let headers = new Headers({ 'Authorization': 'JWT ' + this.session.token });
     let options = new RequestOptions({ headers: headers });
 

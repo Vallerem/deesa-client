@@ -53,15 +53,11 @@ export class DesignsWrapperComponent implements OnInit {
     //check if products are in service loaded
     if (this.productAPI._productTypes) {
       this.productsTypes = this.productAPI._productTypes;
-      console.log("this.productsTypes");
-      console.log(this.productsTypes);
+
     } else {
-      console.log("HACE SUBSCRIBE PRODUCTS");
       this.productAPI.getAllProductTypes().subscribe((res) => {
         this.productsTypes = res.products;
         this.productAPI._productTypes = res.products;
-        console.log("this.productsTypes");
-        console.log(this.productsTypes);
       });
     }
   }

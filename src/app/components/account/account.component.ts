@@ -23,17 +23,11 @@ export class AccountComponent implements OnInit {
   innerWidth = (window.screen.width) + "px";
 /*   feedback = undefined; */
   message:any;
-
   cart: any;
-
 
   constructor(private userAPI: UserService) {}
 
   ngOnInit() {
-    console.log("[**********onInit ACCOUNT COMP**********]");
-    console.log("this.userAPI._currentUser");
-    console.log(this.userAPI._currentUser);
-
     //We save user information in the user's service to save future calls to the server
     this.userAPI.getAccount(this.currentUser)
       .subscribe((res) => {

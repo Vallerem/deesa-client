@@ -10,23 +10,22 @@ import { Router, ActivatedRoute } from '@angular/router';
   templateUrl: './product-item.component.html',
   styleUrls: ['./product-item.component.css']
 })
-export class ProductItemComponent implements OnInit
-{
+export class ProductItemComponent implements OnInit {
 
   @Input() productItem;
-  currentEvent:any ;
-  userDesigns:any;
+  currentEvent: any;
+  userDesigns: any;
   designId: any;
-  productName:any;
+  productName: any;
 
-  constructor(private userAPI: UserService, private designAPI: DesignService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private userAPI: UserService, private designAPI: DesignService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.userDesigns = this.userAPI._userDesigns;
     this.designId = this.designAPI._designId;
   }
 
-  setProductName(name){
+  setProductName(name) {
     this.productName = name;
   }
 
@@ -34,27 +33,18 @@ export class ProductItemComponent implements OnInit
    * Check image product and redirect to this
    * @param event
    */
-  imageClick(event){
- console.log("EVENT TARGET:");
- console.log(event);
+  imageClick(event) {
+    let str = event.target.innerHTML;
+    let taza = str.toUpperCase().includes("TAZA");
+    let camiseta = str.toUpperCase().includes("CAMISETA");
+    let sudadera = str.toUpperCase().includes("SUDADERA");
+    let mochila = str.toUpperCase().includes("MOCHILA");
 
-console.log(event.target.innerHTML);
+    if (taza) {this.setProductName("TAZA")}
+    if (camiseta) {this.setProductName("CAMISETA")}
+    if (sudadera) {this.setProductName("SUDADERA")}
+    if (mochila) {this.setProductName("MOCHILA")}
 
-let str = event.target.innerHTML;
-
-let taza = str.toUpperCase().includes("TAZA");
-let camiseta = str.toUpperCase().includes("CAMISETA");
-let sudadera = str.toUpperCase().includes("SUDADERA");
-let mochila = str.toUpperCase().includes("MOCHILA");
-
-if(taza){this.setProductName("TAZA")}
-if(camiseta){this.setProductName("CAMISETA")}
-if(sudadera){this.setProductName("SUDADERA")}
-if(mochila){this.setProductName("MOCHILA")}
-
-console.log("this.productName");
-console.log(this.productName);
-
-this.router.navigate(['/designs', 'view', this.designId ,'product', this.productName]);
+    this.router.navigate(['/designs', 'view', this.designId, 'product', this.productName]);
   }
 }
