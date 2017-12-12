@@ -11,10 +11,10 @@ export class PaypalComponent implements OnInit {
   public whatTime: Date = new Date();
   cartInfo = 20;
 
-  private payment: String;
-  private user: String;
+  public payment: String;
+  public user: String;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(public route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {

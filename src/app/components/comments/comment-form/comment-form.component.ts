@@ -17,7 +17,7 @@ export class CommentFormComponent implements OnInit {
 
   newComment: any = {};
 
-  constructor(private userAPI: UserService) {}
+  constructor(public userAPI: UserService) {}
   ngOnInit() {}
 
   submitComment() {
