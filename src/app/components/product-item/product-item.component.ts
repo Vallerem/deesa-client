@@ -24,11 +24,11 @@ export class ProductItemComponent implements OnInit
   ngOnInit() {
     this.userDesigns = this.userAPI._userDesigns;
     this.designId = this.designAPI._designId;
-    this.userDesigns = this.userAPI._userDesigns;
   }
 
-  setProductName(name){this.productName = name;}
-
+  setProductName(name){
+    this.productName = name;
+  }
 
   /**
    * Check image product and redirect to this
@@ -52,6 +52,7 @@ if(camiseta){this.setProductName("CAMISETA")}
 if(sudadera){this.setProductName("SUDADERA")}
 if(mochila){this.setProductName("MOCHILA")}
 
+console.log("this.productName");
 console.log(this.productName);
 
 this.router.navigate(['/designs', 'view', this.designId ,'product', this.productName]);

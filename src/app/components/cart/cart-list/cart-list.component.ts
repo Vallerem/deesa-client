@@ -20,29 +20,18 @@ export class CartListComponent implements OnInit, OnDestroy {
 
   constructor(private userAPI: UserService, private productAPI: ProductService, private router: Router) { }
 
-  ngOnInit() {this.calculateTotal();
-    console.log("CART INFO");
-
-  console.log(this.cartInfo);
-  console.log("this.userAPI._currentUser.shoppingCart AFTER");
-  console.log(this.userAPI._currentUser.shoppingCart);
+  ngOnInit() {
+    this.calculateTotal();
   }
 
   ngOnDestroy() {
      if( this.serverDelete){
-/*       console.log("this.userAPI._currentUser.shoppingCart AFTER");
-      console.log(this.userAPI._currentUser.shoppingCart);
-      console.log("this.zombieItem._id");
-      console.log(this.zombieItem._id);
       let index = this.userAPI._currentUser.shoppingCart.indexOf(this.zombieItem._id);
       if (index > -1) {
         this.userAPI._currentUser.shoppingCart.splice(index, 1);
       }
-      console.log("this.userAPI._currentUser.shoppingCart AFTER");
-      console.log(this.userAPI._currentUser.shoppingCart); */
 
-      this.productAPI.deleteProduct(this.zombieItem._id).subscribe((res) => {
-      });
+      this.deleteProductFromServer(this.zombieItem._id);
     }
   }
 
@@ -53,17 +42,23 @@ export class CartListComponent implements OnInit, OnDestroy {
 
   calculateTotal(){
     this.cartTotal=0;
-    this.cartInfo.forEach(element => {
+    this.userAPI._currentUser.shoppingCart.forEach(element => {
       this.cartTotal += (element.productType.price*element.qty);
     });
   }
 
   revertDeleteProduct(){
-    this.cartInfo.splice(this.zombieIndexItem, 0, this.zombieItem); //insert item into cartInfo at the specified index (deleting 0 items first).
-    this.message = (function () { return; })(); // set message undefined
+    this.userAPI._currentUser.shoppingCart.splice(this.zombieIndexItem, 0, this.zombieItem); //insert item into cartInfo at the specified index (deleting 0 items first).
+/*     this.message = (function () { return; })(); // set message undefined */
+    this.message="";
     this.serverDelete=false;
     this.calculateTotal();
+  }
 
+  deleteProductFromServer(id){
+    this.productAPI.deleteProduct(id).subscribe((res) => {
+      this.message = res.message;
+    });
   }
 
   /**
@@ -71,28 +66,25 @@ export class CartListComponent implements OnInit, OnDestroy {
    * @param id item
    */
   deleteItem(id) {
-    console.log(this.serverDelete);
-    console.log(this.cartInfo);
 
     if (this.serverDelete) {
 
       this.calculateTotal();
-/*       let index = this.userAPI._currentUser.shoppingCart.indexOf(this.zombieItem._id);
+
+      let index = this.userAPI._currentUser.shoppingCart.indexOf(this.zombieItem._id);
       if (index > -1) {
         this.userAPI._currentUser.shoppingCart.splice(index, 1);
-      } */
-      this.productAPI.deleteProduct(this.zombieItem._id).subscribe((res) => {
-        console.log(res);
-        this.message = res.message;
-      });
+      }
 
-      this.serverDelete = false;
+      this.deleteProductFromServer(this.zombieItem._id);
+
+
+      this.serverDelete = true;
       this.getZombieItem(id);
 
     } else {
       this.getZombieItem(id);
       this.calculateTotal();
-
       this.message = "Producto eliminado"
       this.serverDelete = true;
     }
@@ -101,8 +93,14 @@ export class CartListComponent implements OnInit, OnDestroy {
 
   //find id inside an array of items and retrieve this index. Slice this item from cart info
   getZombieItem(id){
-    this.zombieIndexItem = this.cartInfo.map(function(element) {return element._id; }).indexOf(id);
-    this.zombieItem = this.cartInfo[this.zombieIndexItem];
-    this.cartInfo.splice(this.zombieIndexItem, 1);
+    console.log("getZombieItem id");
+    console.log(id);
+    this.zombieIndexItem = this.userAPI._currentUser.shoppingCart.map(function(element) {return element._id; }).indexOf(id);
+    this.zombieItem = this.userAPI._currentUser.shoppingCart[this.zombieIndexItem];
+    this.userAPI._currentUser.shoppingCart.splice(this.zombieIndexItem, 1);
+    console.log("this.zombieIndexItem");
+    console.log(this.zombieIndexItem);
+    console.log("this.zombieItem ");
+    console.log(this.zombieItem );
   }
 }

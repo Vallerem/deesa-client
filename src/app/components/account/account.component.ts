@@ -30,21 +30,15 @@ export class AccountComponent implements OnInit {
   constructor(private userAPI: UserService) {}
 
   ngOnInit() {
+    console.log("[**********onInit ACCOUNT COMP**********]");
+    console.log("this.userAPI._currentUser");
+    console.log(this.userAPI._currentUser);
+
     //We save user information in the user's service to save future calls to the server
     this.userAPI.getAccount(this.currentUser)
       .subscribe((res) => {
         this.accountInfo = res;
-        this.userAPI._currentUser=this.currentUser;
-        console.log("this.userAPI._currentUser");
-        console.log(this.userAPI._currentUser);
-
-        console.log("this.accountInfo");
-        console.log(this.accountInfo);
-
-      });
-
-       this.userAPI.getCart(this.userAPI._currentUser._id).subscribe((res) => {
-        this.userAPI._currentUser.shoppingCart = res.products;
+        //this.userAPI._currentUser=this.currentUser;
       });
 
 /*     this.uploader.onSuccessItem = (item, response) => {
@@ -72,8 +66,9 @@ export class AccountComponent implements OnInit {
       this.uploader.queue =[];
       this.userAPI.editAvatarAccount(this.userAPI._currentUser)
         .subscribe((res) => {
-          this.accountInfo.user.avatarUrl= res.avatarUrl;
-          this.userAPI._currentUser.avatarUrl = res.avatarUrl;
+          this.accountInfo.user.avatarUrl= res.avatarUrl; //html data-binding
+          this.userAPI._currentUser.avatarUrl = res.avatarUrl; //
+          localStorage.setItem('user', JSON.stringify(this.userAPI._currentUser) ); //update localStorage because onInit update userAPI._currentUser
         });
     }
     else{
@@ -116,7 +111,6 @@ export class AccountComponent implements OnInit {
 
   clicked(event) {
     this.message="";
-    //this.message = (function () { return; })(); // set message undefined
     event.preventDefault();
     this.currentView = event.target.innerHTML;
   }

@@ -17,22 +17,8 @@ th{
   vertical-align: middle;
 }
 
-.alert-link{
+.btn{
   cursor: pointer;
 }
 
-.btn{
-  display: block;
-  background-color: $bg-color;
-  border: $border;
-  margin-top: 10px;
-  width: 100%;
-  &:hover{
-    border: 2px solid rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-  }
-}
 
-.cart-total{
-  font-size: 39px;
-}

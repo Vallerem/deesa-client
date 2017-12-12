@@ -28,6 +28,7 @@ export class DesignsWrapperComponent implements OnInit {
 /*     this.routerUser.username = this.route.snapshot.paramMap.get('username'); //catch route param
  */    this.idDesign = this.route.snapshot.paramMap.get('idDesign'); //catch route param
 
+
     //Retrieve Design Info
     this.designAPI.getDesign(this.idDesign).subscribe((res)=>{
 
@@ -52,11 +53,15 @@ export class DesignsWrapperComponent implements OnInit {
     //check if products are in service loaded
     if (this.productAPI._productTypes) {
       this.productsTypes = this.productAPI._productTypes;
+      console.log("this.productsTypes");
+      console.log(this.productsTypes);
     } else {
       console.log("HACE SUBSCRIBE PRODUCTS");
       this.productAPI.getAllProductTypes().subscribe((res) => {
         this.productsTypes = res.products;
         this.productAPI._productTypes = res.products;
+        console.log("this.productsTypes");
+        console.log(this.productsTypes);
       });
     }
   }

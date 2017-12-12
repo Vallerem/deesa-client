@@ -10,7 +10,8 @@ export class UserService {
 
   private BASE_URL: string = environment.baseAPI; //http://localhost:3000
 
-  _currentUser: any = JSON.parse(localStorage.getItem('user'));
+/*   _currentUser: any = JSON.parse(localStorage.getItem('user')); */
+  _currentUser: any;
   _userDesigns: any;
   _userCart:any;
 

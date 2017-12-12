@@ -38,7 +38,6 @@ export class BuyItemWrapperComponent implements OnInit {
     } else {
       this.userAPI.getUserDesigns(this.userAPI._currentUser._id).subscribe((res)=>{
         this.userDesigns = res.designs;
-        console.log(this.userDesigns);
       });
     }
 
@@ -53,6 +52,7 @@ export class BuyItemWrapperComponent implements OnInit {
     .subscribe((res) => {
       this.message = res.message;
       this.userAPI._currentUser.shoppingCart.push(buyProduct); //store item in user shopping cart
+      console.log("[BUY-ITEM-WRAPPER]");
       console.log("PUSH this.userAPI._currentUser.shoppingCart");
       console.log(buyProduct);
       console.log(this.userAPI._currentUser.shoppingCart);

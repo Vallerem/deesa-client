@@ -42,7 +42,7 @@ console.log("userDesigns:");
 
     if (this.buyProduct.qty < 0) {
       if(this.message){this.message="";}
-      this.buyProduct.qty = 0;
+      this.buyProduct.qty = 1;
       this.message_err = "Cantidad errónea";
 
     } else {
@@ -65,7 +65,7 @@ console.log("userDesigns:");
   }
 
   addQty(){
-    if(this.buyProduct.qty>0) this.buyProduct.qty--;
+    if(this.buyProduct.qty>1) this.buyProduct.qty--;
   }
 
 

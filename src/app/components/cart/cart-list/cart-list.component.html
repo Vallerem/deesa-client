@@ -1,45 +1,42 @@
+<table class="table">
+  <tr>
+    <th class="col-md-3">Objeto</th>
+    <td class="col-md-3">Cantidad</td>
+    <td class="col-md-3">Talla</td>
+    <td class="col-md-3">Precio</td>
+    <td class="col-md-3" style="width: 50px;"></td>
+  </tr>
 
-      <table class="table">
+</table>
+<table class="table">
+  <cart-item *ngFor="let item of userAPI._currentUser.shoppingCart" [buyItem]="item" (delItem)="deleteItem($event)">
+  </cart-item>
 
-        <tr>
-            <th class="col-md-3">Objeto</th>
-            <td class="col-md-3">Cantidad</td>
-            <td class="col-md-3">Talla</td>
-            <td class="col-md-3">Precio</td>
-            <td class="col-md-3" style="width: 50px;"></td>
-        </tr>
+  <div class="alert alert-danger" role="alert" *ngIf="message">{{message}} -
+    <a (click)="revertDeleteProduct()" class="alert-link"> Deshacer ultimo</a>
+  </div>
+</table>
 
-      </table>
-    <table class="table">
-              <cart-item *ngFor="let item of cartInfo" 
-              [buyItem]="item" (delItem)="deleteItem($event)">
-              </cart-item>
-
-        <div class="alert alert-danger" role="alert" *ngIf="message">{{message}} -<a (click)="revertDeleteProduct()" class="alert-link"> Deshacer ultimo</a></div>
-
-      </table>
-
-
-      <table class="table">
-        <thead>
-          <th class="col-md-1"></th>
-          <th class="col-md-4"></th>
-          <th class="col-md-1"></th>
-          <th class="col-md-1"></th>
-          <th class="col-md-2">Total:</th>
-          <th class="col-md-3"></th>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="col-md-1"></td>
-            <td class="col-md-4"></td>
-            <td class="col-md-1"></td>
-            <td class="col-md-1"></td>
-            <td class="col-md-2">{{ cartTotal }}€</td>
-             <td class="col-md-3 cartitem cartItem-delete">
-                  <button type="button" class="btn" (click)="processOrder()">Proceder Pago
-                  </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<table class="table">
+  <thead>
+    <th class="col-md-1"></th>
+    <th class="col-md-4"></th>
+    <th class="col-md-1"></th>
+    <th class="col-md-1"></th>
+    <th class="col-md-2">Total:</th>
+    <th class="col-md-3"></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-md-1"></td>
+      <td class="col-md-4"></td>
+      <td class="col-md-1"></td>
+      <td class="col-md-1"></td>
+      <td class="col-md-2 cart-total">{{ cartTotal }}€</td>
+      <td class="col-md-3 cartitem cartItem-delete">
+        <button type="button" class="btn" (click)="processOrder()">Proceder Pago
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

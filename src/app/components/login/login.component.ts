@@ -28,6 +28,10 @@ export class LoginComponent implements OnInit {
   	this.session.login(this.user)
   		.subscribe(
   			(data) => {
+          console.log("*****DATA SUBSCRIBE SUBMITLOGIN");
+          console.log(data);
+          console.log("this.router.navigate(['/account']);");
+
   				this.router.navigate(['/account']);
   			},
   			(err) => {
@@ -35,4 +39,3 @@ export class LoginComponent implements OnInit {
   			});
   }
 }
-	

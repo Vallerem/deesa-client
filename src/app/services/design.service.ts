@@ -12,7 +12,7 @@ import {Observable} from 'rxjs/Rx';
 export class DesignService {
 
   private BASE_URL: string = environment.baseAPI; //http://localhost:3000
-  currentUser: any = JSON.parse(localStorage.getItem('user'));
+  //currentUser: any = JSON.parse(localStorage.getItem('user'));
 
   public _designId: any;
 
@@ -85,9 +85,9 @@ export class DesignService {
   }
 
   newDesign(design) {
-  	let headers = new Headers({ 
+  	let headers = new Headers({
       'Authorization': 'JWT ' + this.session.token,
-      "Access-Control-Allow-Origin" : "*" 
+      "Access-Control-Allow-Origin" : "*"
     });
     let options = new RequestOptions({ headers: headers });
 

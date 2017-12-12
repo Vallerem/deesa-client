@@ -23,9 +23,9 @@
       <li>
         <a class="nav-link" *ngIf="checkUser()" [routerLink]="['/account']">{{currentUser.username}}</a>
       </li>
-      <li class="nav-item" *ngIf="checkUser()">
+      <li class="nav-item" *ngIf="checkUser() && flag">
 
-        <a class="nav-link" [routerLink]="['/cart']"><span *ngIf="cart?.length >= 0">{{cart.length}}</span><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        <a class="nav-link" [routerLink]="['/cart']"><span *ngIf="cart?.length >= 0">{{userAPI._currentUser.shoppingCart.length}}</span><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
       </li>
       <li class="nav-item" *ngIf="checkUser()">
         <a class="nav-link" href="#" (click)="logout()">Logout</a>
