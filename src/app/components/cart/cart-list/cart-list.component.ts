@@ -18,7 +18,7 @@ export class CartListComponent implements OnInit, OnDestroy {
   zombieIndexItem: any;  // index to return
   zombieItem: any = {};  // item to return
 
-  constructor(private userAPI: UserService, private productAPI: ProductService, private router: Router) { }
+  constructor(public userAPI: UserService, public productAPI: ProductService, public router: Router) { }
 
   ngOnInit() {
     this.calculateTotal();
