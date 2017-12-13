@@ -57,7 +57,7 @@ export class DesignNewFormComponent implements OnInit {
 
           this.designInfo.creator = this.userAPI._currentUser._id;
           this.designInfo.username = this.userAPI._currentUser.username;
-          this.designInfo.designMainImg = `assets/images/designs/${this.uploader.queue[0].file.name}`;
+          this.designInfo.designMainImg = `assets/images/designs/${this.uploader.queue[this.uploader.queue.length-1].file.name}`;
           this.uploader.queue =[];
           this.submittedForm.emit(this.designInfo); //Output - Send to parent
 

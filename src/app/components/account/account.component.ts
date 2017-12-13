@@ -55,8 +55,8 @@ export class AccountComponent implements OnInit {
 
     if (this.uploader.queue[0].file) {
       this.message="Imagen subida";
-      this.accountInfo.user.avatarUrl = `assets/images/profile/${this.uploader.queue[0].file.name}`;
-      this.userAPI._currentUser.avatarUrl = `assets/images/profile/${this.uploader.queue[0].file.name}`;
+      this.accountInfo.user.avatarUrl = `assets/images/profile/${this.uploader.queue[this.uploader.queue.length-1].file.name}`;
+      this.userAPI._currentUser.avatarUrl = `assets/images/profile/${this.uploader.queue[this.uploader.queue.length-1].file.name}`;
       this.uploader.queue =[];
       this.userAPI.editAvatarAccount(this.userAPI._currentUser)
         .subscribe((res) => {

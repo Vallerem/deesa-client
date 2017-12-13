@@ -6,6 +6,12 @@
   <a class="navbar-brand font-deesa" [routerLink]="['/home']">Deesa</a>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto d-flex align-items-center">
+      <li class="nav-item" *ngIf="checkUser()">
+        <a class="nav-link" [routerLink]="['/designs']">Diseños</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto d-flex align-items-center">
       <li class="nav-item">
         <!-- <a class="nav-link" *ngIf="checkUser()" [routerLink]="['/account']" >Cuenta</a> -->
         <a class="nav-link" *ngIf="checkUser() && currentUser.role === 'DESIGNER'" [routerLink]="['/designs/', currentUser.username]"
@@ -13,13 +19,6 @@
           <i class="fa fa-cubes color-blue" aria-hidden="true"></i> Mis diseños</a>
 
       </li>
-      <li class="nav-item" *ngIf="checkUser()">
-        <a class="nav-link" [routerLink]="['/designs']">Diseños</a>
-      </li>
-    </ul>
-
-
-    <ul class="navbar-nav ml-auto d-flex align-items-center">
       <li class="nav-item" *ngIf="cart?.length >= 0">
         <a class="nav-link" *ngIf="checkUser()" [routerLink]="['/account']">
           <img class="img-fluid avatar-img" src="{{userAPI._currentUser.avatarUrl}}" alt="User image"> {{currentUser.username}}</a>

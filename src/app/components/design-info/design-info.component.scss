@@ -1,4 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Antic+Slab|Nunito|Quattrocento');
+@import url('https://fonts.googleapis.com/css?family=Antic+Slab|Arapey|Bellefair|Delius|Forum|Gilda+Display|Pompiere|Quattrocento|Wire+One|Nunito');
+
+$bg-color: #fff;
+$border: 2px solid #d7d7d8;
+$font_deesa: 'Nunito', sans-serif;
+$color_font_deesa: #444;
+
+table,td, th, button, span, p, a{
+  font-family: $font_deesa;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
 
 .resize-avatar{
   height: 48px;
@@ -7,9 +21,19 @@
 }
 
 
-a{
-  text-decoration: none;
-  color: black;
+
+
+.card-header{
+  background-color: $bg-color;
+}
+
+.card-body{
+  background-color: $bg-color;
+  padding: 30px;
+}
+
+.card-footer{
+  background-color: $bg-color;
 }
 
 .resize-img {
@@ -23,10 +47,7 @@ a{
   }
 }
 
-.card-body{
-  background-color: rgb(247, 247, 247);
-  padding: 30px;
-}
+
 
 .info-h1 {
   font-family: "Quattrocento", serif;
@@ -41,4 +62,21 @@ a{
     color: #1e6189;
     font-weight: bold;
   }
+}
+
+.profile-title-section {
+  margin: 5px 0 10px 15px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: #999;
+  padding: 0;
+  vertical-align: baseline;
+  border: 0;
+  background: transparent;
+}
+
+.text-muted{
+  font-style: oblique;
 }

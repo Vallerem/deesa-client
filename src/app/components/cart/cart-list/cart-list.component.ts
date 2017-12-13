@@ -72,9 +72,7 @@ export class CartListComponent implements OnInit, OnDestroy {
 
     if (this.serverDelete) {
 
-      this.calculateTotal();
       let index = this.userAPI._currentUser.shoppingCart.indexOf(this.zombieItem._id);
-
       if (index > -1) {
         this.userAPI._currentUser.shoppingCart.splice(index, 1);
       }
@@ -85,7 +83,6 @@ export class CartListComponent implements OnInit, OnDestroy {
 
     } else {
       this.getZombieItem(id);
-      this.calculateTotal();
       this.message = "Producto eliminado"
       this.serverDelete = true;
     }
@@ -96,6 +93,6 @@ export class CartListComponent implements OnInit, OnDestroy {
     this.zombieIndexItem = this.userAPI._currentUser.shoppingCart.map(function (element) {return element._id;}).indexOf(id);
     this.zombieItem = this.userAPI._currentUser.shoppingCart[this.zombieIndexItem];
     this.userAPI._currentUser.shoppingCart.splice(this.zombieIndexItem, 1);
+    this.calculateTotal();
   }
 }
-
