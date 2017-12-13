@@ -11,6 +11,10 @@ li>*{font-family: $font_deesa;
   font-size: 125%;
 }
 
+a{
+  padding: 0;
+}
+
 .font-deesa{
    font-family: 'Cookie', cursive;
    font-size: 30px;
@@ -23,6 +27,14 @@ li>*{font-family: $font_deesa;
 
 .navbar{
   background-color: #e4e4e4;
+
+  &-nav>li{
+    padding-left: 25px;
+  }
+}
+
+.nav-link{
+  padding: 0;
 }
 
 .nav-item{
@@ -47,4 +59,12 @@ li>*{font-family: $font_deesa;
   }
 }
 
+.cart-items{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.fa-shopping-cart{
+  font-size: 35px;
+}
 

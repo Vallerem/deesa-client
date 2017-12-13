@@ -33,7 +33,7 @@ export class DesignNewFormComponent implements OnInit {
   // img : any;
   // @Output() submittedForm = new EventEmitter < boolean > ();
 
-  constructor(private userAPI: UserService, private designAPI: DesignService, private sanitizer:DomSanitizer) {
+  constructor(public userAPI: UserService, public designAPI: DesignService, public sanitizer:DomSanitizer) {
 
   this.uploader.onAfterAddingFile = (fileItem) => {
     let url = (window.URL) ? window.URL.createObjectURL(fileItem._file) : (window as any).webkitURL.createObjectURL(fileItem._file);
