@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Cookie|Merienda|Oranienbaum|Rochester|Sacramento");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+button, span, p, a, small, input {
+  font-family: "Nunito", sans-serif;
+}
+
 .font-deesa {
   font-family: 'Cookie', cursive;
   font-size: 40px;
@@ -26,7 +31,7 @@
 }
 
 .footer-bs .footer-brand p {
-  font-size: 12px;
+  font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
 }
 
