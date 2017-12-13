@@ -35,6 +35,11 @@ a {
   font-size: 15px;
 }
 
+.nav-item:hover > a, .nav-item:hover > a > i {
+  font-weight: bold;
+  color: #1e6189;
+}
+
 .btn-login {
   border-radius: 5px;
   padding: 10px;
@@ -44,6 +49,8 @@ a {
 
 .btn-login:hover {
   text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 .color-blue {
@@ -51,6 +58,7 @@ a {
 }
 
 .color-blue:hover {
+  font-weight: bold;
   color: #1e6189;
 }
 
@@ -61,4 +69,10 @@ a {
 
 .fa-shopping-cart {
   font-size: 35px;
+}
+
+.avatar-img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
 }
