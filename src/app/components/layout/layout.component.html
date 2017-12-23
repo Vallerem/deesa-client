@@ -1,17 +1,17 @@
 <app-navbar></app-navbar>
-<div class="container-fluid font-type">
-    <div *ngIf='currentUser  else userNotLogged'>
-    <router-outlet></router-outlet>
+<div class="font-type">
+    <div *ngIf='!currentUser'>
+        <div class="wrap-inner">
+            <div class="initial-message">
+                <h2>¿Todavía no estas registrado?</h2>
+                <p>¡Registrate para poder subir diseños o adquirir productos!</p>
+                <a class="button-signup" [routerLink]="['/signup']">¡Regístrate! →</a>
+            </div>
+      </div>
   </div>
 
-  <ng-template #userNotLogged>
-    <div class="wrap-inner">
-          <div class="initial-message">
-              <h2>No estas registrado todavía.</h2>
-              <p>Los últimos diseños subidos por los diseñadores aparecerán aquí!</p>
-              <a class="button-signup" [routerLink]="['/signup']">¡Regístrate! →</a>
-          </div>
-    </div>
-  </ng-template>
+  <router-outlet></router-outlet>
+
+
 </div>
 <app-footer></app-footer>
